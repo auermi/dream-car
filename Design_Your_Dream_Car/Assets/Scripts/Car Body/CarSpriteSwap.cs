@@ -21,19 +21,54 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject spoilerButton;
 	public GameObject noSpoilerButton;
 
+	public GameObject basicWheelButton;
+	public GameObject luxuryWheelButton;
+	public GameObject sportyWheelButton;
+
 	public GameObject vanSpoiler;
 	public GameObject truckSpoiler;
 	public GameObject coupeSpoiler;
 	public GameObject compactSpoiler;
 	public GameObject suvSpoiler;
 
+	public GameObject basicWheelSuv;
+	public GameObject luxuryWheelSuv;
+	public GameObject sportyWheelSuv;
+	public GameObject basicWheelTruck;
+	public GameObject luxuryWheelTruck;
+	public GameObject sportyWheelTruck;
+	public GameObject basicWheelCoupe;
+	public GameObject luxuryWheelCoupe;
+	public GameObject sportyWheelCoupe;
+	public GameObject basicWheelCompact;
+	public GameObject luxuryWheelCompact;
+	public GameObject sportyWheelCompact;
+	public GameObject basicWheelVan;
+	public GameObject luxuryWheelVan;
+	public GameObject sportyWheelVan;
+
+
 	private GameObject car;
 	private GameObject spoiler;
+	private GameObject wheels;
 	
 	private int carIndex;
+	private int wheelIndex;
 
 
-	
+	/// <summary>
+	/// carIndex= 
+	/// 0:Truck 
+	/// 1:SUV
+	/// 2:Van
+	/// 3:Coupe
+	/// 4:Compact
+	/// 
+	/// wheelIndex=
+	/// 0:Basic
+	/// 1:Luxury
+	/// 2:Sporty
+	/// </summary>
 
 	// Use this for initialization
 	void Start () {
@@ -44,8 +79,11 @@ public class CarSpriteSwap : MonoBehaviour {
 		compactButton.GetComponent<Button>().onClick.AddListener(() => { compactSwap(); });
 
 		spoilerButton.GetComponent<Button>().onClick.AddListener(() => { addSpoiler(); });
-		noSpoilerButton.GetComponent<Button>().onClick.AddListener(() => { removeSpoiler(); });
+		noSpoilerButton.GetComponent<Button>().onClick.AddListener(() => { removeSpoiler();});
 
+		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 0; addWheels(); });
+		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 1; addWheels(); });
+		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 2; addWheels(); });
 
 	}
 
@@ -162,5 +200,143 @@ public class CarSpriteSwap : MonoBehaviour {
 	void removeSpoiler()
 	{
 		Destroy(spoiler);
+	}
+	void addWheels()
+	{
+		switch(carIndex)
+		{
+		case 0:
+			if (wheels != null)
+			{
+				Destroy(wheels);
+			}
+			switch(wheelIndex)
+			{
+			case 0:
+				wheels = Instantiate(basicWheelTruck) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			case 1:
+				wheels = Instantiate(luxuryWheelTruck) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			case 2:
+				wheels = Instantiate(sportyWheelTruck) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 1:
+			if (wheels != null)
+			{
+				Destroy(wheels);
+			}
+			switch(wheelIndex)
+			{
+			case 0:
+				wheels = Instantiate(basicWheelSuv) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			case 1:
+				wheels = Instantiate(luxuryWheelSuv) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			case 2:
+				wheels = Instantiate(sportyWheelSuv) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 2:
+			if (wheels != null)
+			{
+				Destroy(wheels);
+			}
+			switch(wheelIndex)
+			{
+			case 0:
+				wheels = Instantiate(basicWheelVan) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				break;
+			case 1:
+				wheels = Instantiate(luxuryWheelVan) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				break;
+			case 2:
+				wheels = Instantiate(sportyWheelVan) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 3:
+			if (wheels != null)
+			{
+				Destroy(wheels);
+			}
+			switch(wheelIndex)
+			{
+			case 0:
+				wheels = Instantiate(basicWheelCoupe) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				break;
+			case 1:
+				wheels = Instantiate(luxuryWheelCoupe) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				break;
+			case 2:
+				wheels = Instantiate(sportyWheelCoupe) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 4:
+			if (wheels != null)
+			{
+				Destroy(wheels);
+			}
+			switch(wheelIndex)
+			{
+			case 0:
+				wheels = Instantiate(basicWheelCompact) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				break;
+			case 1:
+				wheels = Instantiate(luxuryWheelCompact) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				break;
+			case 2:
+				wheels = Instantiate(sportyWheelCompact) as GameObject;
+				wheels.transform.parent = canvas.transform;
+				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				break;
+			default:
+				break;
+			}
+			break;
+		default:
+			break;
+		}
 	}
 }
