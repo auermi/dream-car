@@ -24,6 +24,18 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject basicWheelButton;
 	public GameObject luxuryWheelButton;
 	public GameObject sportyWheelButton;
+	
+	public GameObject redButton;
+	public GameObject greenButton;
+	public GameObject yellowButton;
+	public GameObject orangeButton;
+	public GameObject turquoiseButton;
+	public GameObject carrotButton;
+	public GameObject pinkButton;
+	public GameObject greyButton;
+	public GameObject limeButton;
+	public GameObject navyButton;
+	public GameObject glaucousButton;
 
 	public GameObject vanSpoiler;
 	public GameObject truckSpoiler;
@@ -54,7 +66,19 @@ public class CarSpriteSwap : MonoBehaviour {
 	
 	private int carIndex;
 	private int wheelIndex;
+	private int colorIndex;
 
+	private Color32 redColor = new Color32(238, 52, 36, 255);
+	private Color32 greenColor = new Color32(0, 169, 79, 255);
+	private Color32 yellowColor = new Color32(235, 231, 41, 255);
+	private Color32 orangeColor = new Color32(231, 166, 20, 255);
+	private Color32 turquoiseColor = new Color32(0, 177, 176, 255);
+	private Color32 carrotColor = new Color32(243, 116, 33, 255);
+	private Color32 pinkColor = new Color32(248, 179, 186, 255);
+	private Color32 greyColor = new Color32(186, 186, 186, 255);
+	private Color32 limeColor = new Color32(123, 193, 67, 255);
+	private Color32 navyColor = new Color32(0, 75, 135, 255);
+	private Color32 glaucousColor = new Color32(65, 89, 96, 255);
 
 	/// <summary>
 	/// carIndex= 
@@ -68,6 +92,19 @@ public class CarSpriteSwap : MonoBehaviour {
 	/// 0:Basic
 	/// 1:Luxury
 	/// 2:Sporty
+	/// 
+	/// colorIndex=
+	/// 0:Red
+	/// 1:Green
+	/// 2:Yellow
+	/// 3:Orange
+	/// 4:Turquoise
+	/// 5:Carrot
+	/// 6:Pink
+	/// 7:Grey
+	/// 8:Lime
+	/// 9:Navy
+	/// 10:Glaucous
 	/// </summary>
 
 	// Use this for initialization
@@ -84,6 +121,18 @@ public class CarSpriteSwap : MonoBehaviour {
 		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 0; addWheels(); });
 		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 1; addWheels(); });
 		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 2; addWheels(); });
+
+		redButton.GetComponent<Button>().onClick.AddListener(() => { colorIndex = 0; colorChange(); });
+		greenButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 1; colorChange(); });
+		yellowButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 2; colorChange(); });
+		orangeButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 3; colorChange(); });
+		turquoiseButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 4; colorChange(); });
+		carrotButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 5; colorChange(); });
+		pinkButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 6; colorChange(); });
+		greyButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 7; colorChange(); });
+		limeButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 8; colorChange(); });
+		navyButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 9; colorChange(); });
+		glaucousButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 10; colorChange(); });
 
 	}
 
@@ -334,6 +383,48 @@ public class CarSpriteSwap : MonoBehaviour {
 			default:
 				break;
 			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	void colorChange()
+	{
+		switch(colorIndex)
+		{
+		case 0:
+			car.GetComponent<Image>().color = redColor;
+			break;
+		case 1:
+			car.GetComponent<Image>().color = greenColor;
+			break;
+		case 2:
+			car.GetComponent<Image>().color = yellowColor;
+			break;
+		case 3:
+			car.GetComponent<Image>().color = orangeColor;
+			break;
+		case 4:
+			car.GetComponent<Image>().color = turquoiseColor;
+			break;
+		case 5:
+			car.GetComponent<Image>().color = carrotColor;
+			break;
+		case 6:
+			car.GetComponent<Image>().color = pinkColor;
+			break;
+		case 7:
+			car.GetComponent<Image>().color = greyColor;
+			break;
+		case 8:
+			car.GetComponent<Image>().color = limeColor;
+			break;
+		case 9:
+			car.GetComponent<Image>().color = navyColor;
+			break;
+		case 10:
+			car.GetComponent<Image>().color = glaucousColor;
 			break;
 		default:
 			break;
