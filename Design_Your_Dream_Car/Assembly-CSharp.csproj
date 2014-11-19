@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Car Body\CarButtonStateChange.cs" />
-     <Compile Include="Assets\Scripts\Car Body\CarSpriteSwap.cs" />
+     <Compile Include="Assets\Scripts\CarButtonStateChange.cs" />
+     <Compile Include="Assets\Scripts\CarSpriteSwap.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
