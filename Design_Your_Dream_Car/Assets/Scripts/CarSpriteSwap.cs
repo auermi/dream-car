@@ -43,6 +43,14 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject compactSpoiler;
 	public GameObject suvSpoiler;
 
+	public GameObject starButton;
+	public GameObject flameButton;
+	public GameObject stripeButton;
+
+	public GameObject stripe;
+	public GameObject flame;
+	public GameObject star;
+
 	public GameObject basicWheelSuv;
 	public GameObject luxuryWheelSuv;
 	public GameObject sportyWheelSuv;
@@ -63,10 +71,12 @@ public class CarSpriteSwap : MonoBehaviour {
 	private GameObject car;
 	private GameObject spoiler;
 	private GameObject wheels;
+	private GameObject decal;
 	
 	private int carIndex;
 	private int wheelIndex;
 	private int colorIndex;
+	private int decalIndex;
 
 	private Color32 redColor = new Color32(238, 52, 36, 255);
 	private Color32 greenColor = new Color32(0, 169, 79, 255);
@@ -105,6 +115,11 @@ public class CarSpriteSwap : MonoBehaviour {
 	/// 8:Lime
 	/// 9:Navy
 	/// 10:Glaucous
+	/// 
+	/// decalIndex=
+	/// 0:star
+	/// 1:flame
+	/// 2:stripe
 	/// </summary>
 
 	// Use this for initialization
@@ -133,6 +148,10 @@ public class CarSpriteSwap : MonoBehaviour {
 		limeButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 8; colorChange(); });
 		navyButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 9; colorChange(); });
 		glaucousButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 10; colorChange(); });
+
+		starButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 0; decalChange(); });
+		flameButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 1; decalChange(); });
+		stripeButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 2; decalChange(); });
 
 	}
 
@@ -428,6 +447,34 @@ public class CarSpriteSwap : MonoBehaviour {
 			break;
 		default:
 			break;
+		}
+	}
+
+	void decalChange()
+	{
+		if (decal != null)
+		{
+			Destroy(decal);
+		}
+		switch(decalIndex)
+		{
+			case 0:
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = canvas.transform;
+				decal.transform.localPosition = new Vector3(11.6f, -62.41f);
+				break;
+			case 1:
+				decal = Instantiate(flame) as GameObject;
+				decal.transform.parent = canvas.transform;
+				decal.transform.localPosition = new Vector3(42.2f, -62.41f);
+				break;
+			case 2: 
+				decal = Instantiate(stripe) as GameObject;
+				decal.transform.parent = canvas.transform;
+				decal.transform.localPosition = new Vector3(0f, -50.1f);
+				break;
+			default:
+				break;
 		}
 	}
 }
