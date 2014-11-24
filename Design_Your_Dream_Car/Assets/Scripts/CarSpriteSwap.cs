@@ -11,6 +11,9 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject compact;
 
 	public GameObject canvas;
+	public GameObject spoilerContainer;
+	public GameObject decalContainer;
+	public GameObject bodyContainer;
 
 	public GameObject truckButton;
 	public GameObject suvButton;
@@ -81,9 +84,9 @@ public class CarSpriteSwap : MonoBehaviour {
 	private Color32 redColor = new Color32(238, 52, 36, 255);
 	private Color32 greenColor = new Color32(0, 169, 79, 255);
 	private Color32 yellowColor = new Color32(235, 231, 41, 255);
-	private Color32 orangeColor = new Color32(231, 166, 20, 255);
+	private Color32 orangeColor = new Color32(243, 116, 33, 255);
 	private Color32 turquoiseColor = new Color32(0, 177, 176, 255);
-	private Color32 carrotColor = new Color32(243, 116, 33, 255);
+	private Color32 carrotColor = new Color32(231, 166, 20, 255);
 	private Color32 pinkColor = new Color32(248, 179, 186, 255);
 	private Color32 greyColor = new Color32(186, 186, 186, 255);
 	private Color32 limeColor = new Color32(123, 193, 67, 255);
@@ -163,7 +166,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		}
 		carIndex = 0;
 		car = Instantiate(truck) as GameObject;
-		car.transform.parent = canvas.transform;
+		car.transform.parent = bodyContainer.transform;
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void suvSwap()
@@ -174,7 +177,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		}
 		carIndex = 1;
 		car = Instantiate(suv) as GameObject;
-		car.transform.parent = canvas.transform;
+		car.transform.parent = bodyContainer.transform;
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void vanSwap()
@@ -185,7 +188,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		}
 		carIndex = 2;
 		car = Instantiate(van) as GameObject;
-		car.transform.parent = canvas.transform;
+		car.transform.parent = bodyContainer.transform;
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void coupeSwap()
@@ -196,7 +199,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		}
 		carIndex = 3;
 		car = Instantiate(coupe) as GameObject;
-		car.transform.parent = canvas.transform;
+		car.transform.parent = bodyContainer.transform;
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void compactSwap()
@@ -207,7 +210,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		}
 		carIndex = 4;
 		car = Instantiate(compact) as GameObject;
-		car.transform.parent = canvas.transform;
+		car.transform.parent = bodyContainer.transform;
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 
@@ -219,27 +222,27 @@ public class CarSpriteSwap : MonoBehaviour {
 				if (spoiler != null){
 					Destroy(spoiler);
 				}
-			spoiler = Instantiate(truckSpoiler) as GameObject;
-			spoiler.transform.parent = canvas.transform;
-			spoiler.transform.localPosition = new Vector3(-353.27f, 37.1f);
-			break;
+				spoiler = Instantiate(truckSpoiler) as GameObject;
+				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.localPosition = new Vector3(-353.27f, 37.1f);
+				break;
 
 			case 1:
 				if (spoiler != null){
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(suvSpoiler) as GameObject;
-				spoiler.transform.parent = canvas.transform;
+				spoiler.transform.parent = spoilerContainer.transform;
 				spoiler.transform.localPosition = new Vector3(-358.4f, 37.1f);
-			break;
+				break;
 
 			case 2:
 				if (spoiler != null){
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(vanSpoiler) as GameObject;
-				spoiler.transform.parent = canvas.transform;
-				spoiler.transform.localPosition = new Vector3(-364.8f, 83.6f);
+				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.localPosition = new Vector3(-364.8f, 67f);
 				break;
 
 			case 3:
@@ -247,7 +250,7 @@ public class CarSpriteSwap : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(coupeSpoiler) as GameObject;
-				spoiler.transform.parent = canvas.transform;
+				spoiler.transform.parent = spoilerContainer.transform;
 				spoiler.transform.localPosition = new Vector3(-352.2f, 52.03f);
 				break;
 
@@ -256,8 +259,8 @@ public class CarSpriteSwap : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(compactSpoiler) as GameObject;
-				spoiler.transform.parent = canvas.transform;
-				spoiler.transform.localPosition = new Vector3(-344.1f, 78.8f);
+				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.localPosition = new Vector3(-278.4f, 70.8f);
 				break;
 
 			default:
@@ -460,17 +463,17 @@ public class CarSpriteSwap : MonoBehaviour {
 		{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = canvas.transform;
+				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(11.6f, -62.41f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = canvas.transform;
+				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(42.2f, -62.41f);
 				break;
 			case 2: 
 				decal = Instantiate(stripe) as GameObject;
-				decal.transform.parent = canvas.transform;
+				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -50.1f);
 				break;
 			default:
