@@ -14,6 +14,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject spoilerContainer;
 	public GameObject decalContainer;
 	public GameObject bodyContainer;
+	public GameObject wheelContainer;
 
 	public GameObject truckButton;
 	public GameObject suvButton;
@@ -54,22 +55,12 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject flame;
 	public GameObject star;
 
-	public GameObject basicWheelSuv;
-	public GameObject luxuryWheelSuv;
-	public GameObject sportyWheelSuv;
-	public GameObject basicWheelTruck;
-	public GameObject luxuryWheelTruck;
-	public GameObject sportyWheelTruck;
-	public GameObject basicWheelCoupe;
-	public GameObject luxuryWheelCoupe;
-	public GameObject sportyWheelCoupe;
-	public GameObject basicWheelCompact;
-	public GameObject luxuryWheelCompact;
-	public GameObject sportyWheelCompact;
-	public GameObject basicWheelVan;
-	public GameObject luxuryWheelVan;
-	public GameObject sportyWheelVan;
+	public GameObject basicWheel;
+	public GameObject luxuryWheel;
+	public GameObject sportWheel;
 
+	private GameObject leftWheel;
+	private GameObject rightWheel;
 
 	private GameObject car;
 	private GameObject spoiler;
@@ -102,9 +93,9 @@ public class CarSpriteSwap : MonoBehaviour {
 	/// 4:Compact
 	/// 
 	/// wheelIndex=
-	/// 0:Basic
+	/// 0:Sport
 	/// 1:Luxury
-	/// 2:Sporty
+	/// 2:Basic
 	/// 
 	/// colorIndex=
 	/// 0:Red
@@ -136,9 +127,9 @@ public class CarSpriteSwap : MonoBehaviour {
 		spoilerButton.GetComponent<Button>().onClick.AddListener(() => { addSpoiler(); });
 		noSpoilerButton.GetComponent<Button>().onClick.AddListener(() => { removeSpoiler();});
 
-		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 0; addWheels(); });
-		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 1; addWheels(); });
-		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 2; addWheels(); });
+		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 2; wheelSwap(); });
+		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 1; wheelSwap(); });
+		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => { wheelIndex = 0; wheelSwap(); });
 
 		redButton.GetComponent<Button>().onClick.AddListener(() => { colorIndex = 0; colorChange(); });
 		greenButton.GetComponent<Button>().onClick.AddListener( () => { colorIndex = 1; colorChange(); });
@@ -272,135 +263,170 @@ public class CarSpriteSwap : MonoBehaviour {
 	{
 		Destroy(spoiler);
 	}
-	void addWheels()
+
+	void wheelSwap()
 	{
-		switch(carIndex)
+		if (leftWheel != null)
+		{
+			Destroy(leftWheel);
+		}
+		if (rightWheel != null)
+		{
+			Destroy(rightWheel);
+		}
+
+		switch (carIndex)
 		{
 		case 0:
-			if (wheels != null)
-			{
-				Destroy(wheels);
-			}
-			switch(wheelIndex)
+			switch (wheelIndex)
 			{
 			case 0:
-				wheels = Instantiate(basicWheelTruck) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(sportWheel) as GameObject;
+				rightWheel = Instantiate (sportWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
+				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			case 1:
-				wheels = Instantiate(luxuryWheelTruck) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(luxuryWheel) as GameObject;
+				rightWheel = Instantiate (luxuryWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
+				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			case 2:
-				wheels = Instantiate(sportyWheelTruck) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(basicWheel) as GameObject;
+				rightWheel = Instantiate (basicWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
+				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			default:
 				break;
 			}
 			break;
 		case 1:
-			if (wheels != null)
-			{
-				Destroy(wheels);
-			}
-			switch(wheelIndex)
+			switch (wheelIndex)
 			{
 			case 0:
-				wheels = Instantiate(basicWheelSuv) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(sportWheel) as GameObject;
+				rightWheel = Instantiate (sportWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
+				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			case 1:
-				wheels = Instantiate(luxuryWheelSuv) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(luxuryWheel) as GameObject;
+				rightWheel = Instantiate (luxuryWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
+				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			case 2:
-				wheels = Instantiate(sportyWheelSuv) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-503.7f, -385.8f);
+				leftWheel = Instantiate(basicWheel) as GameObject;
+				rightWheel = Instantiate (basicWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
+				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			default:
 				break;
 			}
 			break;
 		case 2:
-			if (wheels != null)
-			{
-				Destroy(wheels);
-			}
-			switch(wheelIndex)
+			switch (wheelIndex)
 			{
 			case 0:
-				wheels = Instantiate(basicWheelVan) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				leftWheel = Instantiate(sportWheel) as GameObject;
+				rightWheel = Instantiate (sportWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
+				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			case 1:
-				wheels = Instantiate(luxuryWheelVan) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				leftWheel = Instantiate(luxuryWheel) as GameObject;
+				rightWheel = Instantiate (luxuryWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
+				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			case 2:
-				wheels = Instantiate(sportyWheelVan) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524.1f, -376.1f);
+				leftWheel = Instantiate(basicWheel) as GameObject;
+				rightWheel = Instantiate (basicWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
+				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
 				break;
 			default:
 				break;
 			}
 			break;
 		case 3:
-			if (wheels != null)
-			{
-				Destroy(wheels);
-			}
-			switch(wheelIndex)
+			switch (wheelIndex)
 			{
 			case 0:
-				wheels = Instantiate(basicWheelCoupe) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				leftWheel = Instantiate(sportWheel) as GameObject;
+				rightWheel = Instantiate (sportWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
+				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			case 1:
-				wheels = Instantiate(luxuryWheelCoupe) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				leftWheel = Instantiate(luxuryWheel) as GameObject;
+				rightWheel = Instantiate (luxuryWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
+				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			case 2:
-				wheels = Instantiate(sportyWheelCoupe) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-524f, -361.7f);
+				leftWheel = Instantiate(basicWheel) as GameObject;
+				rightWheel = Instantiate (basicWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
+				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
 				break;
 			default:
 				break;
 			}
 			break;
 		case 4:
-			if (wheels != null)
-			{
-				Destroy(wheels);
-			}
-			switch(wheelIndex)
+			switch (wheelIndex)
 			{
 			case 0:
-				wheels = Instantiate(basicWheelCompact) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				leftWheel = Instantiate(sportWheel) as GameObject;
+				rightWheel = Instantiate (sportWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
+				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
 				break;
 			case 1:
-				wheels = Instantiate(luxuryWheelCompact) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				leftWheel = Instantiate(luxuryWheel) as GameObject;
+				rightWheel = Instantiate (luxuryWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
+				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
 				break;
 			case 2:
-				wheels = Instantiate(sportyWheelCompact) as GameObject;
-				wheels.transform.parent = canvas.transform;
-				wheels.transform.localPosition = new Vector3(-555.7f, -385.8f);
+				leftWheel = Instantiate(basicWheel) as GameObject;
+				rightWheel = Instantiate (basicWheel) as GameObject;
+				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
+				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
 				break;
 			default:
 				break;
@@ -409,6 +435,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		default:
 			break;
 		}
+
 	}
 
 	void colorChange()
