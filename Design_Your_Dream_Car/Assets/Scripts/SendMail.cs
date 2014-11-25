@@ -21,7 +21,7 @@ public class SendMail : MonoBehaviour {
 	}
 	private void mailTo() 
 	{
-		Application.CaptureScreenshot("Dream-Car.png");
+		Application.CaptureScreenshot("Assets/Data/Dream-Car.png");
 
 		using (var mail = new MailMessage {
 			From = new MailAddress(sender),
@@ -32,7 +32,7 @@ public class SendMail : MonoBehaviour {
 
 
 			System.Net.Mail.Attachment attachment;
-			attachment = new System.Net.Mail.Attachment("Dream-Car.png");
+			attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");
 			mail.Attachments.Add(attachment);
 
 			var smtpServer = new SmtpClient(smtpHost) {

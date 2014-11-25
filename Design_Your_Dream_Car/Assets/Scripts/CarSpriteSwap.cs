@@ -50,6 +50,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject starButton;
 	public GameObject flameButton;
 	public GameObject stripeButton;
+	public GameObject noDecalButton;
 
 	public GameObject stripe;
 	public GameObject flame;
@@ -146,6 +147,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		starButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 0; decalChange(); });
 		flameButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 1; decalChange(); });
 		stripeButton.GetComponent<Button>().onClick.AddListener( () => { decalIndex = 2; decalChange(); });
+		noDecalButton.GetComponent<Button>().onClick.AddListener( () => { removeDecal(); });
 
 	}
 
@@ -486,25 +488,135 @@ public class CarSpriteSwap : MonoBehaviour {
 		{
 			Destroy(decal);
 		}
-		switch(decalIndex)
+		switch(carIndex)
 		{
+		case 0:
+			switch(decalIndex)
+			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(11.6f, -62.41f);
+				decal.transform.localPosition = new Vector3(-81.5f, -41.8f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(42.2f, -62.41f);
+				decal.transform.localPosition = new Vector3(132.5f, -56.5f);
+				decal.transform.localScale = new Vector3(1f, 0.81f);
 				break;
 			case 2: 
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -50.1f);
+				decal.transform.localPosition = new Vector3(0f, -58f);
+				decal.transform.localScale = new Vector3(2.08f, 0.5f);
 				break;
 			default:
 				break;
+			}
+			break;
+		case 1:
+			switch(decalIndex)
+			{
+			case 0:
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(-86.8f, -78.3f);
+				break;
+			case 1:
+				decal = Instantiate(flame) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(118.73f, -87.3f);
+				decal.transform.localScale = new Vector3(1f, 0.81f);
+				break;
+			case 2: 
+				decal = Instantiate(stripe) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(0f, -80.6f);
+				decal.transform.localScale = new Vector3(2f, 0.5f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 2:
+			switch(decalIndex)
+			{
+			case 0:
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(-125.3f, -62.41f);
+				break;
+			case 1:
+				decal = Instantiate(flame) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(105.4f, -72.2f);
+				decal.transform.localScale = new Vector3(1f, 0.73f);
+				break;
+			case 2: 
+				decal = Instantiate(stripe) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(0f, -77f);
+				decal.transform.localScale = new Vector3(1.92f, 0.5f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 3:
+			switch(decalIndex)
+			{
+			case 0:
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(-104.5f, -45.6f);
+				break;
+			case 1:
+				decal = Instantiate(flame) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(106.4f, -56.2f);
+				decal.transform.localScale = new Vector3(1f, 0.81f);
+				break;
+			case 2: 
+				decal = Instantiate(stripe) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(0f, -61.7f);
+				decal.transform.localScale = new Vector3(2.05f, 0.5f);
+				break;
+			default:
+				break;
+			}
+			break;
+		case 4:
+			switch(decalIndex)
+			{
+			case 0:
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(-79.5f, -53.9f);
+				break;
+			case 1:
+				decal = Instantiate(flame) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(52.6f, -52.6f);
+				decal.transform.localScale = new Vector3(1f, 0.82f);
+				break;
+			case 2: 
+				decal = Instantiate(stripe) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(0f, -64.7f);
+				decal.transform.localScale = new Vector3(1.53f, 0.5f);
+				break;
+			default:
+				break;
+			}
+			break;
+		default:
+			break;
 		}
+
+	}
+	void removeDecal()
+	{
+		Destroy(decal);
 	}
 }
