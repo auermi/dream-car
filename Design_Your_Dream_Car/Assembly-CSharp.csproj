@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CarSpriteSwap.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
+     <Compile Include="Assets\Scripts\infoBox.cs" />
      <Compile Include="Assets\Scripts\navigation.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
