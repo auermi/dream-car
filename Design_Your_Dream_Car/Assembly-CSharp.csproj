@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
      <Compile Include="Assets\Scripts\ResetScreenPosition.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
+     <Compile Include="Assets\Scripts\gauge_rotation.cs" />
+     <Compile Include="Assets\Scripts\gauge_values.cs" />
      <Compile Include="Assets\Scripts\infoBox.cs" />
      <Compile Include="Assets\Scripts\navigation.cs" />
  <Reference Include="UnityEngine.UI">
