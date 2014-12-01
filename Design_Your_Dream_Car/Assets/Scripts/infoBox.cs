@@ -62,6 +62,7 @@ public class infoBox : MonoBehaviour {
 	public Sprite vanInactive;
 	public Sprite suvInactive;
 
+	 
 	/// <summary>
 	/// screenIndex-
 	///	0:fuel
