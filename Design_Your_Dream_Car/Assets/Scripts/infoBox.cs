@@ -8,6 +8,10 @@ public class infoBox : MonoBehaviour {
 	public GameObject transmissionInfoButton;
 	public GameObject drivetrainInfoButton;
 	public GameObject bodyStyleInfoButton;
+	public GameObject spoilerInfoButton;
+	public GameObject wheelInfoButton;
+	public GameObject colorInfoButton;
+	public GameObject decalInfoButton;
 
 	public GameObject textBoxPref;
 	public GameObject lgTextBoxPref;
@@ -102,6 +106,28 @@ public class infoBox : MonoBehaviour {
 			vanButton.GetComponent<Image>().sprite = vanInactive;
 		});
 
+		spoilerInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+			screenIndex = 4;
+			textSwap ();
+			spoilerInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+		});
+
+		wheelInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+			screenIndex = 5;
+			textSwap ();
+			wheelInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+		});
+		colorInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+			screenIndex = 6;
+			textSwap ();
+			colorInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+		});
+		decalInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+			screenIndex = 7;
+			textSwap ();
+			decalInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+		});
+
 	}
 	
 
@@ -184,12 +210,81 @@ public class infoBox : MonoBehaviour {
 			lg_box_text.GetComponent<Text>().fontSize = 30;
 
 			break;
+		case 4:
+			textBox0 = Instantiate(lgTextPanel) as GameObject;
+			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
+			closeWindowButton = Instantiate(x_button) as GameObject;
+			textBox0.transform.parent = infoParent.transform;
+			lg_box_text.transform.parent = infoParent.transform;
+			closeWindowButton.transform.parent = infoParent.transform;
+			lg_box_text.GetComponent<Text>().text = "A spoiler spreads the flow of air around a car, making the car more fuel-efficient and safer at higher speeds. Adding a spoiler increases the cost of your car.";
+			textBox0.transform.localPosition = new Vector3(0f, 0f);
+			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+			lg_box_text.GetComponent<Text>().fontSize = 30;
+			
+			break;
+		case 5:
+			textBox0 = Instantiate(lgTextPanel) as GameObject;
+			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
+			closeWindowButton = Instantiate(x_button) as GameObject;
+			textBox0.transform.parent = infoParent.transform;
+			lg_box_text.transform.parent = infoParent.transform;
+			closeWindowButton.transform.parent = infoParent.transform;
+			lg_box_text.GetComponent<Text>().text = "The wheel design affects the cost of your car. Unless the wheels are very lightweight, they usually won’t affect fuel efficiency or speed.";
+			textBox0.transform.localPosition = new Vector3(0f, 0f);
+			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+			lg_box_text.GetComponent<Text>().fontSize = 30;
+			
+			break;
+		case 6:
+			textBox0 = Instantiate(lgTextPanel) as GameObject;
+			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
+			closeWindowButton = Instantiate(x_button) as GameObject;
+			textBox0.transform.parent = infoParent.transform;
+			lg_box_text.transform.parent = infoParent.transform;
+			closeWindowButton.transform.parent = infoParent.transform;
+			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but it won’t affect fuel efficiency or speed.";
+			textBox0.transform.localPosition = new Vector3(0f, 0f);
+			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+			lg_box_text.GetComponent<Text>().fontSize = 30;
+			
+			break;
+		case 7:
+			textBox0 = Instantiate(lgTextPanel) as GameObject;
+			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
+			closeWindowButton = Instantiate(x_button) as GameObject;
+			textBox0.transform.parent = infoParent.transform;
+			lg_box_text.transform.parent = infoParent.transform;
+			closeWindowButton.transform.parent = infoParent.transform;
+			lg_box_text.GetComponent<Text>().text = "A decal decorates your car and will increase cost, but it won’t affect fuel efficiency or speed.";
+			textBox0.transform.localPosition = new Vector3(0f, 0f);
+			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+			lg_box_text.GetComponent<Text>().fontSize = 30;
+			
+			break;
 		default:
 			break;
 		}
-		textBox1.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-		textBox2.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-		textBox3.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+		if (textBox1 != null)
+		{
+			if (textBox2 != null)
+			{
+				if (textBox3 != null)
+				{
+					textBox1.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+					textBox2.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+					textBox3.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+				}	
+			}
+		}
+		if (closeWindowButton != null)
+		{
+			closeWindowButton.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+		}
 	}
 
 	void removeInfoText()
@@ -215,6 +310,46 @@ public class infoBox : MonoBehaviour {
 			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
 			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			break;
+		case 1:
+			electricButton.GetComponent<Image>().color = infoInactiveColor;
+			gasButton.GetComponent<Image>().color = infoInactiveColor;
+			hybridButton.GetComponent<Image>().color = infoInactiveColor;
+			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			break;
+		case 2:
+			electricButton.GetComponent<Image>().color = infoInactiveColor;
+			gasButton.GetComponent<Image>().color = infoInactiveColor;
+			hybridButton.GetComponent<Image>().color = infoInactiveColor;
+			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			break;
+		case 3:
+			Destroy(textBox0);
+			Destroy (lg_box_text);
+			Destroy (closeWindowButton);
+			bodyStyleInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			break;
+		case 4:
+			Destroy(textBox0);
+			Destroy (lg_box_text);
+			Destroy (closeWindowButton);
+			spoilerInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			break;
+		case 5:
+			Destroy(textBox0);
+			Destroy (lg_box_text);
+			Destroy (closeWindowButton);
+			wheelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			break;
+		case 7:
+			Destroy(textBox0);
+			Destroy (lg_box_text);
+			Destroy (closeWindowButton);
+			decalInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		default:
 			break;
