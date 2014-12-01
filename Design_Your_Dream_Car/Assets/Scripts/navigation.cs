@@ -4,20 +4,8 @@ using System.Linq;
 using UnityEngine.UI;
 
 public class navigation : MonoBehaviour {
-	
-	
-	
-	// Use this for initialization
-	
-	void Start () {	
-		
-	}
-	
-	// Update is called once per frame
-	
-	void Update () {		
-		
-	}
+
+
 		
 	void NavigateForward () {
 
@@ -40,6 +28,7 @@ public class navigation : MonoBehaviour {
 					var nextSlide = slides[i+1];
 
 					//assign animations					
+
 					if(currentSlide.transform.localPosition.x == 0){						
 						GoToNext();						
 					}

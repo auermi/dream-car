@@ -41,6 +41,8 @@ public class infoBox : MonoBehaviour {
 
 	private int screenIndex;
 
+	private int arrIndex;
+
 	public GameObject infoParent;
 
 	private Color32 infoActiveColor = new Color32(80, 80, 80, 255);
@@ -62,6 +64,22 @@ public class infoBox : MonoBehaviour {
 	public Sprite vanInactive;
 	public Sprite suvInactive;
 
+	public GameObject nxt2;
+	public GameObject nxt3;
+	public GameObject nxt4;
+	public GameObject nxt6;
+	public GameObject nxt7;
+	public GameObject nxt8;
+	public GameObject nxt9;
+	public GameObject nxt10;
+	public GameObject p2;
+	public GameObject p3;
+	public GameObject p4;
+	public GameObject p6;
+	public GameObject p7;
+	public GameObject p8;
+	public GameObject p9;
+	public GameObject p10;
 	 
 	/// <summary>
 	/// screenIndex-
@@ -129,6 +147,24 @@ public class infoBox : MonoBehaviour {
 			decalInfoButton.GetComponent<Image>().sprite = infoActiveImage;
 		});
 
+		nxt2.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 2;});
+		nxt3.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 3; });
+		nxt4.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 4; });
+		nxt6.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 6; });
+		nxt7.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 7; });
+		nxt8.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 8; });
+		nxt9.GetComponent<Button>().onClick.AddListener( () => { removeInfoText();; screenIndex = 9; });
+		nxt10.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 10; });
+
+		p2.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 2;});
+		p3.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 3; });
+		p4.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 4; });
+		p6.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 6; });
+		p7.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 7; });
+		p8.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 8; });
+		p9.GetComponent<Button>().onClick.AddListener( () => { removeInfoText();; screenIndex = 9; });
+		p10.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 10; });
+
 	}
 	
 
@@ -150,8 +186,11 @@ public class infoBox : MonoBehaviour {
 				}
 			}
 		}
-		if (screenIndex < 3)
+
+
+		switch (screenIndex)
 		{
+		case 0:
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			textBox3 = Instantiate(textBoxPref) as GameObject;
@@ -159,11 +198,7 @@ public class infoBox : MonoBehaviour {
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
 			textBox3.transform.parent = infoParent.transform;
-		}
 
-		switch (screenIndex)
-		{
-		case 0:
 			textBox1.transform.localPosition = new Vector3(-332f, -45.1f);
 			textBox2.transform.localPosition = new Vector3(-2f, -45.1f);
 			textBox3.transform.localPosition = new Vector3(328f, -45.1f);
@@ -176,20 +211,15 @@ public class infoBox : MonoBehaviour {
 			gasButton.GetComponent<Image>().color = infoActiveColor;
 			electricButton.GetComponent<Image>().color = infoActiveColor;
 			break;
-
 		case 1:
-			textBox1.transform.localPosition = new Vector3(-332f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(-2f, -45.1f);
+			textBox1 = Instantiate(textBoxPref) as GameObject;
+			textBox2 = Instantiate(textBoxPref) as GameObject;
 			
-			textBox1.GetComponent<Text>().text = "With All-Wheel-Drive, all four wheels receive power at the same time increasing control and traction in all road conditions. It costs more and is less fuel-efficient.";
-			textBox2.GetComponent<Text>().text = "With 2-Wheel-Drive, only two of the wheels receive power at the same time. It costs less and is more fuel-efficient.";
 			
-			fourWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
-			twoWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
-			break;
-		case 2:
-			textBox1.transform.localPosition = new Vector3(-332f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(-2f, -45.1f);
+			textBox1.transform.parent = infoParent.transform;
+			textBox2.transform.parent = infoParent.transform;
+			textBox1.transform.localPosition = new Vector3(-200f, -45.1f);
+			textBox2.transform.localPosition = new Vector3(200f, -45.1f);
 			
 			textBox1.GetComponent<Text>().text = "An automatic transmission changes gears without help from the driver. It drives slower and costs more but is more fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "A manual transmission requires the driver to change gears. It usually costs less and drives faster but is less fuel-efficient.";
@@ -197,6 +227,24 @@ public class infoBox : MonoBehaviour {
 			manualButton.GetComponent<Image>().color = infoActiveColor;
 			automaticButton.GetComponent<Image>().color = infoActiveColor;
 			break;
+		case 2:
+			textBox1 = Instantiate(textBoxPref) as GameObject;
+			textBox2 = Instantiate(textBoxPref) as GameObject;
+
+			
+			textBox1.transform.parent = infoParent.transform;
+			textBox2.transform.parent = infoParent.transform;
+
+			textBox1.transform.localPosition = new Vector3(-200f, -45.1f);
+			textBox2.transform.localPosition = new Vector3(200f, -45.1f);
+			
+			textBox1.GetComponent<Text>().text = "With All-Wheel-Drive, all four wheels receive power at the same time increasing control and traction in all road conditions. It costs more and is less fuel-efficient.";
+			textBox2.GetComponent<Text>().text = "With 2-Wheel-Drive, only two of the wheels receive power at the same time. It costs less and is more fuel-efficient.";
+			
+			fourWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
+			twoWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
+			break;
+		
 		case 3:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
@@ -272,19 +320,19 @@ public class infoBox : MonoBehaviour {
 		}
 		if (textBox1 != null)
 		{
+			textBox1.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 			if (textBox2 != null)
 			{
+				textBox2.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 				if (textBox3 != null)
 				{
-					textBox1.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-					textBox2.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 					textBox3.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 				}	
 			}
 		}
 		if (closeWindowButton != null)
 		{
-			closeWindowButton.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+			closeWindowButton.GetComponent<Button>().onClick.AddListener(() => { screenIndex = 6; removeInfoText(); });
 		}
 	}
 
@@ -302,6 +350,25 @@ public class infoBox : MonoBehaviour {
 				}
 			}
 		}
+		electricButton.GetComponent<Image>().color = infoInactiveColor;
+		gasButton.GetComponent<Image>().color = infoInactiveColor;
+		hybridButton.GetComponent<Image>().color = infoInactiveColor;
+		fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		manualButton.GetComponent<Image>().color = infoInactiveColor;
+		automaticButton.GetComponent<Image>().color = infoInactiveColor;
+		transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+		fourWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
+		twoWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
+		drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+		Destroy (closeWindowButton);
+		bodyStyleInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		Destroy(textBox0);
+		Destroy (lg_box_text);
+		Destroy (closeWindowButton);
+		spoilerInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		wheelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		decalInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		/*
 		switch (screenIndex)
 		{
 		case 0:
@@ -309,23 +376,15 @@ public class infoBox : MonoBehaviour {
 			gasButton.GetComponent<Image>().color = infoInactiveColor;
 			hybridButton.GetComponent<Image>().color = infoInactiveColor;
 			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
-			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
 			break;
 		case 1:
-			electricButton.GetComponent<Image>().color = infoInactiveColor;
-			gasButton.GetComponent<Image>().color = infoInactiveColor;
-			hybridButton.GetComponent<Image>().color = infoInactiveColor;
-			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			manualButton.GetComponent<Image>().color = infoInactiveColor;
+			automaticButton.GetComponent<Image>().color = infoInactiveColor;
 			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
-			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
 			break;
 		case 2:
-			electricButton.GetComponent<Image>().color = infoInactiveColor;
-			gasButton.GetComponent<Image>().color = infoInactiveColor;
-			hybridButton.GetComponent<Image>().color = infoInactiveColor;
-			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			fourWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
+			twoWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
 			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
 			break;
 		case 3:
@@ -354,6 +413,7 @@ public class infoBox : MonoBehaviour {
 			break;
 		default:
 			break;
-	}	}
+		}	*/
+	}
 
 }

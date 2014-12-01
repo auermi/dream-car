@@ -126,6 +126,21 @@ public class CarSpriteSwap : MonoBehaviour {
 	private GameObject warnTxt;
 
 	public GameObject infoTxtParent;
+	public Sprite spoilerSprite;
+	public Sprite noSpoilerSprite;
+	public Sprite basicWheelSprite;
+	public Sprite luxuryWheelSprite;
+	public Sprite sportyWheelSprite;
+	public Sprite starSprite;
+	public Sprite flameSprite;
+	public Sprite stripeSprite;
+	public Sprite truckSprite;
+	public Sprite suvSprite;
+	public Sprite vanSprite;
+	public Sprite compactSprite;
+	public Sprite coupeSprite;
+
+	public GameObject resetBtn;
 
 	/// <summary>
 	/// carIndex= 
@@ -219,6 +234,9 @@ public class CarSpriteSwap : MonoBehaviour {
 		block8.GetComponent<Button>().onClick.AddListener( () => { dispAdvTxt(); } );
 		block9.GetComponent<Button>().onClick.AddListener( () => { dispAdvTxt(); } );
 		block10.GetComponent<Button>().onClick.AddListener( () => { dispAdvTxt(); } );
+
+		resetBtn.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
+
 	}
 
 	void truckSwap()
@@ -812,6 +830,53 @@ public class CarSpriteSwap : MonoBehaviour {
 		if (warnTxt != null)
 		{
 			Destroy(warnTxt);
+		}
+	}
+	void resetSelections()
+	{
+		gasBtn.GetComponent<Image>().sprite = gasBtnDef;
+		elecBtn.GetComponent<Image>().sprite = elecBtnDef;
+		hybBtn.GetComponent<Image>().sprite = hybBtnDef;
+		autBtn.GetComponent<Image>().sprite = autBtnDef;
+		manBtn.GetComponent<Image>().sprite = manBtnDef;
+		fwdBtn.GetComponent<Image>().sprite = fwdBtnDef;
+		awdBtn.GetComponent<Image>().sprite = awdBtnDef;
+		spoilerButton.GetComponent<Image>().sprite = spoilerSprite;
+		noSpoilerButton.GetComponent<Image>().sprite = noSpoilerSprite;
+		basicWheelButton.GetComponent<Image>().sprite = basicWheelSprite;
+		luxuryWheelButton.GetComponent<Image>().sprite = luxuryWheelSprite;
+		sportyWheelButton.GetComponent<Image>().sprite = sportyWheelSprite;
+		starButton.GetComponent<Image>().sprite = starSprite;
+		stripeButton.GetComponent<Image>().sprite = stripeSprite;
+		flameButton.GetComponent<Image>().sprite = flameSprite;
+		truckButton.GetComponent<Image>().sprite = truckSprite;
+		suvButton.GetComponent<Image>().sprite = suvSprite;
+		vanButton.GetComponent<Image>().sprite = vanSprite;
+		coupeButton.GetComponent<Image>().sprite = coupeSprite;
+		compactButton.GetComponent<Image>().sprite = compactSprite;
+		truckButton.GetComponent<Image>().color = new Color32(51,51,51,255);
+		suvButton.GetComponent<Image>().color = new Color32(51,51,51,255);
+		vanButton.GetComponent<Image>().color = new Color32(51,51,51,255);
+		coupeButton.GetComponent<Image>().color = new Color32(51,51,51,255);
+		compactButton.GetComponent<Image>().color = new Color32(51,51,51,255);
+
+
+		if (car != null)
+		{
+			Destroy(car);
+		}
+		if (spoiler != null)
+		{
+			Destroy(spoiler);
+		}
+		if (leftWheel != null)
+		{
+			Destroy(leftWheel);
+			Destroy(rightWheel);
+		}
+		if (decal != null)
+		{
+			Destroy(decal);
 		}
 	}
 }

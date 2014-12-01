@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CarButtonStateChange.cs" />
+     <Compile Include="Assets\Scripts\CarShift.cs" />
      <Compile Include="Assets\Scripts\CarSpriteSwap.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
+     <Compile Include="Assets\Scripts\ResetScreenPosition.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\infoBox.cs" />
      <Compile Include="Assets\Scripts\navigation.cs" />
