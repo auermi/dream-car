@@ -1,5 +1,5 @@
 ﻿
-
+/*
 using System.Net;
 using System.Net.Mail;
 using UnityEngine.UI;
@@ -45,4 +45,4 @@ public class SendMail : MonoBehaviour {
 		}
 		
 	}
-}
+}*/

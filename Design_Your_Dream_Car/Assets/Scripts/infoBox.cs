@@ -4,6 +4,15 @@ using UnityEngine.UI;
 
 public class infoBox : MonoBehaviour {
 
+	public GameObject fuelInfoButtonfull;
+	public GameObject transmissionInfoButtonfull;
+	public GameObject drivetrainInfoButtonfull;
+	public GameObject bodyStyleInfoButtonfull;
+	public GameObject spoilerInfoButtonfull;
+	public GameObject wheelInfoButtonfull;
+	public GameObject colorInfoButtonfull;
+	public GameObject decalInfoButtonfull;
+
 	public GameObject fuelInfoButton;
 	public GameObject transmissionInfoButton;
 	public GameObject drivetrainInfoButton;
@@ -90,7 +99,7 @@ public class infoBox : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fuelInfoButton.GetComponent<Button>().onClick.AddListener(() => { 
+		fuelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 0; 
 			textSwap(); 
 			fuelInfoButton.GetComponent<Image>().sprite = infoActiveImage; 
@@ -99,14 +108,14 @@ public class infoBox : MonoBehaviour {
 			electricButton.GetComponent<Image>().sprite = inactiveElectric;
 		});
 			
-		transmissionInfoButton.GetComponent<Button>().onClick.AddListener(() => { 
+		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
 			textSwap(); 
 			transmissionInfoButton.GetComponent<Image>().sprite = infoActiveImage;  
 			manualButton.GetComponent<Image>().sprite = inactiveManual;
 			automaticButton.GetComponent<Image>().sprite = inactiveAutomatic;
 		});
-		drivetrainInfoButton.GetComponent<Button>().onClick.AddListener(() => { 
+		drivetrainInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 2; 
 			textSwap(); 
 			drivetrainInfoButton.GetComponent<Image>().sprite = infoActiveImage; 
@@ -114,10 +123,10 @@ public class infoBox : MonoBehaviour {
 			twoWheelDriveButton.GetComponent<Image>().sprite = inactiveTwoWheelDrive;
 		});
 
-		bodyStyleInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+		bodyStyleInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 3;
 			textSwap ();
-			bodyStyleInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+			bodyStyleInfoButtonfull.GetComponent<Image>().sprite = infoActiveImage;
 			truckButton.GetComponent<Image>().sprite = truckInactive;
 			coupeButton.GetComponent<Image>().sprite = coupeInactive;
 			compactButton.GetComponent<Image>().sprite = compactInactive;
@@ -125,23 +134,23 @@ public class infoBox : MonoBehaviour {
 			vanButton.GetComponent<Image>().sprite = vanInactive;
 		});
 
-		spoilerInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+		spoilerInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 4;
 			textSwap ();
 			spoilerInfoButton.GetComponent<Image>().sprite = infoActiveImage;
 		});
 
-		wheelInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+		wheelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 5;
 			textSwap ();
 			wheelInfoButton.GetComponent<Image>().sprite = infoActiveImage;
 		});
-		colorInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+		colorInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 6;
 			textSwap ();
 			colorInfoButton.GetComponent<Image>().sprite = infoActiveImage;
 		});
-		decalInfoButton.GetComponent<Button>().onClick.AddListener(() => {
+		decalInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 7;
 			textSwap ();
 			decalInfoButton.GetComponent<Image>().sprite = infoActiveImage;
@@ -254,9 +263,9 @@ public class infoBox : MonoBehaviour {
 			closeWindowButton.transform.parent = infoParent.transform;
 			lg_box_text.GetComponent<Text>().text = "Body style is the shape of your car. Shapes that are low and small reduce the drag from the air, making them more aerodynamic, faster, and more fuel-efficient. Larger cars are usually more expensive.";
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
-			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
-			lg_box_text.GetComponent<Text>().fontSize = 30;
+			lg_box_text.GetComponent<Text>().fontSize = 25;
 
 			break;
 		case 4:
@@ -268,9 +277,9 @@ public class infoBox : MonoBehaviour {
 			closeWindowButton.transform.parent = infoParent.transform;
 			lg_box_text.GetComponent<Text>().text = "A spoiler spreads the flow of air around a car, making the car more fuel-efficient and safer at higher speeds. Adding a spoiler increases the cost of your car.";
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
-			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
-			lg_box_text.GetComponent<Text>().fontSize = 30;
+			lg_box_text.GetComponent<Text>().fontSize = 25;
 			
 			break;
 		case 5:
@@ -282,9 +291,9 @@ public class infoBox : MonoBehaviour {
 			closeWindowButton.transform.parent = infoParent.transform;
 			lg_box_text.GetComponent<Text>().text = "The wheel design affects the cost of your car. Unless the wheels are very lightweight, they usually won’t affect fuel efficiency or speed.";
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
-			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
-			lg_box_text.GetComponent<Text>().fontSize = 30;
+			lg_box_text.GetComponent<Text>().fontSize = 25;
 			
 			break;
 		case 6:
@@ -296,9 +305,9 @@ public class infoBox : MonoBehaviour {
 			closeWindowButton.transform.parent = infoParent.transform;
 			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but it won’t affect fuel efficiency or speed.";
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
-			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
-			lg_box_text.GetComponent<Text>().fontSize = 30;
+			lg_box_text.GetComponent<Text>().fontSize = 25;
 			
 			break;
 		case 7:
@@ -310,9 +319,9 @@ public class infoBox : MonoBehaviour {
 			closeWindowButton.transform.parent = infoParent.transform;
 			lg_box_text.GetComponent<Text>().text = "A decal decorates your car and will increase cost, but it won’t affect fuel efficiency or speed.";
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
-			lg_box_text.transform.localPosition = new Vector3(0f, -60f);
+			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
-			lg_box_text.GetComponent<Text>().fontSize = 30;
+			lg_box_text.GetComponent<Text>().fontSize = 25;
 			
 			break;
 		default:
