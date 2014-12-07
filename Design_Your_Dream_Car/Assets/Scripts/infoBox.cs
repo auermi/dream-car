@@ -54,9 +54,6 @@ public class infoBox : MonoBehaviour {
 
 	public GameObject infoParent;
 
-	private Color32 infoActiveColor = new Color32(80, 80, 80, 255);
-	private Color32 infoInactiveColor = new Color32(255,255,255,255);
-
 	private GameObject infoBoxShadow1;
 	private GameObject infoBoxShadow2;
 	private GameObject infoBoxShadow3;
@@ -111,7 +108,7 @@ public class infoBox : MonoBehaviour {
 		fuelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 0; 
 			textSwap(); 
-			fuelInfoButton.GetComponent<Image>().sprite = infoActiveImage; 
+			changeInfoIcon();
 			hybridButton.GetComponent<Image>().sprite = inactiveHybrid;
 			gasButton.GetComponent<Image>().sprite = inactiveGas;
 			electricButton.GetComponent<Image>().sprite = inactiveElectric;
@@ -119,15 +116,15 @@ public class infoBox : MonoBehaviour {
 			
 		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
-			textSwap(); 
-			transmissionInfoButton.GetComponent<Image>().sprite = infoActiveImage;  
+			textSwap();
+			changeInfoIcon();
 			manualButton.GetComponent<Image>().sprite = inactiveManual;
 			automaticButton.GetComponent<Image>().sprite = inactiveAutomatic;
 		});
 		drivetrainInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 2; 
 			textSwap(); 
-			drivetrainInfoButton.GetComponent<Image>().sprite = infoActiveImage; 
+			changeInfoIcon();
 			fourWheelDriveButton.GetComponent<Image>().sprite = inactiveFourWheelDrive;
 			twoWheelDriveButton.GetComponent<Image>().sprite = inactiveTwoWheelDrive;
 		});
@@ -135,7 +132,7 @@ public class infoBox : MonoBehaviour {
 		bodyStyleInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 3;
 			textSwap ();
-			bodyStyleInfoButtonfull.GetComponent<Image>().sprite = infoActiveImage;
+			changeInfoIcon();
 			truckButton.GetComponent<Image>().sprite = truckInactive;
 			coupeButton.GetComponent<Image>().sprite = coupeInactive;
 			compactButton.GetComponent<Image>().sprite = compactInactive;
@@ -146,23 +143,23 @@ public class infoBox : MonoBehaviour {
 		spoilerInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 4;
 			textSwap ();
-			spoilerInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+			changeInfoIcon();
 		});
 
 		wheelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 5;
 			textSwap ();
-			wheelInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+			changeInfoIcon();
 		});
 		colorInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 6;
 			textSwap ();
-			colorInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+			changeInfoIcon();
 		});
 		decalInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 7;
 			textSwap ();
-			decalInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+			changeInfoIcon();
 		});
 
 		nxt2.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 2;});
@@ -209,6 +206,20 @@ public class infoBox : MonoBehaviour {
 		switch (screenIndex)
 		{
 		case 0:
+
+
+			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow3 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			
+			infoBoxShadow1.transform.parent = infoParent.transform;
+			infoBoxShadow2.transform.parent = infoParent.transform;
+			infoBoxShadow3.transform.parent = infoParent.transform;
+			
+			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -50f);
+			infoBoxShadow2.transform.localPosition = new Vector3(0f, -50f);
+			infoBoxShadow3.transform.localPosition = new Vector3(330f, -50f);
+
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			textBox3 = Instantiate(textBoxPref) as GameObject;
@@ -225,25 +236,30 @@ public class infoBox : MonoBehaviour {
 			textBox2.GetComponent<Text>().text = "Electric cars use electricity for fuel (power). They are the most fuel-efficient (you can go farther with less fuel), but also the most expensive and slowest.";
 			textBox3.GetComponent<Text>().text = "Hybrid cars use two different power sources, like a gas engine and an electric motor. Hybrid cars cost less and drive faster than electric cars. They are more fuel-efficient than gas cars.";
 
-			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
-			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
-			infoBoxShadow3 = Instantiate(infoBoxShadowPrefab) as GameObject;
 
-			infoBoxShadow1.transform.parent = infoParent.transform;
-			infoBoxShadow2.transform.parent = infoParent.transform;
-			infoBoxShadow3.transform.parent = infoParent.transform;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 
 			closeInfoButtonOverlay.transform.parent = infoParent.transform;
 
-			closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener( () => {Destroy(closeInfoButtonOverlay);});
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
-			hybridButton.GetComponent<Image>().color = infoActiveColor;
-			gasButton.GetComponent<Image>().color = infoActiveColor;
-			electricButton.GetComponent<Image>().color = infoActiveColor;
+
+
+
 			break;
 		case 1:
+			transmissionInfoButton.GetComponent<Image>().sprite= infoActiveImage;
+
+			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			
+			infoBoxShadow1.transform.parent = infoParent.transform;
+			infoBoxShadow2.transform.parent = infoParent.transform;
+			
+			infoBoxShadow1.transform.localPosition = new Vector3(-200f, -50f);
+			infoBoxShadow2.transform.localPosition = new Vector3(200f, -50f);
+
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			
@@ -256,10 +272,26 @@ public class infoBox : MonoBehaviour {
 			textBox1.GetComponent<Text>().text = "An automatic transmission changes gears without help from the driver. It drives slower and costs more but is more fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "A manual transmission requires the driver to change gears. It usually costs less and drives faster but is less fuel-efficient.";
 			
-			manualButton.GetComponent<Image>().color = infoActiveColor;
-			automaticButton.GetComponent<Image>().color = infoActiveColor;
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
+
 			break;
 		case 2:
+			
+			drivetrainInfoButton.GetComponent<Image>().sprite= infoActiveImage;
+
+			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			
+			infoBoxShadow1.transform.parent = infoParent.transform;
+			infoBoxShadow2.transform.parent = infoParent.transform;
+			
+			infoBoxShadow1.transform.localPosition = new Vector3(-200f, -50f);
+			infoBoxShadow2.transform.localPosition = new Vector3(200f, -50f);
+
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 
@@ -273,103 +305,132 @@ public class infoBox : MonoBehaviour {
 			textBox1.GetComponent<Text>().text = "With All-Wheel-Drive, all four wheels receive power at the same time increasing control and traction in all road conditions. It costs more and is less fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "With 2-Wheel-Drive, only two of the wheels receive power at the same time. It costs less and is more fuel-efficient.";
 			
-			fourWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
-			twoWheelDriveButton.GetComponent<Image>().color = infoActiveColor;
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
+
 			break;
 		
 		case 3:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
-			closeWindowButton = Instantiate(x_button) as GameObject;
+
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
-			closeWindowButton.transform.parent = infoParent.transform;
+
 			lg_box_text.GetComponent<Text>().text = "Body style is the shape of your car. Shapes that are low and small reduce the drag from the air, making them more aerodynamic, faster, and more fuel-efficient. Larger cars are usually more expensive.";
+
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
-			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+
 			lg_box_text.GetComponent<Text>().fontSize = 25;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
 			break;
 		case 4:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
-			closeWindowButton = Instantiate(x_button) as GameObject;
+
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
-			closeWindowButton.transform.parent = infoParent.transform;
+
 			lg_box_text.GetComponent<Text>().text = "A spoiler spreads the flow of air around a car, making the car more fuel-efficient and safer at higher speeds. Adding a spoiler increases the cost of your car.";
+
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
-			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+
 			lg_box_text.GetComponent<Text>().fontSize = 25;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			
 			break;
 		case 5:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
-			closeWindowButton = Instantiate(x_button) as GameObject;
+	
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
-			closeWindowButton.transform.parent = infoParent.transform;
+
 			lg_box_text.GetComponent<Text>().text = "The wheel design affects the cost of your car. Unless the wheels are very lightweight, they usually won’t affect fuel efficiency or speed.";
+
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
-			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+
 			lg_box_text.GetComponent<Text>().fontSize = 25;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			
 			break;
 		case 6:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
-			closeWindowButton = Instantiate(x_button) as GameObject;
+
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
-			closeWindowButton.transform.parent = infoParent.transform;
+
 			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but it won’t affect fuel efficiency or speed.";
+
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
-			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+		
 			lg_box_text.GetComponent<Text>().fontSize = 25;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
+
 			break;
 		case 7:
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
-			closeWindowButton = Instantiate(x_button) as GameObject;
+
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
-			closeWindowButton.transform.parent = infoParent.transform;
+
 			lg_box_text.GetComponent<Text>().text = "A decal decorates your car and will increase cost, but it won’t affect fuel efficiency or speed.";
+
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
-			closeWindowButton.transform.localPosition = new Vector3(400f, 145f);
+
 			lg_box_text.GetComponent<Text>().fontSize = 25;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+			
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			
+			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			
 			break;
 		default:
 			break;
 		}
-		if (textBox1 != null)
-		{
-			closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-			if (textBox2 != null)
-			{
-				closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-				if (textBox3 != null)
-				{
-					closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
-				}	
-			}
-		}
-		if (closeWindowButton != null)
-		{
-			closeWindowButton.GetComponent<Button>().onClick.AddListener(() => { screenIndex = 6; removeInfoText(); });
-		}
+
+		closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); deactivateInfoIcon(); });
 	}
 
 	void removeInfoText()
 	{
+
+		changeInfoIcon();
+
+		Destroy(closeInfoButtonOverlay);
 		if (textBox1 != null)
 		{
 			Destroy(textBox1);
@@ -382,70 +443,94 @@ public class infoBox : MonoBehaviour {
 				}
 			}
 		}
-		electricButton.GetComponent<Image>().color = infoInactiveColor;
-		gasButton.GetComponent<Image>().color = infoInactiveColor;
-		hybridButton.GetComponent<Image>().color = infoInactiveColor;
-		fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-		manualButton.GetComponent<Image>().color = infoInactiveColor;
-		automaticButton.GetComponent<Image>().color = infoInactiveColor;
-		transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
-		fourWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
-		twoWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
-		drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
-		Destroy (closeWindowButton);
-		bodyStyleInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-		Destroy(textBox0);
-		Destroy (lg_box_text);
-		Destroy (closeWindowButton);
-		spoilerInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-		wheelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-		decalInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
-		/*
-		switch (screenIndex)
+		if (infoBoxShadow1 != null)
+		{
+			Destroy(infoBoxShadow1);
+			if (infoBoxShadow2 != null)
+			{
+				Destroy(infoBoxShadow2);
+				if (infoBoxShadow3 != null)
+				{
+					Destroy(infoBoxShadow3);
+				}
+			}
+		}
+		if (screenIndex > 2){
+			Destroy(textBox0);
+			Destroy (lg_box_text);
+		}
+
+
+	}
+
+	void changeInfoIcon()
+	{
+		if (closeInfoButtonOverlay != null)
+		{
+			switch(screenIndex)
+			{
+			case 0:
+				fuelInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 1:
+				transmissionInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 2: 
+				drivetrainInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 3:
+				bodyStyleInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 4:
+				spoilerInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 5:
+				wheelInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 6:
+				colorInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			case 7:
+				decalInfoButton.GetComponent<Image>().sprite = infoActiveImage;
+				break;
+			default:
+				break;
+			}
+		}
+
+			
+
+	}
+	void deactivateInfoIcon()
+	{
+		switch(screenIndex)
 		{
 		case 0:
-			electricButton.GetComponent<Image>().color = infoInactiveColor;
-			gasButton.GetComponent<Image>().color = infoInactiveColor;
-			hybridButton.GetComponent<Image>().color = infoInactiveColor;
 			fuelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		case 1:
-			manualButton.GetComponent<Image>().color = infoInactiveColor;
-			automaticButton.GetComponent<Image>().color = infoInactiveColor;
-			transmissionInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+			transmissionInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
-		case 2:
-			fourWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
-			twoWheelDriveButton.GetComponent<Image>().color = infoInactiveColor;
-			drivetrainInfoButton.GetComponent<Image>().sprite= infoInactiveImage;
+		case 2: 
+			drivetrainInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		case 3:
-			Destroy(textBox0);
-			Destroy (lg_box_text);
-			Destroy (closeWindowButton);
 			bodyStyleInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		case 4:
-			Destroy(textBox0);
-			Destroy (lg_box_text);
-			Destroy (closeWindowButton);
 			spoilerInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		case 5:
-			Destroy(textBox0);
-			Destroy (lg_box_text);
-			Destroy (closeWindowButton);
 			wheelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
+		case 6:
+			colorInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+			break;
 		case 7:
-			Destroy(textBox0);
-			Destroy (lg_box_text);
-			Destroy (closeWindowButton);
 			decalInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 			break;
 		default:
 			break;
-		}	*/
+		}
 	}
-
 }
