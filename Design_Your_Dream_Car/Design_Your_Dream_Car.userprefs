@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\infoBox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarSpriteSwap.cs">
     <Files>
       <File FileName="Assets\Scripts\infoBox.cs" Line="162" Column="21" />
-      <File FileName="Assets\Scripts\infoBox.cs" Line="537" Column="1" />
-      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="242" Column="18" />
-      <File FileName="Assets\Scripts\navigation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ResetScreenPosition.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InterfaceParenter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CarShift.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="502" Column="3" />
+      <File FileName="Assets\Scripts\navigation.cs" Line="123" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

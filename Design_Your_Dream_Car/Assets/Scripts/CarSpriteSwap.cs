@@ -488,14 +488,52 @@ public class CarSpriteSwap : MonoBehaviour {
 
 
 		//Clearing the previous screen's customization option
-		prevButton2.GetComponent<Button>().onClick.AddListener( () => {  clearChoices();  });
-		prevButton3.GetComponent<Button>().onClick.AddListener( () => {  clearChoices();  });
-		prevButton4.GetComponent<Button>().onClick.AddListener( () => {  clearChoices();  });
-		prevButton6.GetComponent<Button>().onClick.AddListener( () => {  clearChoices();  removeCar(); });
-		prevButton7.GetComponent<Button>().onClick.AddListener( () => {  clearChoices(); noSpoilerButton.GetComponent<Image>().sprite = noSpoilerButtonSprite; removeSpoiler();});
-		prevButton8.GetComponent<Button>().onClick.AddListener( () => {  clearChoices(); removeWheels();  });
-		prevButton9.GetComponent<Button>().onClick.AddListener( () => {  clearChoices(); removeColor(); });
-		prevButton10.GetComponent<Button>().onClick.AddListener( () => {  clearChoices(); removeDecal(); noDecalButton.GetComponent<Image>().sprite = noDecalButtonSprite; });
+		prevButton2.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices();  
+		});
+		prevButton3.GetComponent<Button>().onClick.AddListener( () => {  
+			nextButton2.GetComponent<Button>().interactable = false;
+			nextButton2.GetComponent<Image>().sprite = nextButtonInactive;
+			clearChoices(); 
+		});
+		prevButton4.GetComponent<Button>().onClick.AddListener( () => { 
+			nextButton3.GetComponent<Image>().sprite = nextButtonInactive;
+			nextButton3.GetComponent<Button>().interactable = false; 
+			clearChoices();  
+		});
+		prevButton5.GetComponent<Button>().onClick.AddListener( () => {
+			nextButton4.GetComponent<Image>().sprite = nextButtonInactive;
+			nextButton4.GetComponent<Button>().interactable = false; 
+		});
+		prevButton6.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices(); 
+			removeCar(); 
+		});
+		prevButton7.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices();
+			nextButton6.GetComponent<Image>().sprite = nextButtonInactive;
+			nextButton6.GetComponent<Button>().interactable = false; 
+			noSpoilerButton.GetComponent<Image>().sprite = noSpoilerButtonSprite; 
+			removeSpoiler();
+		});
+		prevButton8.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices();
+			nextButton7.GetComponent<Image>().sprite = nextButtonInactive;
+			nextButton7.GetComponent<Button>().interactable = false; 
+			removeWheels();  
+		});
+		prevButton9.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices(); 
+			nextButton8.GetComponent<Button>().interactable = false; 
+			nextButton8.GetComponent<Image>().sprite = nextButtonInactive;
+			removeColor(); 
+		});
+		prevButton10.GetComponent<Button>().onClick.AddListener( () => {  
+			clearChoices(); 
+			nextButton9.GetComponent<Button>().interactable = false; 
+			nextButton9.GetComponent<Image>().sprite = nextButtonInactive;
+			removeDecal(); noDecalButton.GetComponent<Image>().sprite = noDecalButtonSprite; 
+		});
 
 		//Reset Button resets selections
 		resetButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
