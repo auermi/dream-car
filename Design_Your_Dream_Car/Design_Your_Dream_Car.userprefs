@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\infoBox.cs">
     <Files>
-      <File FileName="Assets\Scripts\infoBox.cs" Line="468" Column="4" />
-      <File FileName="Assets\Scripts\infoBox.cs" Line="536" Column="1" />
+      <File FileName="Assets\Scripts\infoBox.cs" Line="162" Column="21" />
+      <File FileName="Assets\Scripts\infoBox.cs" Line="537" Column="1" />
       <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="242" Column="18" />
       <File FileName="Assets\Scripts\navigation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ResetScreenPosition.cs" Line="1" Column="1" />
