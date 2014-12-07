@@ -57,6 +57,15 @@ public class infoBox : MonoBehaviour {
 	private Color32 infoActiveColor = new Color32(80, 80, 80, 255);
 	private Color32 infoInactiveColor = new Color32(255,255,255,255);
 
+	private GameObject infoBoxShadow1;
+	private GameObject infoBoxShadow2;
+	private GameObject infoBoxShadow3;
+	public GameObject infoBoxShadowPrefab;
+
+	private GameObject closeInfoButtonOverlay;
+	public GameObject closeInfoButtonOverlayPrefab;
+
+
 	public Sprite infoActiveImage;
 	public Sprite infoInactiveImage;
 
@@ -216,6 +225,20 @@ public class infoBox : MonoBehaviour {
 			textBox2.GetComponent<Text>().text = "Electric cars use electricity for fuel (power). They are the most fuel-efficient (you can go farther with less fuel), but also the most expensive and slowest.";
 			textBox3.GetComponent<Text>().text = "Hybrid cars use two different power sources, like a gas engine and an electric motor. Hybrid cars cost less and drive faster than electric cars. They are more fuel-efficient than gas cars.";
 
+			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
+			infoBoxShadow3 = Instantiate(infoBoxShadowPrefab) as GameObject;
+
+			infoBoxShadow1.transform.parent = infoParent.transform;
+			infoBoxShadow2.transform.parent = infoParent.transform;
+			infoBoxShadow3.transform.parent = infoParent.transform;
+
+			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
+
+			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+
+			closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener( () => {Destroy(closeInfoButtonOverlay);});
+
 			hybridButton.GetComponent<Image>().color = infoActiveColor;
 			gasButton.GetComponent<Image>().color = infoActiveColor;
 			electricButton.GetComponent<Image>().color = infoActiveColor;
@@ -329,13 +352,13 @@ public class infoBox : MonoBehaviour {
 		}
 		if (textBox1 != null)
 		{
-			textBox1.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+			closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 			if (textBox2 != null)
 			{
-				textBox2.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+				closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 				if (textBox3 != null)
 				{
-					textBox3.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
+					closeInfoButtonOverlay.GetComponent<Button>().onClick.AddListener(() => { removeInfoText(); });
 				}	
 			}
 		}

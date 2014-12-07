@@ -111,8 +111,6 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject prevBtn9;
 	public GameObject prevBtn10;
 
-	private bool selectionMade = false;
-
 	public GameObject block2;
 	public GameObject block3;
 	public GameObject block4;
