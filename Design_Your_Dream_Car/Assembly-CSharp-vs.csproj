@@ -49,7 +49,9 @@
      <Compile Include="Assets\Scripts\CarButtonStateChange.cs" />
      <Compile Include="Assets\Scripts\CarShift.cs" />
      <Compile Include="Assets\Scripts\CarSpriteSwap.cs" />
+     <Compile Include="Assets\Scripts\EmailInputDisplay.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
+     <Compile Include="Assets\Scripts\ResetGauges.cs" />
      <Compile Include="Assets\Scripts\ResetScreenPosition1.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\gauge_rotation.cs" />

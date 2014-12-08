@@ -185,6 +185,9 @@ public class CarSpriteSwap : MonoBehaviour {
 	public Sprite noSpoilerActivebuttonSprite;
 	public Sprite spoilerActiveButtonSprite;
 	public Sprite whiteSpoiler;
+
+	public GameObject doneButton;
+
 	/// <summary>
 	/// carIndex= 
 	/// 0:Truck 
@@ -584,7 +587,9 @@ public class CarSpriteSwap : MonoBehaviour {
 
 		//Reset Button resets selections
 		resetButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
+		doneButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
 
+		nextButton1.GetComponent<Image>().enabled = true;
 	}
 
 	void truckSwap()

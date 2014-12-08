@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using System;
 using System.Collections;
 using UnityEngine.UI;
 
 public class navigation : MonoBehaviour {
 	//create array for screens/slides
-	public GameObject[] slides;
+	public static GameObject[] slides;
 	private Vector3 startPos;
 	
 	void Start (){

@@ -113,7 +113,6 @@ public class infoBox : MonoBehaviour {
 			gasButton.GetComponent<Image>().sprite = inactiveGas;
 			electricButton.GetComponent<Image>().sprite = inactiveElectric;
 		});
-			
 		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
 			textSwap();

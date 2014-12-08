@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Net;
@@ -47,3 +48,4 @@ public class SendMail : MonoBehaviour {
 		
 	}
 }
+*/
