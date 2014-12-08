@@ -1,48 +1,49 @@
-﻿
-/*
+﻿using UnityEngine;
+using System.Collections;
+using System;
 using System.Net;
 using System.Net.Mail;
-using UnityEngine.UI;
-
-using UnityEngine;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 
 public class SendMail : MonoBehaviour {
-	public string sender = "mauermcx@gmail.com";
-	public string receiver = "michaelandrewauer@outlook.com";
-	public string smtpPassword = "futurejag2014";
-	public string smtpHost = "smtp.gmail.com";
-	public GameObject mailButton;
-	
-	// Use this for initialization
-	private void Start() {
-		mailButton.GetComponent<Button>().onClick.AddListener( () => { mailTo(); });
+	bool isInitialized = false;
 
-
-	}
-	private void mailTo() 
+	void Start()
 	{
-		Application.CaptureScreenshot("Assets/Data/Dream-Car.png");
+	
+	}
 
-		using (var mail = new MailMessage {
-			From = new MailAddress(sender),
-			Subject = "test subject",
-			Body = "Hello there!"
-		}) {
-			mail.To.Add(receiver);
-
-
-			System.Net.Mail.Attachment attachment;
-			attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");
-			mail.Attachments.Add(attachment);
-
-			var smtpServer = new SmtpClient(smtpHost) {
-				Port = 25,
-				Credentials = (ICredentialsByHost)new NetworkCredential(sender, smtpPassword)
-			};
-			ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-			smtpServer.EnableSsl = true;
-			smtpServer.Send(mail);
+	void TakeScreenshot ()
+	{
+		if (isInitialized = false)
+		{
+			Application.CaptureScreenshot("Assets/Data/Dream-Car.png");
 		}
+	}
+
+	void Main ()
+	{
+		MailMessage mail = new MailMessage();
+		
+		mail.From = new MailAddress("youraddress@gmail.com");
+		mail.To.Add("youraddress@gmail.com");
+		mail.Subject = "Test Mail";
+		mail.Body = "This is for testing SMTP mail from GMAIL";
+
+		System.Net.Mail.Attachment attachment;
+		attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");
+		mail.Attachments.Add(attachment);
+		
+		SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+		smtpServer.Port = 587;
+		smtpServer.Credentials = new System.Net.NetworkCredential("youraddress@gmail.com", "yourpassword") as ICredentialsByHost;
+		smtpServer.EnableSsl = true;
+		ServicePointManager.ServerCertificateValidationCallback = 
+			delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
+		{ return true; };
+		smtpServer.Send(mail);
+		Debug.Log("success");
 		
 	}
-}*/
+}

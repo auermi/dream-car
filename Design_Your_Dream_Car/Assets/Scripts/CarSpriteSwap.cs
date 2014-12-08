@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CarSpriteSwap : MonoBehaviour {
 
+	public GoogleAnalyticsV3 googleAnalytics;
+
 	public GameObject truck;
 	public GameObject suv;
 	public GameObject van;
@@ -182,6 +184,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	public Sprite noDecalButtonActiveSprite;
 	public Sprite noSpoilerActivebuttonSprite;
 	public Sprite spoilerActiveButtonSprite;
+	public Sprite whiteSpoiler;
 	/// <summary>
 	/// carIndex= 
 	/// 0:Truck 
@@ -216,7 +219,6 @@ public class CarSpriteSwap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		sceneIndex = 0;
 
 		//Setting next buttons inactive to prevent moving on without choice
@@ -367,14 +369,23 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = redColor;
+			}
 		});
 		greenButton.GetComponent<Button>().onClick.AddListener( () => { 
+
 			nextButton9.GetComponent<Button>().interactable = true;
 			colorIndex = 1; 
 			colorChange(); 
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = greenColor;
+			}
 		});
 		yellowButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -383,6 +394,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt();
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = yellowColor;
+			}
 		});
 		orangeButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -391,6 +406,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt();
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = orangeColor;
+			}
 		});
 		turquoiseButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -399,6 +418,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = turquoiseColor;
+			}
 		});
 		carrotButton.GetComponent<Button>().onClick.AddListener( () => {
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -407,6 +430,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt();
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = carrotColor;
+			}
 		});
 		pinkButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -415,6 +442,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt();
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = pinkColor;
+			}
 		});
 		greyButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -423,6 +454,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = greyColor;
+			}
 		});
 		limeButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -431,6 +466,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = limeColor;
+			}
 		});
 		navyButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -439,6 +478,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = navyColor;
+			}
 		});
 		glaucousButton.GetComponent<Button>().onClick.AddListener( () => { 
 			nextButton9.GetComponent<Button>().interactable = true;
@@ -447,6 +490,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			sceneIndex = 9; 
 			changeNextButtonStateToTrue(9);
 			remAdvTxt(); 
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = glaucousColor;
+			}
 		});
 
 		//Decal Event Listeners
