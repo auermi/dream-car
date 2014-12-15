@@ -1,13 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\infoBox.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\gauge_rotation.cs">
     <Files>
       <File FileName="Assets\Scripts\infoBox.cs" Line="302" Column="54" />
       <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\infoBox.cs" Line="536" Column="1" />
       <File FileName="Assets\Scripts\navigation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SendMail.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\gauge_rotation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\gauge_rotation.cs" Line="163" Column="1" />
       <File FileName="Assets\Scripts\EmailInputDisplay.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

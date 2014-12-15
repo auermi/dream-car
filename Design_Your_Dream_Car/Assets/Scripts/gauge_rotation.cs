@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -36,8 +36,12 @@ public class gauge_rotation : MonoBehaviour {
 		fuelValue = fuelGauge.transform.eulerAngles.z;
 		costValue = costGauge.transform.eulerAngles.z;
 		
-		button = this.gameObject.transform;
+		//button = this.gameObject.transform;
 		
+		
+	}
+	
+	void Update(){
 		
 	}
 	
@@ -138,30 +142,21 @@ public class gauge_rotation : MonoBehaviour {
 		
 		//float oldVal = costGauge.transform.localEulerAngles.z;
 		float newVal = Cost*45;
-		float rotVal = 360 - (Mathf.Abs(costValue - newVal));
-		
-		if (newVal > costValue) {
-			costGauge.transform.eulerAngles = new Vector3(0, 0, rotVal);
+		float rotVal = (Mathf.Abs(costValue - newVal));
+		Debug.Log (newVal);
+		Debug.Log (rotVal);
+		if (rotVal > costValue || newVal > costValue) {
+			costGauge.transform.eulerAngles = new Vector3 (0, 0, costValue);
 			//speedGauge.transform.Rotate (Vector3.forward, ((360-rotVal)-speedValue), Space.Self);
-		} else if (newVal < costValue) {
+		} else if (newVal < costValue && newVal != 0) {
 			if(costValue - newVal < 180){
 				costGauge.transform.eulerAngles = new Vector3(0, 0, 180);
 			} else {
 				costGauge.transform.eulerAngles = new Vector3(0, 0, rotVal);
 			}
-			//speedGauge.transform.Rotate (Vector3.back, (speedValue-rotVal), Space.Self);
-		} else if (newVal == costValue){
-			speedGauge.transform.eulerAngles = new Vector3(0, 0, costValue);
 		} else if (newVal == 0) {
-			speedGauge.transform.eulerAngles = new Vector3(0, 0, costValue);
+			costGauge.transform.eulerAngles = new Vector3 (0, 0, costValue);
 			//speedGauge.transform.Rotate (Vector3.back, 0f, Space.Self);
-		}else if (newVal + costValue > 360) {
-			costGauge.transform.eulerAngles = new Vector3(0, 0, 360);
-			//speedGauge.transform.Rotate (Vector3.back, ((360-rotVal) + speedValue)-360, Space.Self);
-			//oldVal = 180;
-		} else if (newVal - costValue < 180) {
-			costGauge.transform.eulerAngles = new Vector3(0, 0, 180);
-			//speedGauge.transform.Rotate (Vector3.back, (180-((360-rotVal)- speedValue)), Space.Self);
 		}
 	}
 }
