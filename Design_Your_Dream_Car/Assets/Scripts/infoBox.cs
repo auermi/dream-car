@@ -231,9 +231,9 @@ public class infoBox : MonoBehaviour {
 			textBox2.transform.localPosition = new Vector3(-2f, -45.1f);
 			textBox3.transform.localPosition = new Vector3(328f, -45.1f);
 
-			textBox1.GetComponent<Text>().text = "Gas cars use gasoline for fuel (power). They are the least expensive and the fastest, but also the least fuel-efficient (you need more fuel to go the same distance).";
-			textBox2.GetComponent<Text>().text = "Electric cars use electricity for fuel (power). They are the most fuel-efficient (you can go farther with less fuel), but also the most expensive and slowest.";
-			textBox3.GetComponent<Text>().text = "Hybrid cars use two different power sources, like a gas engine and an electric motor. Hybrid cars cost less and drive faster than electric cars. They are more fuel-efficient than gas cars.";
+			textBox1.GetComponent<Text>().text = "Gas cars are powered by gasoline. Inexpensive and fast but not fuel-efficient, you will need more fuel to go the same distance.";
+			textBox2.GetComponent<Text>().text = "Electric cars are powered by electricity. They are the most fuel-efficient, but also expensive and slow.";
+			textBox3.GetComponent<Text>().text = "Hybrid cars with a gas engine and an electric motor are less expensive and faster than electric cars and more fuel-efficient than gas cars.";
 
 
 
@@ -256,8 +256,8 @@ public class infoBox : MonoBehaviour {
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
 			
-			infoBoxShadow1.transform.localPosition = new Vector3(-200f, -50f);
-			infoBoxShadow2.transform.localPosition = new Vector3(200f, -50f);
+			infoBoxShadow1.transform.localPosition = new Vector3(-165f, -50f);
+			infoBoxShadow2.transform.localPosition = new Vector3(165f, -50f);
 
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
@@ -265,8 +265,8 @@ public class infoBox : MonoBehaviour {
 			
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
-			textBox1.transform.localPosition = new Vector3(-200f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(200f, -45.1f);
+			textBox1.transform.localPosition = new Vector3(-165f, -45.1f);
+			textBox2.transform.localPosition = new Vector3(165f, -45.1f);
 			
 			textBox1.GetComponent<Text>().text = "An automatic transmission changes gears without help from the driver. It drives slower and costs more but is more fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "A manual transmission requires the driver to change gears. It usually costs less and drives faster but is less fuel-efficient.";
@@ -288,8 +288,8 @@ public class infoBox : MonoBehaviour {
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
 			
-			infoBoxShadow1.transform.localPosition = new Vector3(-200f, -50f);
-			infoBoxShadow2.transform.localPosition = new Vector3(200f, -50f);
+			infoBoxShadow1.transform.localPosition = new Vector3(-165f, -50f);
+			infoBoxShadow2.transform.localPosition = new Vector3(165f, -50f);
 
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
@@ -298,11 +298,11 @@ public class infoBox : MonoBehaviour {
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
 
-			textBox1.transform.localPosition = new Vector3(-200f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(200f, -45.1f);
+			textBox1.transform.localPosition = new Vector3(-165f, -45.1f);
+			textBox2.transform.localPosition = new Vector3(165f, -45.1f);
 			
-			textBox1.GetComponent<Text>().text = "With All-Wheel-Drive, all four wheels receive power at the same time increasing control and traction in all road conditions. It costs more and is less fuel-efficient.";
-			textBox2.GetComponent<Text>().text = "With 2-Wheel-Drive, only two of the wheels receive power at the same time. It costs less and is more fuel-efficient.";
+			textBox1.GetComponent<Text>().text = "2-Wheel-Drive sends power to two of the wheels at once. It costs less and is more fuel-efficient.";
+			textBox2.GetComponent<Text>().text = "All-Wheel-Drive sends power to all wheels at once. It costs more and is less fuel-efficient but makes for better handling.";
 			
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
@@ -319,7 +319,7 @@ public class infoBox : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "Body style is the shape of your car. Shapes that are low and small reduce the drag from the air, making them more aerodynamic, faster, and more fuel-efficient. Larger cars are usually more expensive.";
+			lg_box_text.GetComponent<Text>().text = "Body style is the car’s shape. Low and small styles are aerodynamic (less drag from the air), faster and more fuel-efficient. Big cars usually cost more.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
@@ -340,7 +340,7 @@ public class infoBox : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "A spoiler spreads the flow of air around a car, making the car more fuel-efficient and safer at higher speeds. Adding a spoiler increases the cost of your car.";
+			lg_box_text.GetComponent<Text>().text = "A spoiler increases fuel-efficiency by spreading airflow around a car. A spoiler increases cost, but makes it safer at higher speeds.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
@@ -361,7 +361,7 @@ public class infoBox : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "The wheel design affects the cost of your car. Unless the wheels are very lightweight, they usually won’t affect fuel efficiency or speed.";
+			lg_box_text.GetComponent<Text>().text = "The type of wheel can increase the cost of your car, but usually won’t affect fuel-efficiency or speed.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
@@ -382,7 +382,7 @@ public class infoBox : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but it won’t affect fuel efficiency or speed.";
+			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but not fuel efficiency or speed.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
