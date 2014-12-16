@@ -109,23 +109,25 @@ public class infoBox : MonoBehaviour {
 			screenIndex = 0; 
 			textSwap(); 
 			changeInfoIcon();
+			/*
 			hybridButton.GetComponent<Image>().sprite = inactiveHybrid;
 			gasButton.GetComponent<Image>().sprite = inactiveGas;
-			electricButton.GetComponent<Image>().sprite = inactiveElectric;
+			electricButton.GetComponent<Image>().sprite = inactiveElectric;*/
 		});
 		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
 			textSwap();
-			changeInfoIcon();
+			changeInfoIcon();/*
 			manualButton.GetComponent<Image>().sprite = inactiveManual;
-			automaticButton.GetComponent<Image>().sprite = inactiveAutomatic;
+			automaticButton.GetComponent<Image>().sprite = inactiveAutomatic;*/
 		});
 		drivetrainInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 2; 
 			textSwap(); 
 			changeInfoIcon();
+			/*
 			fourWheelDriveButton.GetComponent<Image>().sprite = inactiveFourWheelDrive;
-			twoWheelDriveButton.GetComponent<Image>().sprite = inactiveTwoWheelDrive;
+			twoWheelDriveButton.GetComponent<Image>().sprite = inactiveTwoWheelDrive;*/
 		});
 
 		bodyStyleInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {

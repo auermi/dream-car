@@ -245,6 +245,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		nextButton10.GetComponent<Image>().sprite = nextButtonInactive;
 
 		//Setting Info Button/Text Button Event Listeners to diable next button again if info displayed AND removes existing choices on design portion of app
+		/*
 		infoButton2.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(2); });
 		infoButton3.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(3); });
 		infoButton4.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(4); });
@@ -263,7 +264,7 @@ public class CarSpriteSwap : MonoBehaviour {
 		textButton9.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(9); removeColor(); });
 		textButton10.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(10); removeDecal(); });
 
-
+*/
 
 		//Prepare Button Event Listeners
 
