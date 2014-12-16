@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 using UnityEngine.UI;
@@ -75,7 +75,7 @@ public class navigation : MonoBehaviour {
 			if(slides[i] == this.gameObject) {
 				
 				//only slide if there's enough slides left				
-				if( i-1 > 0 ) {					
+								
 					
 					//assign variables for slides					
 					var currentSlide = slides[i];					
@@ -94,7 +94,7 @@ public class navigation : MonoBehaviour {
 					
 					//break out of loop after one instanct;					
 					break;					
-				}				
+							
 			}
 		}	
 	}
