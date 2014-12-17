@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 3ccd23d6770b85a4b988ac54c92295ad
+guid: d9e60c5de52126d458312348c659ba77
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: gas-btn
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,7 +25,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0

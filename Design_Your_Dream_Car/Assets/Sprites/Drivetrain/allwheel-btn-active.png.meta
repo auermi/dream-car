@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: a32c882637440da4099c8ab9a3eb879d
+guid: 8566a658ef8c5bd408395b55c97dfe52
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: allwheel-btn-active
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,7 +25,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0

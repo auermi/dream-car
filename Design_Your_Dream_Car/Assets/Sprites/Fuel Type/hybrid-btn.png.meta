@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 68ab3bc75963c5642868efca0d42d48a
+guid: 0cae9453e7fe2dd40a63c5c673c4972f
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: hybrid-btn
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,7 +25,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
