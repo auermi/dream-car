@@ -69,6 +69,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	private GameObject spoiler;
 	private GameObject wheels;
 	private GameObject decal;
+	private GameObject decal2;
 	
 	private int carIndex;
 	private int wheelIndex;
@@ -927,6 +928,10 @@ public class CarSpriteSwap : MonoBehaviour {
 		{
 			Destroy(decal);
 		}
+		if (decal2 != null)
+		{
+			Destroy(decal2);
+		}
 		switch(carIndex)
 		{
 		case 0:
@@ -936,6 +941,9 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(-81.5f, -41.8f);
+				decal2 = Instantiate(star) as GameObject;
+				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.localPosition = new Vector3(150.47f, -45.6f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -960,6 +968,9 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(-86.8f, -78.3f);
+				decal2 = Instantiate(star) as GameObject;
+				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.localPosition = new Vector3(144.1f, -82.5f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -984,6 +995,9 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(-125.3f, -62.41f);
+				decal2 = Instantiate(star) as GameObject;
+				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.localPosition = new Vector3(105.3f, -63.7f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -1008,6 +1022,9 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(-104.5f, -45.6f);
+				decal2 = Instantiate(star) as GameObject;
+				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.localPosition = new Vector3(129.37f, -45.6f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -1031,7 +1048,10 @@ public class CarSpriteSwap : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-79.5f, -53.9f);
+				decal.transform.localPosition = new Vector3(-123.1f, -53.9f);
+				decal = Instantiate(star) as GameObject;
+				decal.transform.parent = decalContainer.transform;
+				decal.transform.localPosition = new Vector3(113f, -53.7f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -1291,6 +1311,10 @@ public class CarSpriteSwap : MonoBehaviour {
 		if (decal != null)
 		{
 			Destroy(decal);
+		}
+		if (decal2 != null)
+		{
+			Destroy(decal2);
 		}
 		flameButton.GetComponent<Image>().sprite = flamesButtonSprite;
 		starButton.GetComponent<Image>().sprite = starsButtonSprite;
