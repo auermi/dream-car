@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarSpriteSwap.cs">
     <Files>
-      <File FileName="Assets\Scripts\colorSelection.cs" Line="42" Column="83" />
-      <File FileName="Assets\Scripts\colorSelection.cs" Line="47" Column="1" />
+      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="549" Column="4" />
+      <File FileName="Assets\Scripts\colorSelection.cs" Line="42" Column="190" />
       <File FileName="Assets\Scripts\navigation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\infoBox.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="39" Column="33" />
+      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="1334" Column="1" />
       <File FileName="Assets\Scripts\SendMail.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\gauge_rotation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EmailInputDisplay.cs" Line="1" Column="1" />
