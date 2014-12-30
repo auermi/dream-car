@@ -78,23 +78,6 @@ public class infoBox : MonoBehaviour {
 	public Sprite compactInactive;
 	public Sprite vanInactive;
 	public Sprite suvInactive;
-
-	public GameObject nxt2;
-	public GameObject nxt3;
-	public GameObject nxt4;
-	public GameObject nxt6;
-	public GameObject nxt7;
-	public GameObject nxt8;
-	public GameObject nxt9;
-	public GameObject nxt10;
-	public GameObject p2;
-	public GameObject p3;
-	public GameObject p4;
-	public GameObject p6;
-	public GameObject p7;
-	public GameObject p8;
-	public GameObject p9;
-	public GameObject p10;
 	 
 	/// <summary>
 	/// screenIndex-
@@ -162,24 +145,6 @@ public class infoBox : MonoBehaviour {
 			textSwap ();
 			changeInfoIcon();
 		});
-
-		nxt2.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 2;});
-		nxt3.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 3; });
-		nxt4.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 4; });
-		nxt6.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 6; });
-		nxt7.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 7; });
-		nxt8.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 8; });
-		nxt9.GetComponent<Button>().onClick.AddListener( () => { removeInfoText();; screenIndex = 9; });
-		nxt10.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 10; });
-
-		p2.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 2;});
-		p3.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 3; });
-		p4.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 4; });
-		p6.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 6; });
-		p7.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 7; });
-		p8.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 8; });
-		p9.GetComponent<Button>().onClick.AddListener( () => { removeInfoText();; screenIndex = 9; });
-		p10.GetComponent<Button>().onClick.AddListener( () => { removeInfoText(); screenIndex = 10; });
 
 	}
 	

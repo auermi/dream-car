@@ -1,10 +1,20 @@
-﻿using UnityEngine;
+﻿//Written by Michael Andrew Auer for the Indianapolis Museum of Art Dream Car iPad Application
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class CarSpriteSwap : MonoBehaviour {
+public class CarCreation : MonoBehaviour {
 
 	public GoogleAnalyticsV3 googleAnalytics;
+
+	public GameObject next_Button;
+	public Sprite next_Button_Active;
+
+	//Gathering the gameobject that transition is attached to so we can access the scene index
+	public GameObject appSlider_ref;
+
+	//Assign Previous Button so we can remove car parts on click
+	public GameObject previous_Button;
 
 	public GameObject truck;
 	public GameObject suv;
@@ -12,7 +22,6 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject coupe;
 	public GameObject compact;
 
-	public GameObject canvas;
 	public GameObject spoilerContainer;
 	public GameObject decalContainer;
 	public GameObject bodyContainer;
@@ -30,7 +39,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject basicWheelButton;
 	public GameObject luxuryWheelButton;
 	public GameObject sportyWheelButton;
-	
+
 	public GameObject redButton;
 	public GameObject greenButton;
 	public GameObject yellowButton;
@@ -70,7 +79,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	private GameObject wheels;
 	private GameObject decal;
 	private GameObject decal2;
-	
+
 	private int carIndex;
 	private int wheelIndex;
 	private int colorIndex;
@@ -87,8 +96,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	private Color32 limeColor = new Color32(123, 193, 67, 255);
 	private Color32 navyColor = new Color32(0, 75, 135, 255);
 	private Color32 glaucousColor = new Color32(65, 89, 96, 255);
-
-	private int sceneIndex;
+	
 	public GameObject gasButton;
 	public GameObject electricButton;
 	public GameObject hybridButton;
@@ -96,7 +104,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject manualButton;
 	public GameObject twoWheelDriveButton;
 	public GameObject allWheelDriveButton;
-	
+
 	public Sprite gasButtonSprite;
 	public Sprite electricButtonSprite;
 	public Sprite hybridButtonSprite;
@@ -105,24 +113,6 @@ public class CarSpriteSwap : MonoBehaviour {
 	public Sprite twoWheelDriveButtonSprite;
 	public Sprite allWheelDriveButtonSprite;
 
-	public GameObject prevButton1;
-	public GameObject prevButton2;
-	public GameObject prevButton3;
-	public GameObject prevButton4;
-	public GameObject prevButton5;
-	public GameObject prevButton6;
-	public GameObject prevButton7;
-	public GameObject prevButton8;
-	public GameObject prevButton9;
-	public GameObject prevButton10;
-	public GameObject prevButton11;
-
-	public GameObject makeSelText;
-	private GameObject warnTxt;
-
-	private bool isChosen;
-
-	public GameObject infoTxtParent;
 	public Sprite spoilerSprite;
 	public Sprite noSpoilerSprite;
 	public Sprite basicWheelSprite;
@@ -138,40 +128,6 @@ public class CarSpriteSwap : MonoBehaviour {
 	public Sprite coupeSprite;
 
 	public GameObject resetButton;
-
-	public GameObject nextButton0;
-	public GameObject nextButton1;
-	public GameObject nextButton2;
-	public GameObject nextButton3;
-	public GameObject nextButton4;
-	public GameObject nextButton5;
-	public GameObject nextButton6;
-	public GameObject nextButton7;
-	public GameObject nextButton8;
-	public GameObject nextButton9;
-	public GameObject nextButton10;
-	public GameObject nextButton11;
-
-	public Sprite nextButtonInactive;
-	public Sprite nextButtonActive;
-
-	public GameObject infoButton2;
-	public GameObject infoButton3;
-	public GameObject infoButton4;
-	public GameObject infoButton6;
-	public GameObject infoButton7;
-	public GameObject infoButton8;
-	public GameObject infoButton9;
-	public GameObject infoButton10;
-
-	public GameObject textButton2;
-	public GameObject textButton3;
-	public GameObject textButton4;
-	public GameObject textButton6;
-	public GameObject textButton7;
-	public GameObject textButton8;
-	public GameObject textButton9;
-	public GameObject textButton10;
 
 	public Sprite basicWheelButtonSprite;
 	public Sprite luxuryWheelButtonSprite;
@@ -190,18 +146,18 @@ public class CarSpriteSwap : MonoBehaviour {
 	public GameObject doneButton;
 
 	/// <summary>
-	/// carIndex= 
-	/// 0:Truck 
+	/// carIndex=
+	/// 0:Truck
 	/// 1:SUV
 	/// 2:Van
 	/// 3:Coupe
 	/// 4:Compact
-	/// 
+	///
 	/// wheelIndex=
 	/// 0:Sport
 	/// 1:Luxury
 	/// 2:Basic
-	/// 
+	///
 	/// colorIndex=
 	/// 0:Red
 	/// 1:Green
@@ -214,7 +170,7 @@ public class CarSpriteSwap : MonoBehaviour {
 	/// 8:Lime
 	/// 9:Navy
 	/// 10:Glaucous
-	/// 
+	///
 	/// decalIndex=
 	/// 0:star
 	/// 1:flame
@@ -223,375 +179,196 @@ public class CarSpriteSwap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sceneIndex = 0;
-
-		//Setting next buttons inactive to prevent moving on without choice
-		nextButton2.GetComponent<Button>().interactable = false;
-		nextButton3.GetComponent<Button>().interactable = false;
-		nextButton4.GetComponent<Button>().interactable = false;
-		nextButton6.GetComponent<Button>().interactable = false;
-		nextButton7.GetComponent<Button>().interactable = false;
-		nextButton8.GetComponent<Button>().interactable = false;
-		nextButton9.GetComponent<Button>().interactable = false;
-		nextButton10.GetComponent<Button>().interactable = false;
-
-		//Setting Next Buttons' sprite to the inactive sprite
-		nextButton2.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton3.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton4.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton6.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton7.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton8.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton9.GetComponent<Image>().sprite = nextButtonInactive;
-		nextButton10.GetComponent<Image>().sprite = nextButtonInactive;
-
-		//Setting Info Button/Text Button Event Listeners to diable next button again if info displayed AND removes existing choices on design portion of app
-		/*
-		infoButton2.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(2); });
-		infoButton3.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(3); });
-		infoButton4.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(4); });
-		infoButton6.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(6); removeCar(); });
-		infoButton7.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(7); removeSpoiler(); });
-		infoButton8.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(8); removeWheels(); });
-		infoButton9.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(9); removeColor(); });
-		infoButton10.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(10); removeDecal(); });
-
-		textButton2.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(2); });
-		textButton3.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(3); });
-		textButton4.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(4); });
-		textButton6.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(6); removeCar(); });
-		textButton7.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(7); removeSpoiler(); });
-		textButton8.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(8); removeWheels(); });
-		textButton9.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(9); removeColor(); });
-		textButton10.GetComponent<Button>().onClick.AddListener ( () => { changeNextButtonStateToFalse(10); removeDecal(); });
-
-*/
-
-		//Prepare Button Event Listeners
 
 		//Fuel-Type Event Listeners
-		gasButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 2;  remAdvTxt(); changeNextButtonStateToTrue(2); });
-		electricButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 2;  remAdvTxt(); changeNextButtonStateToTrue(2); });
-		hybridButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 2;  remAdvTxt(); changeNextButtonStateToTrue(2); });
+		gasButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
+		electricButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
+		hybridButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
 
 		//Transmission Event Listeners
-		automaticButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 3;  remAdvTxt(); changeNextButtonStateToTrue(3); });
-		manualButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 3;  remAdvTxt(); changeNextButtonStateToTrue(3); });
+		automaticButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
+		manualButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
 
 		//Drivetrain Event Listeners
-		twoWheelDriveButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 4;  remAdvTxt(); changeNextButtonStateToTrue(4); });
-		allWheelDriveButton.GetComponent<Button>().onClick.AddListener( () => { sceneIndex = 4;  remAdvTxt(); changeNextButtonStateToTrue(4); });
+		twoWheelDriveButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
+		allWheelDriveButton.GetComponent<Button>().onClick.AddListener( () => { EnableNextButton();});
 
 		//Car Body Event Listeners
-		truckButton.GetComponent<Button>().onClick.AddListener(() => { 
+		truckButton.GetComponent<Button>().onClick.AddListener(() => {
 			truckSwap();
-			nextButton6.GetComponent<Button>().interactable = true;
-			sceneIndex = 6; 
-			changeNextButtonStateToTrue(6);
-			remAdvTxt();  
+			EnableNextButton();
 		});
-		suvButton.GetComponent<Button>().onClick.AddListener(() => { 
+		suvButton.GetComponent<Button>().onClick.AddListener(() => {
 			suvSwap();
-			nextButton6.GetComponent<Button>().interactable = true;
-			changeNextButtonStateToTrue(6);
-			sceneIndex = 6; 
-			remAdvTxt();  
+			EnableNextButton();
 		});
-		vanButton.GetComponent<Button>().onClick.AddListener(() => { 
+		vanButton.GetComponent<Button>().onClick.AddListener(() => {
 			vanSwap();
-			nextButton6.GetComponent<Button>().interactable = true;
-			sceneIndex = 6; 
-			changeNextButtonStateToTrue(6);
-			remAdvTxt();  
+			EnableNextButton();
 		});
-		coupeButton.GetComponent<Button>().onClick.AddListener(() => { 
-			coupeSwap(); 
-			nextButton6.GetComponent<Button>().interactable = true;
-			sceneIndex = 6; 
-			changeNextButtonStateToTrue(6);
-			remAdvTxt(); 
+		coupeButton.GetComponent<Button>().onClick.AddListener(() => {
+			coupeSwap();
+			EnableNextButton();
 		});
-		compactButton.GetComponent<Button>().onClick.AddListener(() => { 
-			compactSwap(); 
-			nextButton6.GetComponent<Button>().interactable = true;
-			sceneIndex = 6; 
-			changeNextButtonStateToTrue(6);
-			remAdvTxt(); 
+		compactButton.GetComponent<Button>().onClick.AddListener(() => {
+			compactSwap();
+			EnableNextButton();
 		});
 
 		//Spoiler Event Listeners
 		spoilerButton.GetComponent<Button>().onClick.AddListener(() => {
-			spoilerButton.GetComponent<Image>().sprite = spoilerActiveButtonSprite;
-			noSpoilerButton.GetComponent<Image>().sprite = noSpoilerButtonSprite;
-			nextButton7.GetComponent<Button>().interactable = true;
-			addSpoiler(); 
-			sceneIndex = 7; 
-			changeNextButtonStateToTrue(7);
-			remAdvTxt(); ;
+			addSpoiler();
+			EnableNextButton();
 		});
-		noSpoilerButton.GetComponent<Button>().onClick.AddListener(() => { 
-			nextButton7.GetComponent<Button>().interactable = true;
-			spoilerButton.GetComponent<Image>().sprite = spoilerButtonSprite;
-			noSpoilerButton.GetComponent<Image>().sprite = noSpoilerActivebuttonSprite;
-			removeSpoiler(); 
-			sceneIndex = 7; 
-			changeNextButtonStateToTrue(7);
-			remAdvTxt(); 
-			Debug.Log ("heooo");
+		noSpoilerButton.GetComponent<Button>().onClick.AddListener(() => {
+			removeSpoiler();
+			EnableNextButton();
 		});
 
 		//Wheel Event Listeners
-		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => { 
-			nextButton8.GetComponent<Button>().interactable = true;
-			wheelIndex = 2; 
-			wheelSwap(); 
-			sceneIndex = 8; 
-			changeNextButtonStateToTrue(8);
-			remAdvTxt(); 
+		basicWheelButton.GetComponent<Button>().onClick.AddListener(() => {
+			wheelIndex = 2;
+			wheelSwap();
+			EnableNextButton();
 		});
-		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => { 
-			nextButton8.GetComponent<Button>().interactable = true;
-			wheelIndex = 1; 
-			wheelSwap(); 
-			sceneIndex = 8; 
-			changeNextButtonStateToTrue(8);
-			remAdvTxt(); 
+		luxuryWheelButton.GetComponent<Button>().onClick.AddListener(() => {
+			wheelIndex = 1;
+			wheelSwap();
+			EnableNextButton();
 		});
-		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => { 
-			nextButton8.GetComponent<Button>().interactable = true;
-			wheelIndex = 0; 
-			wheelSwap(); 
-			sceneIndex = 8; 
-			changeNextButtonStateToTrue(8);
-			remAdvTxt();
+		sportyWheelButton.GetComponent<Button>().onClick.AddListener(() => {
+			wheelIndex = 0;
+			wheelSwap();
+			EnableNextButton();
 		});
 
 		//Color Event Listeners
-		redButton.GetComponent<Button>().onClick.AddListener(() => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 0; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		redButton.GetComponent<Button>().onClick.AddListener(() => {
+			colorIndex = 0;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = redColor;
 			}
+			EnableNextButton();
 		});
-		greenButton.GetComponent<Button>().onClick.AddListener( () => { 
-
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 1; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		greenButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 1;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = greenColor;
 			}
+			EnableNextButton();
 		});
-		yellowButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 2; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt();
+		yellowButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 2;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = yellowColor;
 			}
+			EnableNextButton();
 		});
-		orangeButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 3; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt();
+		orangeButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 3;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = orangeColor;
 			}
+			EnableNextButton();
 		});
-		turquoiseButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 4; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		turquoiseButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 4;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = turquoiseColor;
 			}
+			EnableNextButton();
 		});
 		carrotButton.GetComponent<Button>().onClick.AddListener( () => {
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 5; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt();
+			colorIndex = 5;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = carrotColor;
 			}
+			EnableNextButton();
 		});
-		pinkButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 6; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt();
+		pinkButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 6;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = pinkColor;
 			}
+			EnableNextButton();
 		});
-		greyButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 7; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		greyButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 7;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = greyColor;
 			}
+			EnableNextButton();
 		});
-		limeButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 8; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		limeButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 8;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = limeColor;
 			}
+			EnableNextButton();
 		});
-		navyButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 9; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		navyButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 9;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = navyColor;
 			}
+			EnableNextButton();
 		});
-		glaucousButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton9.GetComponent<Button>().interactable = true;
-			colorIndex = 10; 
-			colorChange(); 
-			sceneIndex = 9; 
-			changeNextButtonStateToTrue(9);
-			remAdvTxt(); 
+		glaucousButton.GetComponent<Button>().onClick.AddListener( () => {
+			colorIndex = 10;
+			colorChange();
 			if (spoiler != null)
 			{
 				spoiler.GetComponent<Image>().color = glaucousColor;
 			}
+			EnableNextButton();
 		});
 
 		//Decal Event Listeners
-		starButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton10.GetComponent<Button>().interactable = true;
-			decalIndex = 0; 
-			decalChange(); 
-			sceneIndex = 10; 
-			changeNextButtonStateToTrue(10);
-			remAdvTxt();
+		starButton.GetComponent<Button>().onClick.AddListener( () => {
+			decalIndex = 0;
+			decalChange();
+			EnableNextButton();
 		});
-		flameButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton10.GetComponent<Button>().interactable = true;
-			decalIndex = 1; 
-			decalChange(); 
-			sceneIndex = 10; 
-			changeNextButtonStateToTrue(10);
-			remAdvTxt(); 
+		flameButton.GetComponent<Button>().onClick.AddListener( () => {
+			decalIndex = 1;
+			decalChange();
+			EnableNextButton();
 		});
 		stripeButton.GetComponent<Button>().onClick.AddListener( () => {
-			nextButton10.GetComponent<Button>().interactable = true;
-			decalIndex = 2; 
-			decalChange(); 
-			sceneIndex = 10; 
-			changeNextButtonStateToTrue(10);
-			remAdvTxt(); 
+			decalIndex = 2;
+			decalChange();
+			EnableNextButton();
 		});
-		noDecalButton.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton10.GetComponent<Button>().interactable = true;
-			noDecalButton.GetComponent<Image>().sprite = noDecalButtonActiveSprite; 
-			changeNextButtonStateToTrue(10);
+		noDecalButton.GetComponent<Button>().onClick.AddListener( () => {
+			noDecalButton.GetComponent<Image>().sprite = noDecalButtonActiveSprite;
 			removeDecal();
+			EnableNextButton();
 		});
 
-
-
-
-
-
-
-		//Clearing the previous screen's customization option
-		prevButton2.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices();  
-		});
-		prevButton3.GetComponent<Button>().onClick.AddListener( () => {  
-			nextButton2.GetComponent<Button>().interactable = false;
-			nextButton2.GetComponent<Image>().sprite = nextButtonInactive;
-			clearChoices(); 
-		});
-		prevButton4.GetComponent<Button>().onClick.AddListener( () => { 
-			nextButton3.GetComponent<Image>().sprite = nextButtonInactive;
-			nextButton3.GetComponent<Button>().interactable = false; 
-			clearChoices();  
-		});
-		prevButton5.GetComponent<Button>().onClick.AddListener( () => {
-			nextButton4.GetComponent<Image>().sprite = nextButtonInactive;
-			nextButton4.GetComponent<Button>().interactable = false; 
-		});
-		prevButton6.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices(); 
-			removeCar(); 
-		});
-		prevButton7.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices();
-			nextButton6.GetComponent<Image>().sprite = nextButtonInactive;
-			nextButton6.GetComponent<Button>().interactable = false; 
-			noSpoilerButton.GetComponent<Image>().sprite = noSpoilerButtonSprite; 
-			removeSpoiler();
-		});
-		prevButton8.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices();
-			nextButton7.GetComponent<Image>().sprite = nextButtonInactive;
-			nextButton7.GetComponent<Button>().interactable = false; 
-			removeWheels();  
-		});
-		prevButton9.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices(); 
-			nextButton8.GetComponent<Button>().interactable = false; 
-			nextButton8.GetComponent<Image>().sprite = nextButtonInactive;
-			removeColor(); 
-		});
-		prevButton10.GetComponent<Button>().onClick.AddListener( () => {  
-			clearChoices(); 
-			nextButton9.GetComponent<Button>().interactable = false; 
-			nextButton9.GetComponent<Image>().sprite = nextButtonInactive;
-			removeDecal(); noDecalButton.GetComponent<Image>().sprite = noDecalButtonSprite; 
-		});
-
-		//Reset Button resets selections
-		resetButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
 		doneButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
 
-		nextButton1.GetComponent<Image>().enabled = true;
+		//if previous button is pressed we need to check and see if any car parts need to be removed
+		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { RemovePreviousCarPart(); });
 	}
 
 	void truckSwap()
@@ -951,7 +728,7 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal.transform.localPosition = new Vector3(132.5f, -56.5f);
 				decal.transform.localScale = new Vector3(1f, 0.81f);
 				break;
-			case 2: 
+			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -58f);
@@ -978,7 +755,7 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal.transform.localPosition = new Vector3(118.73f, -87.3f);
 				decal.transform.localScale = new Vector3(1f, 0.81f);
 				break;
-			case 2: 
+			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -80.6f);
@@ -1005,7 +782,7 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal.transform.localPosition = new Vector3(105.4f, -72.2f);
 				decal.transform.localScale = new Vector3(1f, 0.73f);
 				break;
-			case 2: 
+			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -77f);
@@ -1032,7 +809,7 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal.transform.localPosition = new Vector3(106.4f, -56.2f);
 				decal.transform.localScale = new Vector3(1f, 0.81f);
 				break;
-			case 2: 
+			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -61.7f);
@@ -1059,7 +836,7 @@ public class CarSpriteSwap : MonoBehaviour {
 				decal.transform.localPosition = new Vector3(52.6f, -52.6f);
 				decal.transform.localScale = new Vector3(1f, 0.82f);
 				break;
-			case 2: 
+			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(0f, -64.7f);
@@ -1076,60 +853,6 @@ public class CarSpriteSwap : MonoBehaviour {
 	}
 
 
-	void clearChoices()
-	{
-		switch (sceneIndex)
-		{
-		case 2:
-			gasButton.GetComponent<Image>().sprite = gasButtonSprite;
-			electricButton.GetComponent<Image>().sprite = electricButtonSprite;
-			hybridButton.GetComponent<Image>().sprite = hybridButtonSprite;
-			break;
-		case 3:
-			automaticButton.GetComponent<Image>().sprite = automaticButtonSprite;
-			manualButton.GetComponent<Image>().sprite = manualButtonSprite;
-			break;
-		case 4:
-			twoWheelDriveButton.GetComponent<Image>().sprite = twoWheelDriveButtonSprite;
-			allWheelDriveButton.GetComponent<Image>().sprite = allWheelDriveButtonSprite;
-			break;
-		case 6:
-			removeCar();
-			break;
-		case 7:
-			removeSpoiler();
-			break;
-		case 8:
-			removeWheels();
-			break;
-		case 9:
-			removeColor();
-			break;
-		case 10:
-			removeDecal();
-			break;
-		default:
-			break;
-		}
-
-	}
-	void dispAdvTxt ()
-	{
-		if (warnTxt == null)
-		{
-			warnTxt = Instantiate (makeSelText) as GameObject;
-			warnTxt.transform.parent = infoTxtParent.transform;
-			warnTxt.transform.localPosition = new Vector3(355f, -330f);
-		}
-	}
-
-	void remAdvTxt()
-	{
-		if (warnTxt != null)
-		{
-			Destroy(warnTxt);
-		}
-	}
 	void resetSelections()
 	{
 		gasButton.GetComponent<Image>().sprite = gasButtonSprite;
@@ -1139,8 +862,6 @@ public class CarSpriteSwap : MonoBehaviour {
 		manualButton.GetComponent<Image>().sprite = manualButtonSprite;
 		twoWheelDriveButton.GetComponent<Image>().sprite = twoWheelDriveButtonSprite;
 		allWheelDriveButton.GetComponent<Image>().sprite = allWheelDriveButtonSprite;
-		spoilerButton.GetComponent<Image>().sprite = spoilerSprite;
-		noSpoilerButton.GetComponent<Image>().sprite = noSpoilerSprite;
 		basicWheelButton.GetComponent<Image>().sprite = basicWheelSprite;
 		luxuryWheelButton.GetComponent<Image>().sprite = luxuryWheelSprite;
 		sportyWheelButton.GetComponent<Image>().sprite = sportyWheelSprite;
@@ -1175,107 +896,6 @@ public class CarSpriteSwap : MonoBehaviour {
 		if (decal != null)
 		{
 			Destroy(decal);
-		}
-	}
-	void changeNextButtonStateToFalse(int scene)
-	{
-		//Setting next buttons inactive to prevent moving on without choice
-		//Setting Next Buttons' sprite to the inactive sprite
-
-		switch (scene)
-		{
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			nextButton2.GetComponent<Button>().interactable = false;
-			nextButton2.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 3:
-			nextButton3.GetComponent<Button>().interactable = false;
-			nextButton3.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 4:
-			nextButton4.GetComponent<Button>().interactable = false;
-			nextButton4.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 5:
-			break;
-		case 6:
-			nextButton6.GetComponent<Button>().interactable = false;
-			nextButton6.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 7:
-			nextButton7.GetComponent<Button>().interactable = false;
-			nextButton7.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 8:
-			nextButton8.GetComponent<Button>().interactable = false;
-			nextButton8.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 9:
-			nextButton9.GetComponent<Button>().interactable = false;
-			nextButton9.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 10:
-			nextButton10.GetComponent<Button>().interactable = false;
-			nextButton10.GetComponent<Image>().sprite = nextButtonInactive;
-			break;
-		case 11:
-			break;
-		default:
-			break;
-		}
-	}
-	void changeNextButtonStateToTrue(int scene)
-	{
-		//Setting next buttons to active to allow moving to next option
-		//Setting Next Buttons' sprite to the active sprite
-		switch (scene)
-		{
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			nextButton2.GetComponent<Button>().interactable = true;
-			nextButton2.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 3:
-			nextButton3.GetComponent<Button>().interactable = true;
-			nextButton3.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 4:
-			nextButton4.GetComponent<Button>().interactable = true;
-			nextButton4.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 5:
-			break;
-		case 6:
-			nextButton6.GetComponent<Button>().interactable = true;
-			nextButton6.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 7:
-			nextButton7.GetComponent<Button>().interactable = true;
-			nextButton7.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 8:
-			nextButton8.GetComponent<Button>().interactable = true;
-			nextButton8.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 9:
-			nextButton9.GetComponent<Button>().interactable = true;
-			nextButton9.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 10:
-			nextButton10.GetComponent<Button>().interactable = true;
-			nextButton10.GetComponent<Image>().sprite = nextButtonActive;
-			break;
-		case 11:
-			break;
-		default:
-			break;
 		}
 	}
 	void removeCar()
@@ -1328,6 +948,54 @@ public class CarSpriteSwap : MonoBehaviour {
 		{
 			Destroy(spoiler);
 		}
-		spoilerButton.GetComponent<Image>().sprite = spoilerButtonSprite;
+	}
+	//Enables Button after choice is made and switches the next button image
+	void EnableNextButton ()
+	{
+		next_Button.GetComponent<Button>().interactable = true;
+		next_Button.GetComponent<Image>().sprite = next_Button_Active;
+	}
+
+	void RemovePreviousCarPart()
+	{
+		Transition transition_Script = appSlider_ref.GetComponent<Transition> ();
+		int localSceneIndex = transition_Script.scene_index;
+		switch (localSceneIndex)
+		{
+		case 6:
+			if (car != null)
+			{
+				Destroy (car);
+			}
+			break;
+		case 7:
+			if (spoiler != null)
+			{
+				Destroy (spoiler);
+			}
+			break;
+		case 8:
+			if (leftWheel != null)
+			{
+				Destroy(leftWheel);
+				Destroy(rightWheel);
+			}
+			break;
+		case 9:
+			car.GetComponent<Image>().color = new Color32 (51, 51, 51, 255);
+			break;
+		case 10:
+			if (decal != null)
+			{
+				Destroy(decal);
+			}
+			if (decal2 != null)
+			{
+				Destroy (decal2);
+			}
+			break;
+		default:
+			break;
+		}
 	}
 }

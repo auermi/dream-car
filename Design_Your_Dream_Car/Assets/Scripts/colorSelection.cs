@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿//Written by Michael Andrew Auer for the Indianapolis Museum of Art Dream Car iPad Application
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class colorSelection : MonoBehaviour {
 
 	public GameObject selectionBox;
-	public GameObject nextButtonColor;
+	//public GameObject nextButtonColor;
 
 	public GameObject redButton;
 	public GameObject greenButton;
@@ -38,8 +39,8 @@ public class colorSelection : MonoBehaviour {
 		navyButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition = new Vector3(280f, -212.9f);} );
 		glaucousButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition = new Vector3(350f, -212.9f);} );
 
-		//Reset selectionBox out of sight
-		nextButtonColor.GetComponent<Button>().onClick.AddListener( () => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition = new Vector3(0f, -1000f); });
+		//Reset selectionBox out of sight (Needs to be fixed with nav overhaul)
+		//nextButtonColor.GetComponent<Button>().onClick.AddListener( () => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition = new Vector3(0f, -1000f); });
 	}
 	
 

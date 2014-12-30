@@ -1,16 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarSpriteSwap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarCreation.cs">
     <Files>
-      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="549" Column="4" />
-      <File FileName="Assets\Scripts\colorSelection.cs" Line="42" Column="190" />
-      <File FileName="Assets\Scripts\navigation.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ButtonStateChange.cs" Line="66" Column="61" />
+      <File FileName="Assets\Scripts\colorSelection.cs" Line="9" Column="4" />
       <File FileName="Assets\Scripts\infoBox.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CarSpriteSwap.cs" Line="1334" Column="1" />
-      <File FileName="Assets\Scripts\SendMail.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\gauge_rotation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EmailInputDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InterfaceParenter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CarCreation.cs" Line="985" Column="68" />
+      <File FileName="Assets\Scripts\Transition.cs" Line="133" Column="3" />
+      <File FileName="Assets\Scripts\InterfaceParenter.cs" Line="11" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
