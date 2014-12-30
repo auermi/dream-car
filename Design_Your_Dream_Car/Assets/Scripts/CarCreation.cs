@@ -369,6 +369,8 @@ public class CarCreation : MonoBehaviour {
 
 		//if previous button is pressed we need to check and see if any car parts need to be removed
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { RemovePreviousCarPart(); });
+		//Restart Button handler resets everything
+		resetButton.GetComponent<Button> ().onClick.AddListener (() => { resetSelections(); });
 	}
 
 	void truckSwap()
