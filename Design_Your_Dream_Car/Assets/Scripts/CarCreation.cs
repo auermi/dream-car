@@ -985,6 +985,10 @@ public class CarCreation : MonoBehaviour {
 			break;
 		case 9:
 			car.GetComponent<Image>().color = new Color32 (51, 51, 51, 255);
+			if (spoiler != null)
+			{
+				spoiler.GetComponent<Image>().color = new Color32 (51,51,51,255);
+			}
 			break;
 		case 10:
 			if (decal != null)
