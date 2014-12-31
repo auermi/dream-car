@@ -7,11 +7,14 @@ public class GaugeRotation : MonoBehaviour {
 
 	//Gauges
 	public GameObject cost_Gauge;
+	public GameObject efficiency_Gauge;
+	public GameObject speed_Gauge;
 
 	//Referencing the app slider which contains the script we want to access
 	public GameObject appSlider_ref;
 
-	//Seperate Costs
+	//Values
+	//Cost
 	private int fuel_Cost;
 	private int drivetrain_Cost;
 	private int transmission_Cost;
@@ -20,9 +23,22 @@ public class GaugeRotation : MonoBehaviour {
 	private int wheels_Cost;
 	private int paintCoat_Cost;
 	private int decal_Cost;
+	//Fuel Efficiency
+	private int fuel_Efficiency;
+	private int drivetrain_Efficiency;
+	private int transmission_Efficiency;
+	private int bodyStyle_Efficiency;
+	private int spoiler_Efficiency;
+	//Speed
+	private int fuel_Speed;
+	private int transmission_Speed;
+	private int bodyStyle_Speed;
+	private int spoiler_Speed;
 
 	//Totals
-	private int total_Cost;
+	private float total_Cost;
+	private float total_Efficiency;
+	private float total_Speed;
 	
 	//All buttons that impact gauges
 	public GameObject gas_Button;
@@ -70,20 +86,20 @@ public class GaugeRotation : MonoBehaviour {
 		ZeroGaugueValues ();
 
 		//Set listeners for all Buttons affecting gauge values
-		gas_Button.GetComponent<Button> ().onClick.AddListener (() => { fuel_Cost = 1; CalculateCostGauge(); });
-		hybrid_Button.GetComponent<Button>().onClick.AddListener (() => { fuel_Cost = 2; CalculateCostGauge();});
-		electric_Button.GetComponent<Button> ().onClick.AddListener (() => { fuel_Cost = 3; CalculateCostGauge();});
-		twoWheelDrive_Button.GetComponent<Button> ().onClick.AddListener (() => { drivetrain_Cost = 0; CalculateCostGauge();});
-		allWheelDrive_Button.GetComponent<Button> ().onClick.AddListener (() => { drivetrain_Cost = 1; CalculateCostGauge(); });
-		automatic_Button.GetComponent<Button> ().onClick.AddListener (() => { transmission_Cost = 1; CalculateCostGauge (); });
-		manual_Button.GetComponent<Button> ().onClick.AddListener (() => { transmission_Cost = 0; CalculateCostGauge ();  });
-		coupe_Button.GetComponent<Button>().onClick.AddListener (() => { bodyStyle_Cost = 1; CalculateCostGauge(); });
-		compact_Button.GetComponent<Button>().onClick.AddListener (() => { bodyStyle_Cost = 0; CalculateCostGauge(); });
-		minivan_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 2; CalculateCostGauge();});
-		truck_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 4; CalculateCostGauge(); });
-		suv_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 3; CalculateCostGauge(); });
-		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 1; CalculateCostGauge(); });
-		noSpoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 0; CalculateCostGauge(); });
+		gas_Button.GetComponent<Button> ().onClick.AddListener (() => { fuel_Cost = 1; fuel_Efficiency = 1; fuel_Speed = 3; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		hybrid_Button.GetComponent<Button>().onClick.AddListener (() => { fuel_Cost = 2; fuel_Efficiency = 2; fuel_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge();});
+		electric_Button.GetComponent<Button> ().onClick.AddListener (() => { fuel_Cost = 3; fuel_Efficiency = 3; fuel_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		twoWheelDrive_Button.GetComponent<Button> ().onClick.AddListener (() => { drivetrain_Cost = 0; drivetrain_Efficiency = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); });
+		allWheelDrive_Button.GetComponent<Button> ().onClick.AddListener (() => { drivetrain_Cost = 1; drivetrain_Efficiency = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); });
+		automatic_Button.GetComponent<Button> ().onClick.AddListener (() => { transmission_Cost = 1; transmission_Efficiency = 1; transmission_Speed = 0; CalculateCostGauge (); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		manual_Button.GetComponent<Button> ().onClick.AddListener (() => { transmission_Cost = 0; transmission_Efficiency = 0; transmission_Speed = 1; CalculateCostGauge (); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		coupe_Button.GetComponent<Button>().onClick.AddListener (() => { bodyStyle_Cost = 1; bodyStyle_Efficiency = 3; bodyStyle_Speed = 4; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		compact_Button.GetComponent<Button>().onClick.AddListener (() => { bodyStyle_Cost = 0; bodyStyle_Efficiency = 4; bodyStyle_Speed = 3; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		minivan_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 2; bodyStyle_Efficiency = 2; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		truck_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 4; bodyStyle_Efficiency = 0; bodyStyle_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		suv_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 3; bodyStyle_Efficiency = 1; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 1; spoiler_Efficiency = 1; spoiler_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		noSpoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 0; spoiler_Efficiency = 0; spoiler_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge();});
 		sportyWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 1; CalculateCostGauge(); });
 		luxuryWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 2; CalculateCostGauge(); });
 		basicWheel_Button.GetComponent<Button> ().onClick.AddListener (() => { wheels_Cost = 0; CalculateCostGauge(); });
@@ -104,7 +120,7 @@ public class GaugeRotation : MonoBehaviour {
 		noDecal_Button.GetComponent<Button>().onClick.AddListener ( () => { decal_Cost = 0; CalculateCostGauge(); });
 
 		//Reset Values
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { ZeroGaugueValues(); CalculateCostGauge();  });
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { ZeroGaugueValues();});
 
 		//Watches to re-adjust values 
 		previous_Button.GetComponent<Button>().onClick.AddListener (() => { RemovePreviousSlideValues(); });
@@ -113,8 +129,21 @@ public class GaugeRotation : MonoBehaviour {
 	void CalculateCostGauge ()
 	{
 		total_Cost = fuel_Cost + drivetrain_Cost + transmission_Cost + bodyStyle_Cost + spoiler_Cost + wheels_Cost + paintCoat_Cost + decal_Cost;
-		float convertedTotal_Cost = total_Cost * -12;
+		float convertedTotal_Cost = total_Cost * -12f;
 		cost_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Cost);
+	}
+	void CalculateFuelEfficiencyGauge()
+	{
+		total_Efficiency = fuel_Efficiency + drivetrain_Efficiency + transmission_Efficiency + bodyStyle_Efficiency + spoiler_Efficiency;
+		float convertedTotal_Efficiency = total_Efficiency * -18f;
+		efficiency_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Efficiency);
+
+	}
+	void CalculateSpeedGauge()
+	{
+		total_Speed = fuel_Speed + transmission_Speed + bodyStyle_Speed + spoiler_Speed;
+		float convertedTotal_Speed = total_Speed * -22.5f;
+		speed_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Speed);
 	}
 	void ZeroGaugueValues()
 	{
@@ -127,38 +156,60 @@ public class GaugeRotation : MonoBehaviour {
 		paintCoat_Cost = 0;
 		decal_Cost = 0;
 		total_Cost = 0;
+		fuel_Efficiency = 0;
+		drivetrain_Efficiency = 0;
+		transmission_Efficiency = 0;
+		bodyStyle_Efficiency = 0;
+		spoiler_Efficiency = 0;
+		fuel_Speed = 0;
+		transmission_Speed = 0;
+		bodyStyle_Speed = 0;
+		spoiler_Speed = 0;
+
+		//Recalculate
+		CalculateCostGauge ();
+		CalculateFuelEfficiencyGauge ();
+		CalculateSpeedGauge ();
 	}
 
 	//Remove previous slide values and recalculate gauge values
+	//Values are -1 because of transition script subtracting one from scene index
 	void RemovePreviousSlideValues()
 	{
 		Transition transition_Script = appSlider_ref.GetComponent<Transition> ();
 		int localSceneIndex = transition_Script.scene_index;
-		Debug.Log (localSceneIndex);
 		switch (localSceneIndex) 
 		{
-			case 2:
+			case 1:
 				fuel_Cost = 0;
+				fuel_Efficiency = 0;
+				break;
+			case 2:
+				drivetrain_Cost = 0;
+				drivetrain_Efficiency = 0;
 				break;
 			case 3:
-				drivetrain_Cost = 0;
-				break;
-			case 4:
 				transmission_Cost = 0;
+				transmission_Efficiency = 0;
+				transmission_Speed = 0;
+				break;
+			case 5:
+				bodyStyle_Cost = 0;
+				bodyStyle_Efficiency = 0;
+				bodyStyle_Speed = 0;
 				break;
 			case 6:
-				bodyStyle_Cost = 0;
+				spoiler_Cost = 0;
+				spoiler_Efficiency = 0;
+				spoiler_Speed = 0;
 				break;
 			case 7:
-				spoiler_Cost = 0;
-				break;
-			case 8:
 				wheels_Cost = 0;
 				break;
-			case 9:
+			case 8:
 				paintCoat_Cost = 0;
 				break;
-			case 10: 
+			case 9: 
 				decal_Cost = 0;
 				break;
 			default:
@@ -166,5 +217,7 @@ public class GaugeRotation : MonoBehaviour {
 		}
 		//Recalculate
 		CalculateCostGauge ();
+		CalculateFuelEfficiencyGauge ();
+		CalculateSpeedGauge ();
 	}
 }
