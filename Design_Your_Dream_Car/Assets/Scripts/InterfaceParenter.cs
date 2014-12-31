@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InterfaceParenter : MonoBehaviour {
 
-	//Referencing the app slider which contains the game object we want to access
+	//Referencing the app slider which contains the script we want to access
 	public GameObject appSlider_ref;
 
 	//Parents for keeping the dashboard hidden on the right screens

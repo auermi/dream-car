@@ -64,6 +64,7 @@ public class Transition : MonoBehaviour {
 				animation.AddClip (clip, "queued_transition");
 				animation.Play ("queued_transition");
 				scene_index--;
+				CheckIfReenable();
 				StartCoroutine(WaitForAnimation());
 			}
 		}
@@ -131,5 +132,23 @@ public class Transition : MonoBehaviour {
 	IEnumerator WaitForAnimation() {
 		yield return new WaitForSeconds(.5f);
 		isMoving = false;
+	}
+	//Enables Next button in case of some exceptions where it is needed on reverse
+	void CheckIfReenable()
+	{
+		switch (scene_index) 
+		{
+		case 1:
+			next_Button.GetComponent<Button>().interactable = true;
+			next_Button.GetComponent<Image>().sprite = active_Button;
+			break;
+		case 5:
+			next_Button.GetComponent<Button>().interactable = true;
+			next_Button.GetComponent<Image>().sprite = active_Button;
+			break;
+		default:
+			break;
+		}
+		
 	}
 }
