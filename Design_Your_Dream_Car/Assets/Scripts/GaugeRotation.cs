@@ -9,10 +9,7 @@ public class GaugeRotation : MonoBehaviour {
 	public GameObject cost_Gauge;
 	public GameObject efficiency_Gauge;
 	public GameObject speed_Gauge;
-
-	//Referencing the app slider which contains the script we want to access
-	public GameObject appSlider_ref;
-
+	
 	//Values
 	//Cost
 	private int fuel_Cost;
@@ -80,9 +77,19 @@ public class GaugeRotation : MonoBehaviour {
 	//Previous Button so we can remove values going backwards
 	public GameObject previous_Button;
 
+	//Next Button so we can track the scene Index
+	public GameObject next_Button;
+
+	//We need to track the scene index here
+	private int scene_Index;
+
+	//Tracking the start button here to up scene index by one
+	public GameObject start_Button;
+
 	// Use this for initialization
 	//Set all values equal to zero
 	void Start () {
+		scene_Index = 0;
 		ZeroGaugueValues ();
 
 		//Set listeners for all Buttons affecting gauge values
@@ -120,10 +127,14 @@ public class GaugeRotation : MonoBehaviour {
 		noDecal_Button.GetComponent<Button>().onClick.AddListener ( () => { decal_Cost = 0; CalculateCostGauge(); });
 
 		//Reset Values
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { ZeroGaugueValues();});
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues();});
 
-		//Watches to re-adjust values 
-		previous_Button.GetComponent<Button>().onClick.AddListener (() => { RemovePreviousSlideValues(); });
+		//Watches to re-adjust values and track scene index
+		previous_Button.GetComponent<Button>().onClick.AddListener (() => { scene_Index--; RemovePreviousSlideValues(); });
+		next_Button.GetComponent<Button>().onClick.AddListener (() => { scene_Index++; });
+		start_Button.GetComponent<Button>().onClick.AddListener (() => { scene_Index++;});
+
+
 	}
 	//Adds all values together and then converts them to a value that can not exceed 180 so that the cost gauge will not overrotate
 	void CalculateCostGauge ()
@@ -173,25 +184,24 @@ public class GaugeRotation : MonoBehaviour {
 	}
 
 	//Remove previous slide values and recalculate gauge values
-	//Values are -1 because of transition script subtracting one from scene index
+	//Values are -1 because subtraction/addition of scene index occurs before this script is cued 
 	void RemovePreviousSlideValues()
 	{
-		Transition transition_Script = appSlider_ref.GetComponent<Transition> ();
-		int localSceneIndex = transition_Script.scene_index;
-		switch (localSceneIndex) 
+		switch (scene_Index) 
 		{
 			case 1:
 				fuel_Cost = 0;
 				fuel_Efficiency = 0;
+				 fuel_Speed = 0;
 				break;
 			case 2:
-				drivetrain_Cost = 0;
-				drivetrain_Efficiency = 0;
-				break;
-			case 3:
 				transmission_Cost = 0;
 				transmission_Efficiency = 0;
 				transmission_Speed = 0;
+				break;
+			case 3:
+				drivetrain_Cost = 0;
+				drivetrain_Efficiency = 0;
 				break;
 			case 5:
 				bodyStyle_Cost = 0;

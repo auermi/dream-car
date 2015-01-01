@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class infoBox : MonoBehaviour {
+public class DisplayInformation : MonoBehaviour {
 
 	public GameObject fuelInfoButtonfull;
 	public GameObject transmissionInfoButtonfull;
@@ -26,14 +26,12 @@ public class infoBox : MonoBehaviour {
 	public GameObject textBoxPref;
 	public GameObject lgTextBoxPref;
 	public GameObject lgTextPanel;
-	public GameObject x_button;
 
 	private GameObject textBox0;
 	private GameObject textBox1;
 	private GameObject textBox2;
 	private GameObject textBox3;
 
-	private GameObject closeWindowButton;
 	private GameObject lg_box_text;
 
 	public GameObject hybridButton;
@@ -50,8 +48,7 @@ public class infoBox : MonoBehaviour {
 	public GameObject suvButton;
 
 	private int screenIndex;
-
-	private int arrIndex;
+	
 
 	public GameObject infoParent;
 
@@ -67,19 +64,9 @@ public class infoBox : MonoBehaviour {
 	public Sprite infoActiveImage;
 	public Sprite infoInactiveImage;
 
-	public Sprite inactiveGas;
-	public Sprite inactiveHybrid;
-	public Sprite inactiveElectric;
-	public Sprite inactiveManual;
-	public Sprite inactiveAutomatic;
-	public Sprite inactiveFourWheelDrive;
-	public Sprite inactiveTwoWheelDrive;
-	public Sprite truckInactive;
-	public Sprite coupeInactive;
-	public Sprite compactInactive;
-	public Sprite vanInactive;
-	public Sprite suvInactive;
-	 
+	public GameObject previous_Button;
+	public GameObject next_Button;
+
 	/// <summary>
 	/// screenIndex-
 	///	0:fuel
@@ -93,36 +80,22 @@ public class infoBox : MonoBehaviour {
 			screenIndex = 0; 
 			textSwap(); 
 			changeInfoIcon();
-			/*
-			hybridButton.GetComponent<Image>().sprite = inactiveHybrid;
-			gasButton.GetComponent<Image>().sprite = inactiveGas;
-			electricButton.GetComponent<Image>().sprite = inactiveElectric;*/
 		});
 		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
 			textSwap();
-			changeInfoIcon();/*
-			manualButton.GetComponent<Image>().sprite = inactiveManual;
-			automaticButton.GetComponent<Image>().sprite = inactiveAutomatic;*/
+			changeInfoIcon();
 		});
 		drivetrainInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 2; 
 			textSwap(); 
 			changeInfoIcon();
-			/*
-			fourWheelDriveButton.GetComponent<Image>().sprite = inactiveFourWheelDrive;
-			twoWheelDriveButton.GetComponent<Image>().sprite = inactiveTwoWheelDrive;*/
 		});
 
 		bodyStyleInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 3;
 			textSwap ();
 			changeInfoIcon();
-			truckButton.GetComponent<Image>().sprite = truckInactive;
-			coupeButton.GetComponent<Image>().sprite = coupeInactive;
-			compactButton.GetComponent<Image>().sprite = compactInactive;
-			suvButton.GetComponent<Image>().sprite = suvInactive;
-			vanButton.GetComponent<Image>().sprite = vanInactive;
 		});
 
 		spoilerInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
