@@ -7,7 +7,7 @@
       <File FileName="Assets\Scripts\CarCreation.cs" Line="720" Column="29" />
       <File FileName="Assets\Scripts\Transition.cs" Line="54" Column="19" />
       <File FileName="Assets\Scripts\InterfaceParenter.cs" Line="8" Column="56" />
-      <File FileName="Assets\Scripts\GaugeRotation.cs" Line="100" Column="126" />
+      <File FileName="Assets\Scripts\GaugeRotation.cs" Line="200" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
