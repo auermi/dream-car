@@ -66,6 +66,8 @@ public class DisplayInformation : MonoBehaviour {
 
 	public GameObject previous_Button;
 	public GameObject next_Button;
+	public GameObject restart_Button;
+	public GameObject done_Button;
 
 	/// <summary>
 	/// screenIndex-
@@ -119,6 +121,11 @@ public class DisplayInformation : MonoBehaviour {
 			textSwap ();
 			changeInfoIcon();
 		});
+		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
+
 
 	}
 	
@@ -472,5 +479,17 @@ public class DisplayInformation : MonoBehaviour {
 		default:
 			break;
 		}
+	}
+
+	void ResetInfoIcons ()
+	{
+		fuelInfoButton.GetComponent<Image> ().sprite = infoInactiveImage;
+		transmissionInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		drivetrainInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		bodyStyleInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		spoilerInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		wheelInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		colorInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
+		decalInfoButton.GetComponent<Image>().sprite = infoInactiveImage;
 	}
 }
