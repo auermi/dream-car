@@ -143,7 +143,7 @@ public class ButtonStateChange : MonoBehaviour {
 			break;
 		case 6:
 			spoiler_Button.GetComponent<Image>().color = grey_Color;
-			noSpoiler_Button.GetComponent<Image>().sprite = noSpoiler_Button_Sprite_Inactive;
+			noSpoiler_Button.GetComponent<Image>().sprite = noSpoiler_Button_Sprite_Active;
 			break;
 		case 7:
 			basicWheel_Button.GetComponent<Image>().sprite = basicWheel_Button_Sprite_Inactive;

@@ -883,7 +883,9 @@ public class CarCreation : MonoBehaviour {
 		compactButton.GetComponent<Image>().color = new Color32(51,51,51,255);
 
 		spoilerButton.GetComponent<Image> ().color = new Color32 (51, 51, 51, 255);
-		noSpoilerButton.GetComponent<Image> ().sprite = noSpoilerButtonSprite;
+		noSpoilerButton.GetComponent<Image> ().sprite = noSpoilerActivebuttonSprite;
+
+		noDecalButton.GetComponent<Image> ().sprite = noDecalButtonActiveSprite;
 
 		if (car != null)
 		{

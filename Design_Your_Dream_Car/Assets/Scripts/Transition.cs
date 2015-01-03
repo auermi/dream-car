@@ -109,10 +109,12 @@ public class Transition : MonoBehaviour {
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
+		/*
 		case 7:
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
+		*/
 		case 8:
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
@@ -121,10 +123,12 @@ public class Transition : MonoBehaviour {
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
+		/*
 		case 10:
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
+		*/
 		default:
 			break;
 		}
