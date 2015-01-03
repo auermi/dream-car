@@ -20,6 +20,7 @@ public class InterfaceParenter : MonoBehaviour {
 	public GameObject previous_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
+	public GameObject done_Button;
 
 	//Event Listeners to track scene index and update interface visibility
 	void Start ()
@@ -30,38 +31,20 @@ public class InterfaceParenter : MonoBehaviour {
 		previous_Button.GetComponent<Button>().onClick.AddListener ( () => { scene_Index--; CheckInterfaceVisibility();  });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; CheckInterfaceVisibility(); });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index++; CheckInterfaceVisibility(); });
+		done_Button.GetComponent<Button>().onClick.AddListener ( () => { scene_Index = 0; CheckInterfaceVisibility(); });
 	}
 
 	//Checking to see if the interface needs to be hidden or unhidden
 	//We parent flanking the ones we want to hide on so as to unhide the interface as needed
 	void CheckInterfaceVisibility()
 	{
-		switch (scene_Index) 
+		if (scene_Index == 0 || scene_Index == 1 || scene_Index == 5 || scene_Index == 11 || scene_Index == 12 || scene_Index == 13) 
 		{
-		case 0:
-			interface_Container.transform.parent = hidden_Parent.transform;
-			break;
-		case 1:
-			interface_Container.transform.parent = hidden_Parent.transform;
-			break;
-		case 2:
+			interface_Container.transform.parent = hidden_Parent.transform;		
+		}
+		else 
+		{
 			interface_Container.transform.parent = interface_Parent.transform;
-			break;
-		case 4:
-			interface_Container.transform.parent = interface_Parent.transform;
-			break;
-		case 5:
-			interface_Container.transform.parent = hidden_Parent.transform;
-			break;
-		case 6:
-			interface_Container.transform.parent = interface_Parent.transform;
-			break;
-		case 11:
-			interface_Container.transform.parent = hidden_Parent.transform;
-			break;
-		//We only track up until 11 because the interface should stay hidden throughout the rest of the app
-		default:
-			break;
 		}
 	}
 

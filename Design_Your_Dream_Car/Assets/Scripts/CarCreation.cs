@@ -371,6 +371,7 @@ public class CarCreation : MonoBehaviour {
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { RemovePreviousCarPart(); });
 		//Restart Button handler resets everything
 		resetButton.GetComponent<Button> ().onClick.AddListener (() => { resetSelections(); });
+	
 	}
 
 	void truckSwap()
@@ -881,6 +882,8 @@ public class CarCreation : MonoBehaviour {
 		coupeButton.GetComponent<Image>().color = new Color32(51,51,51,255);
 		compactButton.GetComponent<Image>().color = new Color32(51,51,51,255);
 
+		spoilerButton.GetComponent<Image> ().color = new Color32 (51, 51, 51, 255);
+		noSpoilerButton.GetComponent<Image> ().sprite = noSpoilerButtonSprite;
 
 		if (car != null)
 		{

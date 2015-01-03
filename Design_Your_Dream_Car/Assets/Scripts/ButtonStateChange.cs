@@ -107,6 +107,8 @@ public class ButtonStateChange : MonoBehaviour {
 
 		//Previous Button removes current screens selection
 		previousSlide_Button.GetComponent<Button>().onClick.AddListener ( () => { RemovePreviousScreenSelection(); });
+
+
 	}
 
 	/*Gather the value of scene index and then move Selection from the previous screen

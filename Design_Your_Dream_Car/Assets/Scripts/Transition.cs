@@ -10,6 +10,7 @@ public class Transition : MonoBehaviour {
 	public GameObject previous_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
+	public GameObject done_Button;
 
 	public Sprite inactive_Button;
 	public Sprite active_Button;
@@ -33,10 +34,11 @@ public class Transition : MonoBehaviour {
 	void Start () {
 		isMoving = false;
 		scene_index = 0;
-		next_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); });
-		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons();});
-		restart_Button.GetComponent<Button>().onClick.AddListener( () => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0; ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button; });
+		next_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); SwapNextDoneButtons(); });
+		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); SwapNextDoneButtons(); });
+		restart_Button.GetComponent<Button>().onClick.AddListener( () => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0; SwapNextDoneButtons(); ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button; });
 		start_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); } );
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0; SwapNextDoneButtons(); ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button;  });
 		ParentTransitionButtons();
 	}
 
@@ -150,5 +152,19 @@ public class Transition : MonoBehaviour {
 			break;
 		}
 		
+	}
+	//We need to check every time to see if the next button needs to be unparented on screen 13 and parent the done button in its place
+	void SwapNextDoneButtons()
+	{
+		if (scene_index == 13) 
+		{
+			next_Button.transform.parent = hidden_Parent.transform;
+			done_Button.transform.parent = navigation_Parent.transform;
+		}
+		else
+		{
+			next_Button.transform.parent = navigation_Parent.transform;
+			done_Button.transform.parent = hidden_Parent.transform;
+		}
 	}
 }
