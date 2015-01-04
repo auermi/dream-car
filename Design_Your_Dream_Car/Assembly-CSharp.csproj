@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\EmailInputDisplay.cs" />
      <Compile Include="Assets\Scripts\GaugeRotation.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
+     <Compile Include="Assets\Scripts\MakeSelection.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\Transition.cs" />
      <Compile Include="Assets\Scripts\colorSelection.cs" />
