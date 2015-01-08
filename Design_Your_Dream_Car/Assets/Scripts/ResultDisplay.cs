@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//Written by Michael Andrew Auer for the Indianapolis Museum of Art Dream Car iPad Application
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
