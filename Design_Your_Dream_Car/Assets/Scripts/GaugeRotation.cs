@@ -33,9 +33,9 @@ public class GaugeRotation : MonoBehaviour {
 	private int spoiler_Speed;
 
 	//Totals
-	private float total_Cost;
-	private float total_Efficiency;
-	private float total_Speed;
+	public float total_Cost;
+	public float total_Efficiency;
+	public float total_Speed;
 	
 	//All buttons that impact gauges
 	public GameObject gas_Button;
