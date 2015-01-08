@@ -26,6 +26,7 @@ public class HideCar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		offscreen = new Vector3 (0f, 1536f, 0f);
+		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
