@@ -57,7 +57,7 @@ public class MakeSelection : MonoBehaviour {
 		 * Removing the text first before we enable it as a precaution
 		 */
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index++; RemoveMessageButtonText(); EnableMessageButton(); });
-		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index--; RemoveMessageButtonText(); EnableMessageButton(); });
+		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index--; RemoveMessageButtonText();  });
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index = 0;RemoveMessageButtonText();});
 		restart_Button.GetComponent<Button>().onClick.AddListener(()=>{scene_Index = 0;RemoveMessageButtonText();});
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index++;});

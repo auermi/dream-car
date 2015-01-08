@@ -54,8 +54,10 @@ public class Transition : MonoBehaviour {
 				animation.AddClip (clip, "queued_transition");
 				animation.Play ("queued_transition");
 				scene_index++;
-				DisableProgression();
+
 				StartCoroutine(WaitForAnimation());
+				
+				DisableProgression();
 			}
 			else 
 			{
@@ -66,7 +68,6 @@ public class Transition : MonoBehaviour {
 				animation.AddClip (clip, "queued_transition");
 				animation.Play ("queued_transition");
 				scene_index--;
-				CheckIfReenable();
 				StartCoroutine(WaitForAnimation());
 			}
 		}
@@ -136,8 +137,13 @@ public class Transition : MonoBehaviour {
 	
 	//Timer that re-enables use of navigation after entire slide animation has completed to prevent overlapping
 	IEnumerator WaitForAnimation() {
+		next_Button.GetComponent<Button>().interactable = false;
+		previous_Button.GetComponent<Button> ().interactable = false;
 		yield return new WaitForSeconds(.5f);
+		next_Button.GetComponent<Button>().interactable = true;
+		previous_Button.GetComponent<Button> ().interactable = true;
 		isMoving = false;
+		CheckIfReenable ();
 	}
 	//Enables Next button in case of some exceptions where it is needed on reverse
 	void CheckIfReenable()
@@ -171,4 +177,5 @@ public class Transition : MonoBehaviour {
 			done_Button.transform.parent = hidden_Parent.transform;
 		}
 	}
+
 }
