@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\HideCar.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />
      <Compile Include="Assets\Scripts\MakeSelection.cs" />
+     <Compile Include="Assets\Scripts\MoveTitleText.cs" />
      <Compile Include="Assets\Scripts\ResultDisplay.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\Transition.cs" />
