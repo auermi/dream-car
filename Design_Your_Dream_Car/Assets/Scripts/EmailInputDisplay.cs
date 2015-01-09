@@ -6,6 +6,8 @@ public class EmailInputDisplay : MonoBehaviour {
 
 	public GameObject mailButton;
 	public GameObject doneButton;
+	public GameObject restartButton;
+	public GameObject previousButton;
 
 	public GameObject mailFieldPrefab;
 	private GameObject mailField;
@@ -23,6 +25,14 @@ public class EmailInputDisplay : MonoBehaviour {
 		doneButton.GetComponent<Button>().onClick.AddListener( () => {
 			Destroy(mailField);
 		
-		});                                                     
+		});  
+		restartButton.GetComponent<Button>().onClick.AddListener( () => {
+			Destroy(mailField);
+			
+		}); 
+		previousButton.GetComponent<Button>().onClick.AddListener( () => {
+			Destroy(mailField);
+			
+		});    
 	}
 }
