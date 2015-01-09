@@ -707,11 +707,12 @@ public class CarCreation : MonoBehaviour {
 		if (decal != null)
 		{
 			Destroy(decal);
+			if (decal2 != null)
+			{
+				Destroy(decal2);
+			}
 		}
-		if (decal2 != null)
-		{
-			Destroy(decal2);
-		}
+
 		switch(carIndex)
 		{
 		case 0:
@@ -904,6 +905,9 @@ public class CarCreation : MonoBehaviour {
 		{
 			Destroy(decal);
 		}
+		if (decal2 != null) {
+			Destroy(decal2);
+		}
 	}
 	void removeCar()
 	{
@@ -938,11 +942,12 @@ public class CarCreation : MonoBehaviour {
 		if (decal != null)
 		{
 			Destroy(decal);
+			if (decal2 != null)
+			{
+				Destroy(decal2);
+			}
 		}
-		if (decal2 != null)
-		{
-			Destroy(decal2);
-		}
+
 		flameButton.GetComponent<Image>().sprite = flamesButtonSprite;
 		starButton.GetComponent<Image>().sprite = starsButtonSprite;
 		stripeButton.GetComponent<Image>().sprite = stripeButtonSprite;
