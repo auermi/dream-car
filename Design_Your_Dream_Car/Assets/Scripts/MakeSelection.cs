@@ -41,8 +41,7 @@ public class MakeSelection : MonoBehaviour {
 	private int scene_Index;
 	//Parent Objects to hide/unhide objects
 	public GameObject hidden_Parent;
-	public GameObject navigation_Parent;
-	public GameObject interface_Parent;
+	public GameObject makeASelection_Parent;
 	//Tracking scene index here
 	public GameObject next_Button;
 	public GameObject previous_Button;
@@ -91,14 +90,14 @@ public class MakeSelection : MonoBehaviour {
 		turquoiseColor_Button.GetComponent<Button> ().onClick.AddListener (() => {RemoveMessageButtonText();});
 		
 		//Pressing the transparent Button brings up the text
-		makeASelection_Button.GetComponent<Button> ().onClick.AddListener (() => {makeASelection_Text.transform.parent = interface_Parent.transform; });
+		makeASelection_Button.GetComponent<Button> ().onClick.AddListener (() => {makeASelection_Text.transform.parent = makeASelection_Parent.transform; });
 
 	}
 
 	void EnableMessageButton()
 	{
 		if (scene_Index == 2 || scene_Index == 3 || scene_Index == 4 || scene_Index == 6 || scene_Index == 8 || scene_Index == 9) {
-			makeASelection_Button.transform.parent = interface_Parent.transform;
+			makeASelection_Button.transform.parent = makeASelection_Parent.transform;
 			//makeASelection_Text.transform.parent = interface_Parent.transform;
 		}
 		else
