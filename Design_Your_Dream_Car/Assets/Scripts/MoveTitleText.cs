@@ -8,6 +8,9 @@ public class MoveTitleText : MonoBehaviour {
 	private Vector3 scene11_position = new Vector3 (0f, 0f);
 	private Vector3 scene12_position = new Vector3 (0f, -300f);
 
+	public GameObject name_TextField;
+	public GameObject car_TextField;
+
 	public GameObject screen12;
 	public GameObject screen11;
 
@@ -41,6 +44,12 @@ public class MoveTitleText : MonoBehaviour {
 			titleText_Container.transform.parent = screen11.transform;
 			titleText_Container.transform.localPosition = scene11_position;
 		}
+	}
+
+	void ResetTextFields()
+	{
+		name_TextField.GetComponent<Text> ().text = "";
+		car_TextField.GetComponent<Text> ().text = "";
 	}
 
 }

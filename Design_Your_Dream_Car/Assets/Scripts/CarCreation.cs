@@ -712,6 +712,8 @@ public class CarCreation : MonoBehaviour {
 				Destroy(decal2);
 			}
 		}
+		Destroy (decal);
+		Destroy (decal2);
 
 		switch(carIndex)
 		{

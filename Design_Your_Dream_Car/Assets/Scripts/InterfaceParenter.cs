@@ -38,7 +38,7 @@ public class InterfaceParenter : MonoBehaviour {
 	//We parent flanking the ones we want to hide on so as to unhide the interface as needed
 	void CheckInterfaceVisibility()
 	{
-		if (scene_Index == 0 || scene_Index == 1 || scene_Index == 5 ||  scene_Index == 13) 
+		if (scene_Index == 0 || scene_Index == 1 || scene_Index == 5 || scene_Index == 13) 
 		{
 			interface_Container.transform.parent = hidden_Parent.transform;		
 		}
