@@ -49,10 +49,8 @@
      <Compile Include="Assets\Scripts\AutoKeyboardPull.cs" />
      <Compile Include="Assets\Scripts\ButtonStateChange.cs" />
      <Compile Include="Assets\Scripts\CarCreation.cs" />
-     <Compile Include="Assets\Scripts\CarShift.cs" />
      <Compile Include="Assets\Scripts\ColorSelection.cs" />
      <Compile Include="Assets\Scripts\DisplayInformation.cs" />
-     <Compile Include="Assets\Scripts\EmailInputDisplay.cs" />
      <Compile Include="Assets\Scripts\GaugeRotation.cs" />
      <Compile Include="Assets\Scripts\HideCar.cs" />
      <Compile Include="Assets\Scripts\InterfaceParenter.cs" />

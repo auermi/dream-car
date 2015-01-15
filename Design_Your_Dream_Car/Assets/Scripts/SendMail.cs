@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
@@ -21,14 +21,23 @@ public class SendMail : MonoBehaviour {
 	public GameObject previous_Button;
 	private int sceneIndex;
 
+	//Textbox where we get the user's email
+	public GameObject email_TextBox;
+
+	//Swap the parent of email_TextBox
+	public GameObject hidden_Parent;
+	public GameObject scene_13_Parent;
+
+	public GameObject email_Text;
+
 	void Start()
 	{
-		mail_Button.GetComponent<Button> ().onClick.AddListener (() => { AttachAndMail(); });
+		mail_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();});
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;});
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
 	}
 
 	static void RemoveTakeScreenshot () {
@@ -38,12 +47,12 @@ public class SendMail : MonoBehaviour {
 		Debug.Log ("Screenshot!");
 	}
 	
-	void AttachAndMail()
+	void AttachAndMail(string emailAddress)
 	{
 		MailMessage mail = new MailMessage();
 		
 		mail.From = new MailAddress("imalabadmin@imamuseum.org");
-		mail.To.Add("mauermcx@gmail.com");
+		mail.To.Add(emailAddress);
 		mail.Subject = "IMA Test Mail";
 		mail.Body = "Hello this is a test email from the IMA Dream Car iOS App";
 
@@ -63,6 +72,16 @@ public class SendMail : MonoBehaviour {
 		
 	}
 
+	void CheckToMail()
+	{
+		if (sceneIndex == 13)
+		{
+			string user_EmailAddress = email_Text.GetComponent<Text>().text;
+			Debug.Log(user_EmailAddress);
+			AttachAndMail(user_EmailAddress);
+		}
+	}
+
 	void CheckToScreenshot()
 	{
 		if (sceneIndex == 12)
@@ -78,5 +97,6 @@ public class SendMail : MonoBehaviour {
 		//removes the file
 		RemoveTakeScreenshot ();
 	}
+	
 
 }
