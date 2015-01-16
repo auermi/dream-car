@@ -32,17 +32,21 @@ public class MoveTitleText : MonoBehaviour {
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;CheckToMoveTitleText(); });
 	}
-
+	//Move title text and disable interactivity on the fields
 	void CheckToMoveTitleText()
 	{
 		if (sceneIndex == 12) {
 			titleText_Container.transform.parent = screen12.transform;
 			titleText_Container.transform.localPosition = scene12_position;
+			name_TextField.GetComponent<InputField>().interactable = false;
+			car_TextField.GetComponent<InputField>().interactable = false;
 		}
 		else
 		{
 			titleText_Container.transform.parent = screen11.transform;
 			titleText_Container.transform.localPosition = scene11_position;
+			name_TextField.GetComponent<InputField>().interactable = true;
+			car_TextField.GetComponent<InputField>().interactable = true;
 		}
 	}
 
