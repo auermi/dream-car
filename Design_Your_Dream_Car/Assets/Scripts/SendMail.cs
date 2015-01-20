@@ -35,7 +35,7 @@ public class SendMail : MonoBehaviour {
 		mail_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); });
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
 	}

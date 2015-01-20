@@ -11,6 +11,9 @@ public class MoveTitleText : MonoBehaviour {
 	public GameObject name_TextField;
 	public GameObject car_TextField;
 
+	public GameObject name_Text;
+	public GameObject car_Text;
+
 	public GameObject screen12;
 	public GameObject screen11;
 
@@ -27,8 +30,8 @@ public class MoveTitleText : MonoBehaviour {
 	{
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToMoveTitleText();});
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText();});
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();  ResetTextFields();});
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText(); ResetTextFields(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;CheckToMoveTitleText(); });
 	}
@@ -52,8 +55,8 @@ public class MoveTitleText : MonoBehaviour {
 
 	void ResetTextFields()
 	{
-		name_TextField.GetComponent<Text> ().text = "";
-		car_TextField.GetComponent<Text> ().text = "";
+		name_Text.GetComponent<Text>().text = "";
+		car_Text.GetComponent<Text>().text = "";
 	}
 
 }
