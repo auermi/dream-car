@@ -148,6 +148,7 @@ public class Transition : MonoBehaviour {
 	//Enables Next button in case of some exceptions where it is needed on reverse
 	void CheckIfReenable()
 	{
+		/*
 		switch (scene_index) 
 		{
 		case 1:
@@ -161,8 +162,11 @@ public class Transition : MonoBehaviour {
 		default:
 			break;
 		}
-		
+		*/
+		next_Button.GetComponent<Button>().interactable = true;
+		next_Button.GetComponent<Image>().sprite = active_Button;
 	}
+	
 	//We need to check every time to see if the next button needs to be unparented on screen 13 and parent the done button in its place
 	void SwapNextDoneButtons()
 	{
