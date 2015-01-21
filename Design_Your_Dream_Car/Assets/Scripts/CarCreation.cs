@@ -704,14 +704,7 @@ public class CarCreation : MonoBehaviour {
 
 	void decalChange()
 	{
-		if (decal != null)
-		{
-			Destroy(decal);
-			if (decal2 != null)
-			{
-				Destroy(decal2);
-			}
-		}
+
 		Destroy (decal);
 		Destroy (decal2);
 
@@ -832,9 +825,9 @@ public class CarCreation : MonoBehaviour {
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
 				decal.transform.localPosition = new Vector3(-123.1f, -53.9f);
-				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(113f, -53.7f);
+				decal2 = Instantiate(star) as GameObject;
+				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.localPosition = new Vector3(113f, -53.7f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
@@ -890,6 +883,13 @@ public class CarCreation : MonoBehaviour {
 
 		noDecalButton.GetComponent<Image> ().sprite = noDecalButtonActiveSprite;
 
+		Destroy (car);
+		Destroy (spoiler);
+		Destroy (leftWheel);
+		Destroy (rightWheel);
+		Destroy (decal);
+		Destroy (decal2);
+		/*
 		if (car != null)
 		{
 			Destroy(car);
@@ -910,6 +910,7 @@ public class CarCreation : MonoBehaviour {
 		if (decal2 != null) {
 			Destroy(decal2);
 		}
+		*/
 	}
 	void removeCar()
 	{
