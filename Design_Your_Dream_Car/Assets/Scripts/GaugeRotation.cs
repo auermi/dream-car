@@ -123,7 +123,7 @@ public class GaugeRotation : MonoBehaviour {
 		blueColor_Button.GetComponent<Button>().onClick.AddListener ( () => { paintCoat_Cost = 1; CalculateCostGauge(); });
 		glaucousColor_Button.GetComponent<Button>().onClick.AddListener ( () => { paintCoat_Cost = 1; CalculateCostGauge(); });
 		flame_Button.GetComponent<Button> ().onClick.AddListener (() => { decal_Cost = 2; CalculateCostGauge(); });
-		stripe_Button.GetComponent<Button>().onClick.AddListener (() => { decal_Cost = 1; CalculateCostGauge(); });
+		stripe_Button.GetComponent<Button>().onClick.AddListener (() => { decal_Cost = 2; CalculateCostGauge(); });
 		stars_Button.GetComponent<Button>().onClick.AddListener ( () => { decal_Cost = 2; CalculateCostGauge(); });
 		noDecal_Button.GetComponent<Button>().onClick.AddListener ( () => { decal_Cost = 0; CalculateCostGauge(); });
 
