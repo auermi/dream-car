@@ -87,6 +87,8 @@ public class GaugeRotation : MonoBehaviour {
 	//Tracking the start button here to up scene index by one
 	public GameObject start_Button;
 
+	public GameObject no_button;
+
 	// Use this for initialization
 	//Set all values equal to zero
 	void Start () {
@@ -130,6 +132,7 @@ public class GaugeRotation : MonoBehaviour {
 		//Reset Values
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues();});
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues(); });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues(); });
 
 		//Watches to re-adjust values and track scene index
 		previous_Button.GetComponent<Button>().onClick.AddListener (() => { scene_Index--; RemovePreviousSlideValues(); });

@@ -13,6 +13,7 @@ public class ColorSelection : MonoBehaviour {
 	public GameObject done_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
+	public GameObject no_button;
 
 	private int sceneIndex;
 
@@ -43,6 +44,7 @@ public class ColorSelection : MonoBehaviour {
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToHideSelectionColor(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToHideSelectionColor();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckToHideSelectionColor(); RealignSelectionBox(); });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToHideSelectionColor(); });
 		//If color button is pressed, change box color and move it to position behind specified color button
 		redButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition = savedPosition = new Vector3(-350f,-212.9f);} );
 		greenButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition =  savedPosition = new Vector3(-280f, -212.9f);} );

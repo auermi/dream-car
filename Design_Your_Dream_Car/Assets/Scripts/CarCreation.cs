@@ -177,6 +177,8 @@ public class CarCreation : MonoBehaviour {
 	/// 2:stripe
 	/// </summary>
 
+	public GameObject no_button;
+
 	// Use this for initialization
 	void Start () {
 
@@ -371,6 +373,7 @@ public class CarCreation : MonoBehaviour {
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { RemovePreviousCarPart(); });
 		//Restart Button handler resets everything
 		resetButton.GetComponent<Button> ().onClick.AddListener (() => { resetSelections(); });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => { resetSelections(); });
 	
 	}
 

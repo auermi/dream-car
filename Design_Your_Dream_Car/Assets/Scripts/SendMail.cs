@@ -11,7 +11,8 @@ using System.IO;
 
 public class SendMail : MonoBehaviour {
 
-	public GameObject mail_Button;
+	public GameObject yes_button;
+	public GameObject no_button;
 
 	//Track Scene Index to trigger taking the screenshot
 	public GameObject start_Button;
@@ -32,12 +33,13 @@ public class SendMail : MonoBehaviour {
 
 	void Start()
 	{
-		mail_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
+		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => { mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
+		done_Button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();});
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {mail_Button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
+		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
 	}
 
 	static void RemoveTakeScreenshot () {

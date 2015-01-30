@@ -32,6 +32,7 @@ public class ResultDisplay : MonoBehaviour {
 	public GameObject next_Button;
 	public GameObject previous_Button;
 	private int sceneIndex;
+	public GameObject no_button;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,7 @@ public class ResultDisplay : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckIfDisplay();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;});
 	}

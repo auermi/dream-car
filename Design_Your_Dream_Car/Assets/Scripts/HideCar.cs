@@ -22,6 +22,7 @@ public class HideCar : MonoBehaviour {
 	public GameObject done_Button;
 	public GameObject next_Button;
 	public GameObject previous_Button;
+	public GameObject no_button;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class HideCar : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckToShift();});
 	}

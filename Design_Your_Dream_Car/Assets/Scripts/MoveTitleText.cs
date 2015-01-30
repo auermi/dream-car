@@ -24,6 +24,7 @@ public class MoveTitleText : MonoBehaviour {
 	public GameObject done_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
+	public GameObject no_button;
 
 	// Use this for initialization
 	void Start () 
@@ -38,6 +39,7 @@ public class MoveTitleText : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToMoveTitleText(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();  ResetTextFields(); });
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText(); ResetTextFields(); });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText(); ResetTextFields(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText(); });
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {
 			sceneIndex--;

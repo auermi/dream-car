@@ -5,6 +5,8 @@
 	var screenShotURL= "fake_url";
 	// Take a screen shot immediately
 	
+	
+	
 	function UploadPNG() {
 	    // We should only read the screen after all rendering is complete
 	    yield WaitForEndOfFrame();

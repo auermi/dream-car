@@ -48,6 +48,7 @@ public class MakeSelection : MonoBehaviour {
 	public GameObject done_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
+	public GameObject no_button;
 
 	// Use this for initialization
 	void Start () {
@@ -59,6 +60,7 @@ public class MakeSelection : MonoBehaviour {
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index--; RemoveMessageButtonText();  });
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index = 0;RemoveMessageButtonText();});
 		restart_Button.GetComponent<Button>().onClick.AddListener(()=>{scene_Index = 0;RemoveMessageButtonText();});
+		no_button.GetComponent<Button>().onClick.AddListener(()=>{scene_Index = 0;RemoveMessageButtonText();});
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index++;});
 
 		//Making a selection on any of these buttons removes the selection text as well as the selection button

@@ -10,6 +10,7 @@ public class AnalyticsTracking : MonoBehaviour {
 	public GameObject start_Button;
 	public GameObject restart_Button;
 	public GameObject done_Button;
+	public GameObject no_button;
 
 
 
@@ -18,6 +19,7 @@ public class AnalyticsTracking : MonoBehaviour {
 		start_Button.GetComponent<Button>().onClick.AddListener(() => { googleAnalytics.StartSession (); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {googleAnalytics.StopSession(); googleAnalytics.DispatchHits();});
 		done_Button.GetComponent<Button> ().onClick.AddListener (() => {googleAnalytics.StopSession(); googleAnalytics.DispatchHits();});
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {googleAnalytics.StopSession(); googleAnalytics.DispatchHits();});
 	}
 	
 
