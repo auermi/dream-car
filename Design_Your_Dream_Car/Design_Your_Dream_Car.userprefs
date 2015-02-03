@@ -1,13 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ColorSelection.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Transition.cs">
     <Files>
+      <File FileName="../../../../projects/github/dream-car/Design_Your_Dream_Car/Assets/Scripts/Transition.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MakeSelection.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/MoveTitleText.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ResultDisplay.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SendMail.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Transition.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ColorSelection.cs" Line="47" Column="1" />
+      <File FileName="Assets/Scripts/Transition.cs" Line="67" Column="104" />
+      <File FileName="Assets/Scripts/ColorSelection.cs" Line="59" Column="215" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

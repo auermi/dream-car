@@ -50,7 +50,7 @@ public class Transition : MonoBehaviour {
 			if (direction) 
 			{
 				isMoving = true;
-				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3056f);
+				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3072f + 16f);
 				AnimationClip clip = new AnimationClip ();
 				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
 				animation.AddClip (clip, "queued_transition");
@@ -64,7 +64,7 @@ public class Transition : MonoBehaviour {
 			else 
 			{
 				isMoving = true;
-				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos -1024f, .5f, currentPos + 1040f);
+				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos -1024f, .5f, currentPos + 1024f + 16f);
 				AnimationClip clip = new AnimationClip ();
 				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
 				animation.AddClip (clip, "queued_transition");
