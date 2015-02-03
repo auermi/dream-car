@@ -57,8 +57,6 @@ public class ColorSelection : MonoBehaviour {
 		limeButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition =  savedPosition = new Vector3(210f,-212.9f);} );
 		navyButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition =  savedPosition = new Vector3(280f, -212.9f);} );
 		glaucousButton.GetComponent<Button>().onClick.AddListener(() => { selectionBox.GetComponent<Image>().color = selectionColor; selectionBox.transform.localPosition =  savedPosition = new Vector3(350f, -212.9f);} );
-
-
 	}
 	void CheckToHideSelectionColor()
 	{
