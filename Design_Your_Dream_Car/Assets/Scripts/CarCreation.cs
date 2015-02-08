@@ -441,7 +441,7 @@ public class CarCreation : MonoBehaviour {
 				}
 				spoiler = Instantiate(truckSpoiler) as GameObject;
 				spoiler.transform.parent = spoilerContainer.transform;
-				spoiler.transform.localPosition = new Vector3(-353.27f, 37.1f);
+				spoiler.transform.localPosition = new Vector3(-500f, 70f);
 				break;
 
 			case 1:
@@ -450,7 +450,7 @@ public class CarCreation : MonoBehaviour {
 				}
 				spoiler = Instantiate(suvSpoiler) as GameObject;
 				spoiler.transform.parent = spoilerContainer.transform;
-				spoiler.transform.localPosition = new Vector3(-358.4f, 37.1f);
+				spoiler.transform.localPosition = new Vector3(-530f, 245f);
 				break;
 
 			case 2:
@@ -459,7 +459,7 @@ public class CarCreation : MonoBehaviour {
 				}
 				spoiler = Instantiate(vanSpoiler) as GameObject;
 				spoiler.transform.parent = spoilerContainer.transform;
-				spoiler.transform.localPosition = new Vector3(-364.8f, 67f);
+				spoiler.transform.localPosition = new Vector3(-640f, 55f);
 				break;
 
 			case 3:
@@ -468,7 +468,7 @@ public class CarCreation : MonoBehaviour {
 				}
 				spoiler = Instantiate(coupeSpoiler) as GameObject;
 				spoiler.transform.parent = spoilerContainer.transform;
-				spoiler.transform.localPosition = new Vector3(-352.2f, 52.03f);
+				spoiler.transform.localPosition = new Vector3(-575f, 75f);
 				break;
 
 			case 4:
@@ -477,7 +477,7 @@ public class CarCreation : MonoBehaviour {
 				}
 				spoiler = Instantiate(compactSpoiler) as GameObject;
 				spoiler.transform.parent = spoilerContainer.transform;
-				spoiler.transform.localPosition = new Vector3(-278.4f, 70.8f);
+				spoiler.transform.localPosition = new Vector3(-400f, 75f);
 				break;
 
 			default:
