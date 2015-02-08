@@ -143,6 +143,8 @@ public class CarCreation : MonoBehaviour {
 	public Sprite spoilerActiveButtonSprite;
 	public Sprite whiteSpoiler;
 
+	public GameObject stripe_compact;
+
 
 	/// <summary>
 	/// carIndex=
@@ -717,22 +719,21 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-81.5f, -41.8f);
+				decal.transform.localPosition = new Vector3(-245f, -65f);
 				decal2 = Instantiate(star) as GameObject;
 				decal2.transform.parent = decalContainer.transform;
-				decal2.transform.localPosition = new Vector3(150.47f, -45.6f);
+				decal2.transform.localPosition = new Vector3(219f, -65f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(132.5f, -56.5f);
-				decal.transform.localScale = new Vector3(1f, 0.81f);
+				decal.transform.localPosition = new Vector3(222f, -118f);
+				decal.transform.localScale = new Vector3(1f, 0.45f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -58f);
-				decal.transform.localScale = new Vector3(2.08f, 0.5f);
+				decal.transform.localPosition = new Vector3(45f, -135f);
 				break;
 			default:
 				break;
@@ -744,22 +745,20 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-86.8f, -78.3f);
+				decal.transform.localPosition = new Vector3(-200f, -125f);
 				decal2 = Instantiate(star) as GameObject;
 				decal2.transform.parent = decalContainer.transform;
-				decal2.transform.localPosition = new Vector3(144.1f, -82.5f);
+				decal2.transform.localPosition = new Vector3(250f, -125f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(118.73f, -87.3f);
-				decal.transform.localScale = new Vector3(1f, 0.81f);
+				decal.transform.localPosition = new Vector3(172f, -160f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -80.6f);
-				decal.transform.localScale = new Vector3(2f, 0.5f);
+				decal.transform.localPosition = new Vector3(20f, -140f);
 				break;
 			default:
 				break;
@@ -771,22 +770,20 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-125.3f, -62.41f);
+				decal.transform.localPosition = new Vector3(-182f, -85f);
 				decal2 = Instantiate(star) as GameObject;
 				decal2.transform.parent = decalContainer.transform;
-				decal2.transform.localPosition = new Vector3(105.3f, -63.7f);
+				decal2.transform.localPosition = new Vector3(300f, -85f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(105.4f, -72.2f);
-				decal.transform.localScale = new Vector3(1f, 0.73f);
+				decal.transform.localPosition = new Vector3(175f, -125f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -77f);
-				decal.transform.localScale = new Vector3(1.92f, 0.5f);
+				decal.transform.localPosition = new Vector3(0f, -140f);
 				break;
 			default:
 				break;
@@ -798,22 +795,20 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-104.5f, -45.6f);
+				decal.transform.localPosition = new Vector3(-170f, -70f);
 				decal2 = Instantiate(star) as GameObject;
 				decal2.transform.parent = decalContainer.transform;
-				decal2.transform.localPosition = new Vector3(129.37f, -45.6f);
+				decal2.transform.localPosition = new Vector3(280f, -70f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(106.4f, -56.2f);
-				decal.transform.localScale = new Vector3(1f, 0.81f);
+				decal.transform.localPosition = new Vector3(190f, -85f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -61.7f);
-				decal.transform.localScale = new Vector3(2.05f, 0.5f);
+				decal.transform.localPosition = new Vector3(0f, -120f);
 				break;
 			default:
 				break;
@@ -825,22 +820,22 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				decal = Instantiate(star) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(-123.1f, -53.9f);
+				decal.transform.localPosition = new Vector3(-250f, -60f);
 				decal2 = Instantiate(star) as GameObject;
 				decal2.transform.parent = decalContainer.transform;
-				decal2.transform.localPosition = new Vector3(113f, -53.7f);
+				decal2.transform.localPosition = new Vector3(150f, -60f);
+				decal.transform.localScale = new Vector3(.9f,.9f);
+				decal2.transform.localScale = new Vector3(.9f,.9f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(52.6f, -52.6f);
-				decal.transform.localScale = new Vector3(1f, 0.82f);
+				decal.transform.localPosition = new Vector3(33f, -85f);
 				break;
 			case 2:
-				decal = Instantiate(stripe) as GameObject;
+				decal = Instantiate(stripe_compact) as GameObject;
 				decal.transform.parent = decalContainer.transform;
-				decal.transform.localPosition = new Vector3(0f, -64.7f);
-				decal.transform.localScale = new Vector3(1.53f, 0.5f);
+				decal.transform.localPosition = new Vector3(0f, -95f);
 				break;
 			default:
 				break;
