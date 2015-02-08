@@ -143,7 +143,6 @@ public class CarCreation : MonoBehaviour {
 	public Sprite spoilerActiveButtonSprite;
 	public Sprite whiteSpoiler;
 
-	public GameObject doneButton;
 
 	/// <summary>
 	/// carIndex=
@@ -367,7 +366,6 @@ public class CarCreation : MonoBehaviour {
 			EnableNextButton();
 		});
 
-		doneButton.GetComponent<Button>().onClick.AddListener( () => { resetSelections(); });
 
 		//if previous button is pressed we need to check and see if any car parts need to be removed
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { RemovePreviousCarPart(); });

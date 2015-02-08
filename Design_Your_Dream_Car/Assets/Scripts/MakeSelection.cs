@@ -45,7 +45,6 @@ public class MakeSelection : MonoBehaviour {
 	//Tracking scene index here
 	public GameObject next_Button;
 	public GameObject previous_Button;
-	public GameObject done_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
 	public GameObject no_button;
@@ -58,7 +57,6 @@ public class MakeSelection : MonoBehaviour {
 		 */
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index++; RemoveMessageButtonText(); EnableMessageButton(); });
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index--; RemoveMessageButtonText();  });
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index = 0;RemoveMessageButtonText();});
 		restart_Button.GetComponent<Button>().onClick.AddListener(()=>{scene_Index = 0;RemoveMessageButtonText();});
 		no_button.GetComponent<Button>().onClick.AddListener(()=>{scene_Index = 0;RemoveMessageButtonText();});
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {scene_Index++;});

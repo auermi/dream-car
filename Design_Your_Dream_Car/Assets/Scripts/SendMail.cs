@@ -17,7 +17,6 @@ public class SendMail : MonoBehaviour {
 	//Track Scene Index to trigger taking the screenshot
 	public GameObject start_Button;
 	public GameObject restart_Button;
-	public GameObject done_Button;
 	public GameObject next_Button;
 	public GameObject previous_Button;
 	private int sceneIndex;
@@ -36,7 +35,6 @@ public class SendMail : MonoBehaviour {
 		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });

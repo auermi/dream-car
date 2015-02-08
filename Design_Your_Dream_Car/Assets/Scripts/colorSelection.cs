@@ -10,7 +10,6 @@ public class ColorSelection : MonoBehaviour {
 	//Tracking scene index here
 	public GameObject next_Button;
 	public GameObject previous_Button;
-	public GameObject done_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
 	public GameObject no_button;
@@ -41,7 +40,6 @@ public class ColorSelection : MonoBehaviour {
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToHideSelectionColor();});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToHideSelectionColor();});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToHideSelectionColor(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToHideSelectionColor();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckToHideSelectionColor(); RealignSelectionBox(); });
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToHideSelectionColor(); });

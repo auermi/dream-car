@@ -28,7 +28,6 @@ public class ResultDisplay : MonoBehaviour {
 	//Track Screen number so we can choose when to calculate & display the information
 	public GameObject start_Button;
 	public GameObject restart_Button;
-	public GameObject done_Button;
 	public GameObject next_Button;
 	public GameObject previous_Button;
 	private int sceneIndex;
@@ -43,7 +42,6 @@ public class ResultDisplay : MonoBehaviour {
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckIfDisplay();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;});

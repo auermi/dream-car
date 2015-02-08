@@ -73,7 +73,6 @@ public class GaugeRotation : MonoBehaviour {
 
 	//Restart Button
 	public GameObject restart_Button;
-	public GameObject done_Button;
 
 	//Previous Button so we can remove values going backwards
 	public GameObject previous_Button;
@@ -131,7 +130,6 @@ public class GaugeRotation : MonoBehaviour {
 
 		//Reset Values
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues();});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues(); });
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; ZeroGaugueValues(); });
 
 		//Watches to re-adjust values and track scene index

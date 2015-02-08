@@ -20,7 +20,6 @@ public class InterfaceParenter : MonoBehaviour {
 	public GameObject previous_Button;
 	public GameObject restart_Button;
 	public GameObject start_Button;
-	public GameObject done_Button;
 	public GameObject no_button;
 
 	//Event Listeners to track scene index and update interface visibility
@@ -32,7 +31,6 @@ public class InterfaceParenter : MonoBehaviour {
 		previous_Button.GetComponent<Button>().onClick.AddListener ( () => { scene_Index--; CheckInterfaceVisibility();  });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index = 0; CheckInterfaceVisibility(); });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => { scene_Index++; CheckInterfaceVisibility(); });
-		done_Button.GetComponent<Button>().onClick.AddListener ( () => { scene_Index = 0; CheckInterfaceVisibility(); });
 		no_button.GetComponent<Button>().onClick.AddListener ( () => { scene_Index = 0; CheckInterfaceVisibility(); });
 	}
 

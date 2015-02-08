@@ -19,7 +19,6 @@ public class HideCar : MonoBehaviour {
 	int sceneIndex;
 	public GameObject start_Button;
 	public GameObject restart_Button;
-	public GameObject done_Button;
 	public GameObject next_Button;
 	public GameObject previous_Button;
 	public GameObject no_button;
@@ -30,7 +29,6 @@ public class HideCar : MonoBehaviour {
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckToShift();});

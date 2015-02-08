@@ -67,7 +67,6 @@ public class DisplayInformation : MonoBehaviour {
 	public GameObject previous_Button;
 	public GameObject next_Button;
 	public GameObject restart_Button;
-	public GameObject done_Button;
 	public GameObject no_button;
 
 	/// <summary>
@@ -125,7 +124,6 @@ public class DisplayInformation : MonoBehaviour {
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
-		done_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 
 
