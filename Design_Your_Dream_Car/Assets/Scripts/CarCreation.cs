@@ -497,7 +497,7 @@ public class CarCreation : MonoBehaviour {
 		{
 			Destroy(rightWheel);
 		}
-
+		
 		switch (carIndex)
 		{
 		case 0:
@@ -507,25 +507,25 @@ public class CarCreation : MonoBehaviour {
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
-				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
+				rightWheel.transform.localPosition = new Vector3(463f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
-				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
+				rightWheel.transform.localPosition = new Vector3(463f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-212.8f, -86.1f);
-				rightWheel.transform.localPosition = new Vector3(267.35f, -86.1f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
+				rightWheel.transform.localPosition = new Vector3(463f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			default:
 				break;
@@ -538,25 +538,25 @@ public class CarCreation : MonoBehaviour {
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
-				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
+				rightWheel.transform.localPosition = new Vector3(463f, -200f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
-				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
+				rightWheel.transform.localPosition = new Vector3(463f, -200f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-215.1f, -106f);
-				rightWheel.transform.localPosition = new Vector3(264.3f, -106f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
+				rightWheel.transform.localPosition = new Vector3(463f, -200f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			default:
 				break;
@@ -569,25 +569,25 @@ public class CarCreation : MonoBehaviour {
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
-				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
+				rightWheel.transform.localPosition = new Vector3(435f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
-				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
+				rightWheel.transform.localPosition = new Vector3(435f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-233.9f, -97.2f);
-				rightWheel.transform.localPosition = new Vector3(245.6f, -97.2f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.55f, 0.55f);
+				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
+				rightWheel.transform.localPosition = new Vector3(435f, -180f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
 				break;
 			default:
 				break;
@@ -600,25 +600,25 @@ public class CarCreation : MonoBehaviour {
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
-				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
+				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
 				break;
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
-				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
+				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
 				break;
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-226.1f, -78.3f);
-				rightWheel.transform.localPosition = new Vector3(257.6f, -78.3f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.6f, 0.6f);
+				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
+				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
 				break;
 			default:
 				break;
@@ -631,25 +631,25 @@ public class CarCreation : MonoBehaviour {
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
-				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
+				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
+				rightWheel.transform.localPosition = new Vector3(289f, -131f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
-				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
+				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
+				rightWheel.transform.localPosition = new Vector3(289f, -131f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
 				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
-				leftWheel.transform.localPosition = new Vector3(-207.7f, -81.37f);
-				rightWheel.transform.localPosition = new Vector3(187f, -81.37f);
-				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.63f, 0.63f);
+				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
+				rightWheel.transform.localPosition = new Vector3(289f, -131f);
+				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
 				break;
 			default:
 				break;
@@ -658,7 +658,7 @@ public class CarCreation : MonoBehaviour {
 		default:
 			break;
 		}
-
+		
 	}
 
 	void colorChange()
