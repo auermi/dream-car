@@ -32,8 +32,8 @@ public class MoveTitleText : MonoBehaviour {
 		car_Text = Instantiate (car_text_field_prefab) as GameObject;
 		name_Text.transform.SetParent (titleText_Container.transform, false);
 		car_Text.transform.SetParent (titleText_Container.transform, false);
-		name_Text.transform.localPosition = new Vector3 (135f, 95f);
-		car_Text.transform.localPosition = new Vector3 (-135f, 95f);
+		name_Text.transform.localPosition = new Vector3 (350f, 190f);
+		car_Text.transform.localPosition = new Vector3 (-350f, 190f);
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToMoveTitleText(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();  ResetTextFields(); });
