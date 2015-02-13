@@ -6,7 +6,7 @@ public class MoveTitleText : MonoBehaviour {
 
 	public GameObject titleText_Container;
 	private Vector3 scene11_position = new Vector3 (0f, 0f);
-	private Vector3 scene12_position = new Vector3 (0f, -300f);
+	private Vector3 scene12_position = new Vector3 (0f, -600f);
 	
 	private GameObject name_Text;
 	private GameObject car_Text;
@@ -73,8 +73,8 @@ public class MoveTitleText : MonoBehaviour {
 		car_Text = Instantiate (car_text_field_prefab) as GameObject;
 		name_Text.transform.SetParent (titleText_Container.transform, false);
 		car_Text.transform.SetParent (titleText_Container.transform, false);
-		name_Text.transform.localPosition = new Vector3 (135f, 95f);
-		car_Text.transform.localPosition = new Vector3 (-135f, 95f);
+		name_Text.transform.localPosition = new Vector3 (350f, 190f);
+		car_Text.transform.localPosition = new Vector3 (-350f, 190f);
 		Debug.Log("Reset The Field!");
 	}
 
