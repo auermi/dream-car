@@ -3,17 +3,28 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class AutoKeyboardPull : MonoBehaviour {
-	/*
-	public GameObject carNameTextBox;
-	private TouchScreenKeyboard keyboard;
-	public GameObject nextButton_10;
 
-	// Use this for initialization
-	void Start () {
-		nextButton_10.GetComponent<Button>().onClick.AddListener( () => {
-			//keyboard = TouchScreenKeyboard.Open(carNameTextBox.GetComponent<Text>().text, TouchScreenKeyboardType.URL);
-		});
-	}
+	//Tracking scene index here
+	public GameObject next_Button;
+	public GameObject previous_Button;
+	public GameObject restart_Button;
+	public GameObject start_Button;
+	public GameObject no_button;
 	
-*/
+	private int sceneIndex;
+
+	void Start () {
+		sceneIndex = 0;
+		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; });
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; });
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckPull(); });
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckPull(); });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; });
+	}
+
+	void CheckPull() {
+		if (sceneIndex == 11) {
+			TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
+		}
+	}
 }

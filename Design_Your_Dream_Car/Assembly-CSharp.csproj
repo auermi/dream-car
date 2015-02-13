@@ -50,6 +50,11 @@
      <Compile Include="Assets\Scripts\AutoKeyboardPull.cs" />
      <Compile Include="Assets\Scripts\ButtonStateChange.cs" />
      <Compile Include="Assets\Scripts\CarCreation.cs" />
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\Scripts\CheckTextContent.cs" />
+     <Compile Include="Assets\Scripts\ColorSelect.cs" />
+>>>>>>> dev
      <Compile Include="Assets\Scripts\DisplayInformation.cs" />
      <Compile Include="Assets\Scripts\GaugeRotation.cs" />
      <Compile Include="Assets\Scripts\HideCar.cs" />

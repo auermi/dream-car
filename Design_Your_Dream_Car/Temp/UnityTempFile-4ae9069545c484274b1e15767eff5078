@@ -40,11 +40,11 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
+'Assets/ColorSelect.cs'
 'Assets/Scripts/AnalyticsTracking.cs'
 'Assets/Scripts/AutoKeyboardPull.cs'
 'Assets/Scripts/ButtonStateChange.cs'
 'Assets/Scripts/CarCreation.cs'
-'Assets/Scripts/ColorSelection.cs'
 'Assets/Scripts/DisplayInformation.cs'
 'Assets/Scripts/GaugeRotation.cs'
 'Assets/Scripts/HideCar.cs'
@@ -54,5 +54,6 @@
 'Assets/Scripts/ResultDisplay.cs'
 'Assets/Scripts/SendMail.cs'
 'Assets/Scripts/Transition.cs'
+'Assets/Scripts/colorSelection.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
