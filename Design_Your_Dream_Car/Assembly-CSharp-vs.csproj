@@ -50,11 +50,8 @@
      <Compile Include="Assets\Scripts\AutoKeyboardPull.cs" />
      <Compile Include="Assets\Scripts\ButtonStateChange.cs" />
      <Compile Include="Assets\Scripts\CarCreation.cs" />
-<<<<<<< HEAD
-=======
      <Compile Include="Assets\Scripts\CheckTextContent.cs" />
      <Compile Include="Assets\Scripts\ColorSelect.cs" />
->>>>>>> dev
      <Compile Include="Assets\Scripts\DisplayInformation.cs" />
      <Compile Include="Assets\Scripts\GaugeRotation.cs" />
      <Compile Include="Assets\Scripts\HideCar.cs" />
@@ -64,7 +61,6 @@
      <Compile Include="Assets\Scripts\ResultDisplay.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\Transition.cs" />
-     <Compile Include="Assets\Scripts\colorSelection.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
