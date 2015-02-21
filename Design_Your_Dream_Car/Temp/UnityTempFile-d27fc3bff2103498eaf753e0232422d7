@@ -44,6 +44,7 @@
 'Assets/Scripts/AutoKeyboardPull.cs'
 'Assets/Scripts/ButtonStateChange.cs'
 'Assets/Scripts/CarCreation.cs'
+'Assets/Scripts/CheckTextContent.cs'
 'Assets/Scripts/ColorSelect.cs'
 'Assets/Scripts/DisplayInformation.cs'
 'Assets/Scripts/GaugeRotation.cs'
