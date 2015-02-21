@@ -11,6 +11,8 @@ using System.IO;
 
 public class SendMail : MonoBehaviour {
 
+	public GameObject email_field_prefab;
+
 	public GameObject yes_button;
 	public GameObject no_button;
 
@@ -22,7 +24,7 @@ public class SendMail : MonoBehaviour {
 	private int sceneIndex;
 
 	//Textbox where we get the user's email
-	public GameObject email_TextBox;
+	private GameObject email_TextBox;
 
 	//Swap the parent of email_TextBox
 	public GameObject hidden_Parent;
@@ -33,14 +35,21 @@ public class SendMail : MonoBehaviour {
 
 	void Start()
 	{
+		email_TextBox = Instantiate(email_field_prefab) as GameObject;
+		email_TextBox.transform.SetParent(hidden_Parent.transform); 
+		email_TextBox.transform.localPosition = new Vector3(550f, -510f);
+
+
 		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform);});
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 1; ;});
 
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { 
-			yes_button.transform.SetParent(scene_13_Parent.transform); 
-			yes_button.transform.localPosition = new Vector3(416.32f, -150f);
+			Destroy(email_TextBox);
+			email_TextBox = Instantiate(email_field_prefab) as GameObject;
 			email_TextBox.transform.SetParent(hidden_Parent.transform); 
 			email_TextBox.transform.localPosition = new Vector3(550f, -510f);
+			yes_button.transform.SetParent(scene_13_Parent.transform); 
+			yes_button.transform.localPosition = new Vector3(416.32f, -150f);
 			no_button.transform.SetParent(scene_13_Parent.transform); 
 			no_button.transform.localPosition = new Vector3(609.4f, -150f);
 			q_text.transform.SetParent(scene_13_Parent.transform); 
