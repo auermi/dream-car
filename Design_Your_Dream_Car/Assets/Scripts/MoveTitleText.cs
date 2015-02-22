@@ -16,6 +16,7 @@ public class MoveTitleText : MonoBehaviour {
 
 	public GameObject screen12;
 	public GameObject screen11;
+	public GameObject hidden_container;
 
 	//Tracking scene index here
 	private int sceneIndex;
@@ -38,7 +39,7 @@ public class MoveTitleText : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToMoveTitleText(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();  ResetTextFields(); });
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText(); ResetTextFields(); });
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText(); });
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText(); CheckText(); });
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {
 			sceneIndex--;
 			CheckToMoveTitleText(); 
@@ -78,5 +79,18 @@ public class MoveTitleText : MonoBehaviour {
 		Debug.Log("Reset The Field!");
 	}
 
+	void CheckText() {
+		/*
+		if (sceneIndex == 12) {
+			if (car_Text.GetComponent<Text> ().text.Length == 0) {
+				Debug.Log ("Success!");
+				titleText_Container.transform.SetParent(hidden_container.transform);
+			}
+			else {
+				Debug.Log ("Fail!");
+				titleText_Container.transform.SetParent(screen11.transform);
+			}
+		}*/
+	}
 
 }

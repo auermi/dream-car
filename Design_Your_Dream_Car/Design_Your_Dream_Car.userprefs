@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Transition.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PostPNG.js">
     <Files>
-      <File FileName="Assets/Scripts/Transition.cs" Line="51" Column="114" />
-      <File FileName="Assets/Scripts/DisplayInformation.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ColorSelect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MoveTitleText.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AutoKeyboardPull.cs" Line="27" Column="94" />
+      <File FileName="Assets/Scripts/CheckTextContent.cs" Line="43" Column="3" />
+      <File FileName="Assets/Scripts/MoveTitleText.cs" Line="93" Column="6" />
+      <File FileName="Assets/Scripts/PostPNG.js" Line="10" Column="3" />
+      <File FileName="Assets/Scripts/SendMail.cs" Line="102" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
