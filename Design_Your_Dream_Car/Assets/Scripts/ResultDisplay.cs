@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class ResultDisplay : MonoBehaviour {
 
 	//Put name and car name on the screen
-	//public GameObject carName_TextField;
-	//public GameObject participantName_TextField;
 
 	public GameObject result_TextField;
 
