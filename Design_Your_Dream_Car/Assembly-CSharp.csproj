@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AnalyticsTracking.cs" />
      <Compile Include="Assets\Scripts\AutoKeyboardPull.cs" />
      <Compile Include="Assets\Scripts\ButtonStateChange.cs" />
      <Compile Include="Assets\Scripts\CarCreation.cs" />

@@ -1,11 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PostPNG.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DisplayInformation.cs">
     <Files>
-      <File FileName="Assets/Scripts/CheckTextContent.cs" Line="43" Column="3" />
-      <File FileName="Assets/Scripts/MoveTitleText.cs" Line="93" Column="6" />
-      <File FileName="Assets/Scripts/PostPNG.js" Line="10" Column="3" />
-      <File FileName="Assets/Scripts/SendMail.cs" Line="102" Column="1" />
+      <File FileName="Assets/Scripts/DisplayInformation.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
