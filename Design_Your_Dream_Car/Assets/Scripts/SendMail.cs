@@ -11,6 +11,8 @@ using System.IO;
 
 public class SendMail : MonoBehaviour {
 
+	public GameObject email_field_prefab;
+
 	public GameObject yes_button;
 	public GameObject no_button;
 
@@ -22,22 +24,43 @@ public class SendMail : MonoBehaviour {
 	private int sceneIndex;
 
 	//Textbox where we get the user's email
-	public GameObject email_TextBox;
+	private GameObject email_TextBox;
 
 	//Swap the parent of email_TextBox
 	public GameObject hidden_Parent;
 	public GameObject scene_13_Parent;
 
 	public GameObject email_Text;
+	public GameObject q_text;
 
 	void Start()
 	{
-		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = hidden_Parent.transform; email_TextBox.transform.parent = scene_13_Parent.transform; });
-		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0;});
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();});
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; sceneIndex--;});
-		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.parent = scene_13_Parent.transform; email_TextBox.transform.parent = hidden_Parent.transform; CheckToMail(); sceneIndex = 0; });
+		email_TextBox = Instantiate(email_field_prefab) as GameObject;
+		email_TextBox.transform.SetParent(hidden_Parent.transform); 
+		email_TextBox.transform.localPosition = new Vector3(550f, -510f);
+
+
+		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform);});
+		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 1; ;});
+
+		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { 
+			Destroy(email_TextBox);
+			email_TextBox = Instantiate(email_field_prefab) as GameObject;
+			email_TextBox.transform.SetParent(hidden_Parent.transform); 
+			email_TextBox.transform.localPosition = new Vector3(550f, -510f);
+			yes_button.transform.SetParent(scene_13_Parent.transform); 
+			yes_button.transform.localPosition = new Vector3(416.32f, -150f);
+			no_button.transform.SetParent(scene_13_Parent.transform); 
+			no_button.transform.localPosition = new Vector3(609.4f, -150f);
+			q_text.transform.SetParent(scene_13_Parent.transform); 
+			q_text.transform.localPosition = new Vector3(513f, -22f);
+			CheckToMail(); 
+			sceneIndex = 0;
+		});
+
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot(); Debug.Log (sceneIndex);});
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex--;});
+		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); CheckToMail(); sceneIndex = 0; });
 	}
 
 	static void RemoveTakeScreenshot () {
@@ -54,7 +77,7 @@ public class SendMail : MonoBehaviour {
 		mail.From = new MailAddress("imalabadmin@imamuseum.org");
 		mail.To.Add(emailAddress);
 		mail.Subject = "IMA Test Mail";
-		mail.Body = "Hello this is a test email from the IMA Dream Car iOS App";
+		mail.Body = "Hello, attached is your Dream Car from the IMA Dream Car iOS App";
 
 		System.Net.Mail.Attachment attachment;
 		attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");

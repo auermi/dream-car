@@ -98,7 +98,6 @@ public class MakeSelection : MonoBehaviour {
 	{
 		if (scene_Index == 2 || scene_Index == 3 || scene_Index == 4 || scene_Index == 6 || scene_Index == 8 || scene_Index == 9) {
 			makeASelection_Button.transform.parent = makeASelection_Parent.transform;
-			//makeASelection_Text.transform.parent = interface_Parent.transform;
 		}
 		else
 		{

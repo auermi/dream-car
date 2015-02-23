@@ -79,48 +79,58 @@ public class DisplayInformation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		fuelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
-			screenIndex = 0; 
+			screenIndex = 0;
+			removeInfoText();
 			textSwap(); 
 			changeInfoIcon();
 		});
 		transmissionInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 1; 
+			removeInfoText();
 			textSwap();
 			changeInfoIcon();
 		});
 		drivetrainInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => { 
 			screenIndex = 2; 
+			removeInfoText();
 			textSwap(); 
 			changeInfoIcon();
 		});
 
 		bodyStyleInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 3;
+			removeInfoText();
 			textSwap ();
 			changeInfoIcon();
 		});
 
 		spoilerInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 4;
+			removeInfoText();
 			textSwap ();
 			changeInfoIcon();
 		});
 
 		wheelInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 5;
+			removeInfoText();
 			textSwap ();
 			changeInfoIcon();
 		});
 		colorInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 6;
+			removeInfoText();
 			textSwap ();
 			changeInfoIcon();
 		});
 		decalInfoButtonfull.GetComponent<Button>().onClick.AddListener(() => {
 			screenIndex = 7;
+			removeInfoText();
 			textSwap ();
 			changeInfoIcon();
 		});
+
+
 		previous_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { removeInfoText(); ResetInfoIcons(); });
@@ -158,26 +168,34 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			infoBoxShadow3 = Instantiate(infoBoxShadowPrefab) as GameObject;
+
+			infoBoxShadow1.transform.localScale = new Vector3(.812f, .814f);
+			infoBoxShadow2.transform.localScale = new Vector3(.812f, .814f);
+			infoBoxShadow3.transform.localScale = new Vector3(.812f, .814f);
 			
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
 			infoBoxShadow3.transform.parent = infoParent.transform;
 			
-			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -50f);
-			infoBoxShadow2.transform.localPosition = new Vector3(0f, -50f);
-			infoBoxShadow3.transform.localPosition = new Vector3(330f, -50f);
+			infoBoxShadow1.transform.localPosition = new Vector3(-660f, -100f);
+			infoBoxShadow2.transform.localPosition = new Vector3(0f, -100f);
+			infoBoxShadow3.transform.localPosition = new Vector3(660f, -100f);
 
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			textBox3 = Instantiate(textBoxPref) as GameObject;
+
+			textBox1.transform.localScale = new Vector3(.812f, .814f);
+			textBox2.transform.localScale = new Vector3(.812f, .814f);
+			textBox3.transform.localScale = new Vector3(.812f, .814f);
 			
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
 			textBox3.transform.parent = infoParent.transform;
 
-			textBox1.transform.localPosition = new Vector3(-332f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(-2f, -45.1f);
-			textBox3.transform.localPosition = new Vector3(328f, -45.1f);
+			textBox1.transform.localPosition = new Vector3(-660f, -90f);
+			textBox2.transform.localPosition = new Vector3(0f, -90f);
+			textBox3.transform.localPosition = new Vector3(660f, -90f);
 
 			textBox1.GetComponent<Text>().text = "Gas cars are powered by gasoline. Inexpensive and fast but not fuel-efficient, you will need more fuel to go the same distance.";
 			textBox2.GetComponent<Text>().text = "Electric cars are powered by electricity. They are the most fuel-efficient, but also expensive and slow.";
@@ -204,8 +222,8 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
 			
-			infoBoxShadow1.transform.localPosition = new Vector3(-165f, -50f);
-			infoBoxShadow2.transform.localPosition = new Vector3(165f, -50f);
+			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -100f);
+			infoBoxShadow2.transform.localPosition = new Vector3(330f, -100f);
 
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
@@ -213,8 +231,8 @@ public class DisplayInformation : MonoBehaviour {
 			
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
-			textBox1.transform.localPosition = new Vector3(-165f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(165f, -45.1f);
+			textBox1.transform.localPosition = new Vector3(-330f, -90f);
+			textBox2.transform.localPosition = new Vector3(330f, -90f);
 			
 			textBox1.GetComponent<Text>().text = "An automatic transmission changes gears without help from the driver. It drives slower and costs more but is more fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "A manual transmission requires the driver to change gears. It usually costs less and drives faster but is less fuel-efficient.";
@@ -236,8 +254,8 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
 			
-			infoBoxShadow1.transform.localPosition = new Vector3(-165f, -50f);
-			infoBoxShadow2.transform.localPosition = new Vector3(165f, -50f);
+			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -100f);
+			infoBoxShadow2.transform.localPosition = new Vector3(330f, -100f);
 
 			textBox1 = Instantiate(textBoxPref) as GameObject;
 			textBox2 = Instantiate(textBoxPref) as GameObject;
@@ -246,8 +264,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;
 
-			textBox1.transform.localPosition = new Vector3(-165f, -45.1f);
-			textBox2.transform.localPosition = new Vector3(165f, -45.1f);
+			textBox1.transform.localPosition = new Vector3(-330f, -90f);
+			textBox2.transform.localPosition = new Vector3(330f, -90f);
 			
 			textBox1.GetComponent<Text>().text = "2-Wheel-Drive sends power to two of the wheels at once. It costs less and is more fuel-efficient.";
 			textBox2.GetComponent<Text>().text = "All-Wheel-Drive sends power to all wheels at once. It costs more and is less fuel-efficient but makes for better handling.";
@@ -272,7 +290,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 
-			lg_box_text.GetComponent<Text>().fontSize = 25;
+			lg_box_text.GetComponent<Text>().fontSize = 40;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
@@ -293,7 +311,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 
-			lg_box_text.GetComponent<Text>().fontSize = 25;
+			lg_box_text.GetComponent<Text>().fontSize = 40;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
@@ -314,7 +332,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 
-			lg_box_text.GetComponent<Text>().fontSize = 25;
+			lg_box_text.GetComponent<Text>().fontSize = 40;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
@@ -335,7 +353,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 		
-			lg_box_text.GetComponent<Text>().fontSize = 25;
+			lg_box_text.GetComponent<Text>().fontSize = 40;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
@@ -356,7 +374,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
 
-			lg_box_text.GetComponent<Text>().fontSize = 25;
+			lg_box_text.GetComponent<Text>().fontSize = 40;
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			

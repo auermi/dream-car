@@ -885,28 +885,6 @@ public class CarCreation : MonoBehaviour {
 		Destroy (rightWheel);
 		Destroy (decal);
 		Destroy (decal2);
-		/*
-		if (car != null)
-		{
-			Destroy(car);
-		}
-		if (spoiler != null)
-		{
-			Destroy(spoiler);
-		}
-		if (leftWheel != null)
-		{
-			Destroy(leftWheel);
-			Destroy(rightWheel);
-		}
-		if (decal != null)
-		{
-			Destroy(decal);
-		}
-		if (decal2 != null) {
-			Destroy(decal2);
-		}
-		*/
 	}
 	void removeCar()
 	{

@@ -48,7 +48,11 @@ public class Transition : MonoBehaviour {
 			if (direction) 
 			{
 				isMoving = true;
+<<<<<<< HEAD
 				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3072f /* + 16f*/);
+=======
+				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3072f /*+ 16f*/);
+>>>>>>> dev
 				AnimationClip clip = new AnimationClip ();
 				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
 				animation.AddClip (clip, "queued_transition");
@@ -62,7 +66,11 @@ public class Transition : MonoBehaviour {
 			else 
 			{
 				isMoving = true;
+<<<<<<< HEAD
 				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos -1024f, .5f, currentPos + 1024f /*+ 16f */);
+=======
+				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos -1024f, .5f, currentPos + 1024f /*+ 16f*/);
+>>>>>>> dev
 				AnimationClip clip = new AnimationClip ();
 				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
 				animation.AddClip (clip, "queued_transition");
@@ -110,12 +118,6 @@ public class Transition : MonoBehaviour {
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
-		/*
-		case 7:
-			next_Button.GetComponent<Button>().interactable = false;
-			next_Button.GetComponent<Image>().sprite = inactive_Button;
-			break;
-		*/
 		case 8:
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
@@ -124,12 +126,6 @@ public class Transition : MonoBehaviour {
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
 			break;
-		/*
-		case 10:
-			next_Button.GetComponent<Button>().interactable = false;
-			next_Button.GetComponent<Image>().sprite = inactive_Button;
-			break;
-		*/
 		default:
 			break;
 		}
@@ -148,7 +144,7 @@ public class Transition : MonoBehaviour {
 	//Enables Next button in case of some exceptions where it is needed on reverse
 	void CheckIfReenable()
 	{
-		/*
+
 		switch (scene_index) 
 		{
 		case 1:
@@ -162,9 +158,10 @@ public class Transition : MonoBehaviour {
 		default:
 			break;
 		}
-		*/
+		/*
 		next_Button.GetComponent<Button>().interactable = true;
 		next_Button.GetComponent<Image>().sprite = active_Button;
+		*/
 	}
 	
 	//We need to check every time to see if the next button needs to be unparented on screen 13 and parent the done button in its place
