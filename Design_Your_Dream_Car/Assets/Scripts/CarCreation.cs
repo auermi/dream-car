@@ -928,7 +928,7 @@ public class CarCreation : MonoBehaviour {
 		flameButton.GetComponent<Image>().sprite = flamesButtonSprite;
 		starButton.GetComponent<Image>().sprite = starsButtonSprite;
 		stripeButton.GetComponent<Image>().sprite = stripeButtonSprite;
-
+		noDecalButton.GetComponent<Image> ().sprite = noDecalButtonActiveSprite;
 	}
 
 	void removeSpoiler()
@@ -986,6 +986,8 @@ public class CarCreation : MonoBehaviour {
 			{
 				Destroy (decal2);
 			}
+			noDecalButton.GetComponent<Image>().sprite = noDecalButtonActiveSprite;
+			
 			break;
 		default:
 			break;
