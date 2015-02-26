@@ -25,15 +25,24 @@ public class HideCar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		offscreen = new Vector3 (0f, 1536f, 0f);
-		sceneIndex = 0;
-		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift(); });
-		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
-		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToShift();});
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToShift();});
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--; CheckToShift();});
-	}
-	
+				offscreen = new Vector3 (0f, 1536f, 0f);
+				sceneIndex = 0;
+				start_Button.GetComponent<Button> ().onClick.AddListener (() => {
+						sceneIndex++;
+						CheckToShift (); });
+				restart_Button.GetComponent<Button> ().onClick.AddListener (() => {
+						sceneIndex = 0;
+						CheckToShift ();});
+				no_button.GetComponent<Button> ().onClick.AddListener (() => {
+						sceneIndex = 0;
+						CheckToShift ();});
+				next_Button.GetComponent<Button> ().onClick.AddListener (() => {
+						sceneIndex++;
+						CheckToShift ();});
+				previous_Button.GetComponent<Button> ().onClick.AddListener (() => {
+						sceneIndex--;
+						StartCoroutine (waitabit ()); });
+		}
 	void ShiftCarOut()
 	{
 		car_Container.transform.localPosition = offscreen;
@@ -56,10 +65,14 @@ public class HideCar : MonoBehaviour {
 		{
 			ShiftCarOut();
 		}
+
 		else
 		{
 			ShiftCarIn();
 		}
 	}
-
+	IEnumerator waitabit() {
+		yield return new WaitForSeconds(.5f);
+		CheckToShift ();
+	}
 }
