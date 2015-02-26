@@ -34,8 +34,8 @@ public class Transition : MonoBehaviour {
 	void Start () {
 		isMoving = false;
 		scene_index = 0;
-		next_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons();  });
-		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); });
+		next_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); HideNextButtonOnLastPage(); });
+		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); UnhideNextButtonOnLastPage(); });
 		restart_Button.GetComponent<Button>().onClick.AddListener( () => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0; ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button; });
 		start_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); } );
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0;  ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button;  });
@@ -150,5 +150,15 @@ public class Transition : MonoBehaviour {
 			break;
 		}
 	}
+	void HideNextButtonOnLastPage() {
 
+		if (scene_index == 13) {
+			next_Button.transform.SetParent(hidden_Parent.transform);
+		}
+	}
+	void UnhideNextButtonOnLastPage() {
+				if (scene_index == 12) {
+						next_Button.transform.SetParent (navigation_Parent.transform);
+				}
+		}
 }
