@@ -144,20 +144,20 @@ public class GaugeRotation : MonoBehaviour {
 	{
 		total_Cost = fuel_Cost + drivetrain_Cost + transmission_Cost + bodyStyle_Cost + spoiler_Cost + wheels_Cost + paintCoat_Cost + decal_Cost;
 		float convertedTotal_Cost = total_Cost * -11f;
-		cost_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Cost + 50f);
+		cost_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Cost + 56.34f);
 	}
 	void CalculateFuelEfficiencyGauge()
 	{
 		total_Efficiency = fuel_Efficiency + drivetrain_Efficiency + transmission_Efficiency + bodyStyle_Efficiency + spoiler_Efficiency;
 		float convertedTotal_Efficiency = total_Efficiency * -17f;
-		efficiency_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Efficiency + 50f);
+		efficiency_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Efficiency + 56.34f);
 
 	}
 	void CalculateSpeedGauge()
 	{
 		total_Speed = fuel_Speed + transmission_Speed + bodyStyle_Speed + spoiler_Speed;
 		float convertedTotal_Speed = total_Speed * -21.5f;
-		speed_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Speed+ 50f);
+		speed_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Speed+ 56.34f);
 	}
 	void ZeroGaugueValues()
 	{
