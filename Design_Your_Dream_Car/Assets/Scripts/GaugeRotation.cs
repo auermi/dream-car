@@ -107,7 +107,7 @@ public class GaugeRotation : MonoBehaviour {
 		minivan_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 2; bodyStyle_Efficiency = 2; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		truck_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 4; bodyStyle_Efficiency = 0; bodyStyle_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		suv_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 3; bodyStyle_Efficiency = 1; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
-		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 1; spoiler_Efficiency = 1; spoiler_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 2; spoiler_Efficiency = 1; spoiler_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		noSpoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 0; spoiler_Efficiency = 0; spoiler_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge();});
 		sportyWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 1; CalculateCostGauge(); });
 		luxuryWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 2; CalculateCostGauge(); });

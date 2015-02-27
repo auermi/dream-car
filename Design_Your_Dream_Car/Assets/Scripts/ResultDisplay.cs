@@ -53,7 +53,7 @@ public class ResultDisplay : MonoBehaviour {
 		efficiency_Total = gaugeRotation_Script.total_Efficiency;
 		speed_Total = gaugeRotation_Script.total_Speed;
 		//Determine Cost word
-		if (cost_Total >= 7.5)
+		if (cost_Total >= 8)
 		{
 			costChoice = "expensive";
 		}
@@ -62,7 +62,7 @@ public class ResultDisplay : MonoBehaviour {
 			costChoice = "inexpensive";
 		}
 		//Determine Efficiency word
-		if (efficiency_Total >= 3.5)
+		if (efficiency_Total >= 5)
 		{
 			efficiencyChoice = "fuel-efficient";
 		}
