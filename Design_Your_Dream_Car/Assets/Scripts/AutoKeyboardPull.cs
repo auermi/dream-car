@@ -10,6 +10,7 @@ public class AutoKeyboardPull : MonoBehaviour {
 	public GameObject restart_Button;
 	public GameObject start_Button;
 	public GameObject no_button;
+
 	
 	private int sceneIndex;
 
@@ -24,7 +25,8 @@ public class AutoKeyboardPull : MonoBehaviour {
 
 	void CheckPull() {
 		if (sceneIndex == 11) {
-			TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
+			TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);                     
+
 		}
 	}
 }
