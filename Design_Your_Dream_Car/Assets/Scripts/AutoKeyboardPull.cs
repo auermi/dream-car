@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class AutoKeyboardPull : MonoBehaviour {
-
+	/*
 	//Tracking scene index here
 	public GameObject next_Button;
 	public GameObject previous_Button;
@@ -28,5 +28,5 @@ public class AutoKeyboardPull : MonoBehaviour {
 			TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);                     
 
 		}
-	}
+	}*/
 }
