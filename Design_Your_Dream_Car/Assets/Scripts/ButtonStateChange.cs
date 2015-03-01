@@ -154,7 +154,7 @@ public class ButtonStateChange : MonoBehaviour {
 			flame_Button.GetComponent<Image>().sprite = flame_Button_Sprite_Inactive;
 			stripe_Button.GetComponent<Image>().sprite = stripe_Button_Sprite_Inactive;
 			star_Button.GetComponent<Image>().sprite = star_Button_Sprite_Inactive;
-			noDecal_Button.GetComponent<Image>().sprite = noDecal_Button_Sprite_Inactive;
+			noDecal_Button.GetComponent<Image>().sprite = noDecal_Button_Sprite_Active;
 			break;
 		default:
 			break;

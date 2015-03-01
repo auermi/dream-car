@@ -169,9 +169,9 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			infoBoxShadow3 = Instantiate(infoBoxShadowPrefab) as GameObject;
 
-			infoBoxShadow1.transform.localScale = new Vector3(.812f, .814f);
-			infoBoxShadow2.transform.localScale = new Vector3(.812f, .814f);
-			infoBoxShadow3.transform.localScale = new Vector3(.812f, .814f);
+			infoBoxShadow1.transform.localScale = new Vector3(0.97f, .965f);
+			infoBoxShadow2.transform.localScale = new Vector3(0.97f, .965f);
+			infoBoxShadow3.transform.localScale = new Vector3(0.97f, .965f);
 			
 			infoBoxShadow1.transform.parent = infoParent.transform;
 			infoBoxShadow2.transform.parent = infoParent.transform;
@@ -185,9 +185,9 @@ public class DisplayInformation : MonoBehaviour {
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			textBox3 = Instantiate(textBoxPref) as GameObject;
 
-			textBox1.transform.localScale = new Vector3(.812f, .814f);
-			textBox2.transform.localScale = new Vector3(.812f, .814f);
-			textBox3.transform.localScale = new Vector3(.812f, .814f);
+			textBox1.transform.localScale = new Vector3(0.97f, .965f);
+			textBox2.transform.localScale = new Vector3(0.97f, .965f);
+			textBox3.transform.localScale = new Vector3(0.97f, .965f);
 			
 			textBox1.transform.parent = infoParent.transform;
 			textBox2.transform.parent = infoParent.transform;

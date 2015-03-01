@@ -107,7 +107,7 @@ public class GaugeRotation : MonoBehaviour {
 		minivan_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 2; bodyStyle_Efficiency = 2; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		truck_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 4; bodyStyle_Efficiency = 0; bodyStyle_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		suv_Button.GetComponent<Button>().onClick.AddListener ( () => { bodyStyle_Cost = 3; bodyStyle_Efficiency = 1; bodyStyle_Speed = 2; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
-		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 1; spoiler_Efficiency = 1; spoiler_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
+		spoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 2; spoiler_Efficiency = 1; spoiler_Speed = 1; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge(); });
 		noSpoiler_Button.GetComponent<Button>().onClick.AddListener ( () => { spoiler_Cost = 0; spoiler_Efficiency = 0; spoiler_Speed = 0; CalculateCostGauge(); CalculateFuelEfficiencyGauge(); CalculateSpeedGauge();});
 		sportyWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 1; CalculateCostGauge(); });
 		luxuryWheel_Button.GetComponent<Button>().onClick.AddListener ( () => { wheels_Cost = 2; CalculateCostGauge(); });
@@ -143,21 +143,21 @@ public class GaugeRotation : MonoBehaviour {
 	void CalculateCostGauge ()
 	{
 		total_Cost = fuel_Cost + drivetrain_Cost + transmission_Cost + bodyStyle_Cost + spoiler_Cost + wheels_Cost + paintCoat_Cost + decal_Cost;
-		float convertedTotal_Cost = total_Cost * -11f;
-		cost_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Cost + 50f);
+		float convertedTotal_Cost = total_Cost * -11.25f;
+		cost_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Cost + 56.34f);
 	}
 	void CalculateFuelEfficiencyGauge()
 	{
 		total_Efficiency = fuel_Efficiency + drivetrain_Efficiency + transmission_Efficiency + bodyStyle_Efficiency + spoiler_Efficiency;
-		float convertedTotal_Efficiency = total_Efficiency * -17f;
-		efficiency_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Efficiency + 50f);
+		float convertedTotal_Efficiency = total_Efficiency * -18f;
+		efficiency_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Efficiency + 56.34f);
 
 	}
 	void CalculateSpeedGauge()
 	{
 		total_Speed = fuel_Speed + transmission_Speed + bodyStyle_Speed + spoiler_Speed;
-		float convertedTotal_Speed = total_Speed * -21.5f;
-		speed_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Speed+ 50f);
+		float convertedTotal_Speed = total_Speed * -22.5f;
+		speed_Gauge.transform.eulerAngles = new Vector3 (0f, 0f, convertedTotal_Speed+ 56.34f);
 	}
 	void ZeroGaugueValues()
 	{
