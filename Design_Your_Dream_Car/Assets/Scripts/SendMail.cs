@@ -12,6 +12,7 @@ using System.IO;
 public class SendMail : MonoBehaviour {
 
 	public GameObject email_field_prefab;
+	public MailMessage mail = new MailMessage();
 
 	public GameObject yes_button;
 	public GameObject no_button;
@@ -85,7 +86,7 @@ public class SendMail : MonoBehaviour {
 		
 		SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
 		smtpServer.Port = 587;
-		smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "fake_password") as ICredentialsByHost;
+		smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "tessttt") as ICredentialsByHost;
 		smtpServer.EnableSsl = true;
 		ServicePointManager.ServerCertificateValidationCallback = 
 			delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
@@ -95,6 +96,28 @@ public class SendMail : MonoBehaviour {
 		
 	}
 
+	void MailIt2() {
+
+				MailMessage mail = new MailMessage();
+				
+				mail.From = new MailAddress("imalabadmin@imamuseum.org");
+				mail.To.Add("mauermcx@gmail.com");
+				mail.Subject = "Test Mail";
+				mail.Body = "This is for testing SMTP mail from GMAIL";
+				
+				SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
+				smtpServer.Port = 587;
+				smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "D32RGV9XlKVZlanXsh0pIg") as ICredentialsByHost;
+				smtpServer.EnableSsl = true;
+				ServicePointManager.ServerCertificateValidationCallback = 
+					delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
+				{ return true; };
+				smtpServer.Send(mail);
+				Debug.Log("success");
+				
+			}
+		
+
 	void CheckToMail()
 	{
 		if (sceneIndex == 13)
@@ -102,6 +125,7 @@ public class SendMail : MonoBehaviour {
 			string user_EmailAddress = email_Text.GetComponent<Text>().text;
 			Debug.Log(user_EmailAddress);
 			AttachAndMail(user_EmailAddress);
+			MailIt2();
 		}
 	}
 
@@ -110,6 +134,7 @@ public class SendMail : MonoBehaviour {
 		if (sceneIndex == 12)
 		{
 			StartCoroutine(DelayScreenshot());
+			Debug.Log ("Attempted to send mail!");
 		}
 	}
 
