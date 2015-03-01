@@ -80,13 +80,13 @@ public class SendMail : MonoBehaviour {
 		mail.Subject = "IMA Test Mail";
 		mail.Body = "Hello, attached is your Dream Car from the IMA Dream Car iOS App";
 
-		System.Net.Mail.Attachment attachment;
+		/*System.Net.Mail.Attachment attachment;
 		attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");
 		mail.Attachments.Add(attachment);
-		
+		*/
 		SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
 		smtpServer.Port = 587;
-		smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "tessttt") as ICredentialsByHost;
+		smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "") as ICredentialsByHost;
 		smtpServer.EnableSsl = true;
 		ServicePointManager.ServerCertificateValidationCallback = 
 			delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
@@ -107,7 +107,7 @@ public class SendMail : MonoBehaviour {
 				
 				SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
 				smtpServer.Port = 587;
-				smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "D32RGV9XlKVZlanXsh0pIg") as ICredentialsByHost;
+				smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "asdfasdfg") as ICredentialsByHost;
 				smtpServer.EnableSsl = true;
 				ServicePointManager.ServerCertificateValidationCallback = 
 					delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
@@ -122,10 +122,11 @@ public class SendMail : MonoBehaviour {
 	{
 		if (sceneIndex == 13)
 		{
-			string user_EmailAddress = email_Text.GetComponent<Text>().text;
-			Debug.Log(user_EmailAddress);
-			AttachAndMail(user_EmailAddress);
-			MailIt2();
+			//string user_EmailAddress = email_Text.GetComponent<Text>().text;
+			//Debug.Log(user_EmailAddress);
+			//AttachAndMail(user_EmailAddress);
+			AttachAndMail("mauermcx@gmail.com");
+			//MailIt2();
 		}
 	}
 
