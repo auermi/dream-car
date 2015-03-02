@@ -9,6 +9,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.IO;
 
 
+/*JS SAVING SCREENSHOTS
+ * 
+ * 
+ * _ScreenshotWriteToAlbum(Application.persistentDataPath + "/screenshot.png");
+ * 
+ */
+
 public class SendMail : MonoBehaviour {
 
 	public GameObject email_field_prefab;
@@ -66,8 +73,7 @@ public class SendMail : MonoBehaviour {
 
 	static void RemoveTakeScreenshot () {
 		//removes the file
-		File.Delete("Assets/Data/Dream-Car.png");
-		Application.CaptureScreenshot("Assets/Data/Dream-Car.png");
+		Application.CaptureScreenshot("Dream-Car.png");
 		Debug.Log ("Screenshot!");
 	}
 	
@@ -80,10 +86,10 @@ public class SendMail : MonoBehaviour {
 		mail.Subject = "IMA Test Mail";
 		mail.Body = "Hello, attached is your Dream Car from the IMA Dream Car iOS App";
 
-		/*System.Net.Mail.Attachment attachment;
-		attachment = new System.Net.Mail.Attachment("Assets/Data/Dream-Car.png");
+		System.Net.Mail.Attachment attachment;
+		attachment = new System.Net.Mail.Attachment(Application.persistentDataPath + "/Dream-Car.png");
 		mail.Attachments.Add(attachment);
-		*/
+
 		SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
 		smtpServer.Port = 587;
 		smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "") as ICredentialsByHost;
@@ -95,28 +101,7 @@ public class SendMail : MonoBehaviour {
 		Debug.Log("success");
 		
 	}
-
-	void MailIt2() {
-
-				MailMessage mail = new MailMessage();
-				
-				mail.From = new MailAddress("imalabadmin@imamuseum.org");
-				mail.To.Add("mauermcx@gmail.com");
-				mail.Subject = "Test Mail";
-				mail.Body = "This is for testing SMTP mail from GMAIL";
-				
-				SmtpClient smtpServer = new SmtpClient("smtp.mandrillapp.com");
-				smtpServer.Port = 587;
-				smtpServer.Credentials = new System.Net.NetworkCredential("imalabadmin@imamuseum.org", "asdfasdfg") as ICredentialsByHost;
-				smtpServer.EnableSsl = true;
-				ServicePointManager.ServerCertificateValidationCallback = 
-					delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) 
-				{ return true; };
-				smtpServer.Send(mail);
-				Debug.Log("success");
-				
-			}
-		
+	
 
 	void CheckToMail()
 	{

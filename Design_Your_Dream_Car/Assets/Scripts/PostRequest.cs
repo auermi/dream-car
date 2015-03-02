@@ -55,7 +55,7 @@ public class PostRequest : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckPost();});
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; /*CheckPost();*/});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;});
 	}
 
@@ -67,6 +67,7 @@ public class PostRequest : MonoBehaviour {
 	}
 
 	IEnumerator PostImage() {
+
 		yield return new WaitForSeconds(.500000001f);
 		yield return new WaitForEndOfFrame();
 		Texture2D tex = new Texture2D (2048, 1536, TextureFormat.RGB24, false);
