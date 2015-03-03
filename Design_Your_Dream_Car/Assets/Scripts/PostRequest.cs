@@ -55,7 +55,7 @@ public class PostRequest : MonoBehaviour {
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;});
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; /*CheckPost();*/});
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckPost();});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {sceneIndex--;});
 	}
 
@@ -76,7 +76,7 @@ public class PostRequest : MonoBehaviour {
 		bytes = tex.EncodeToPNG ();
 		WWWForm form = new WWWForm ();
 		form.AddField ("token", token); 
-		form.AddBinaryData("image", bytes, "Assets/Data/Dream-Car.png", "image/png");
+		form.AddBinaryData("image", bytes, Application.persistentDataPath + "/Dream-Car.png", "image/png");
 		WWW w =  new WWW(url, form);
 		yield return w;
 	}
