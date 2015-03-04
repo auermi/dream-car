@@ -327,7 +327,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "The type of wheel can increase the cost of your car, but usually won’t affect fuel-efficiency or speed.";
+			lg_box_text.GetComponent<Text>().text = "The type of wheel can increase the cost of your car, but usually won’t affect fuel efficiency or speed.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);

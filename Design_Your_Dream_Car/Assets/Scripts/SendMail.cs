@@ -89,7 +89,7 @@ public class SendMail : MonoBehaviour {
 
 						SmtpClient smtpServer = new SmtpClient ("smtp.mandrillapp.com");
 						smtpServer.Port = 587;
-						smtpServer.Credentials = new System.Net.NetworkCredential ("imalabadmin@imamuseum.org", "D32RGV9XlKVZlanXsh0pIg") as ICredentialsByHost;
+						smtpServer.Credentials = new System.Net.NetworkCredential ("imalabadmin@imamuseum.org", "") as ICredentialsByHost;
 						smtpServer.EnableSsl = true;
 						ServicePointManager.ServerCertificateValidationCallback = 
 			delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {

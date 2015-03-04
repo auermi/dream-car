@@ -45,9 +45,9 @@ public class PostRequest : MonoBehaviour {
 
 	public static float width = 2048f;
 	public static float height = 1536f;
-	private string url = "fake_url";
+	private string url = "http://cardesign.imamuseum.org/upload.php";
 	public byte[] bytes;
-	private string token = "fake_token";
+	private string token = "";
 	public Rect rect = new Rect(0f, 0f, width, height);
 
 	// Use this for initialization
