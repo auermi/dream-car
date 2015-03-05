@@ -59,11 +59,12 @@ public class SendMail : MonoBehaviour {
 
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { 
 			StartCoroutine(AttachAndMail());
+			Application.LoadLevel(0);
 		});
 
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot(); Debug.Log (sceneIndex);});
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex--;});
-		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex = 0; });
+		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex = 0; Application.LoadLevel(0);});
 	}
 
 	static void RemoveTakeScreenshot () {
@@ -99,6 +100,7 @@ public class SendMail : MonoBehaviour {
 						yield return null;
 						Debug.Log ("success");
 						//Reset Email Screen
+			/*
 						email_TextBox.transform.SetParent(hidden_Parent.transform); 
 						email_TextBox.transform.localPosition = new Vector3(550f, -510f);
 						yes_button.transform.SetParent(scene_13_Parent.transform); 
@@ -109,7 +111,7 @@ public class SendMail : MonoBehaviour {
 						q_text.transform.localPosition = new Vector3(513f, -22f);
 						sceneIndex = 0;
 						email_Text.GetComponent<Text>().text = "  ";
-						Application.LoadLevel(0);
+				*/		
 				}
 	}
 
