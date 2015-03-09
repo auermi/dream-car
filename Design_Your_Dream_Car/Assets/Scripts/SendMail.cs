@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System;
 using System.Net;
@@ -7,7 +6,7 @@ using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
-
+using UnityEngine.UI;
 
 /*JS SAVING SCREENSHOTS
  * 
@@ -42,9 +41,14 @@ public class SendMail : MonoBehaviour {
 	public GameObject q_text;
 
 
-	public GameObject mailButton;
 
 	private string user_EmailAddress;
+
+	public GameObject send_button;
+	public GameObject send_blocker;
+
+	public Sprite active_send;
+	public Sprite inactive_send;
 
 
 	void Start()
@@ -52,18 +56,21 @@ public class SendMail : MonoBehaviour {
 
 		//email_TextBox = Instantiate(email_field_prefab) as GameObject;
 		email_TextBox.transform.SetParent(hidden_Parent.transform); 
-		email_TextBox.transform.localPosition = new Vector3(550f, -510f);
+		email_TextBox.transform.localPosition = new Vector3(550f, -200f);
 
-		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform);});
+		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform); send_blocker.transform.SetParent(hidden_Parent.transform); send_button.GetComponent<Image>().sprite = active_send; previous_Button.transform.localPosition = new Vector3(-900f, 20f); send_button.transform.localPosition = new Vector3(900f, 20f); });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 1; ;});
 
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { 
-			StartCoroutine(AttachAndMail());
-			Application.LoadLevel(0);
+			Application.LoadLevel(0); 
 		});
 
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot(); Debug.Log (sceneIndex);});
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex--;});
+		send_button.GetComponent<Button>().onClick.AddListener(() => {
+				StartCoroutine(AttachAndMail());
+			});
+
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();  });
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); send_blocker.transform.SetParent(scene_13_Parent.transform); send_button.GetComponent<Image>().sprite = inactive_send;  previous_Button.transform.localPosition = new Vector3(-900f, -680f); send_button.transform.localPosition = new Vector3(900f, -680f); sceneIndex--;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex = 0; Application.LoadLevel(0);});
 	}
 
@@ -99,19 +106,7 @@ public class SendMail : MonoBehaviour {
 						smtpServer.Send (mail);
 						yield return null;
 						Debug.Log ("success");
-						//Reset Email Screen
-			/*
-						email_TextBox.transform.SetParent(hidden_Parent.transform); 
-						email_TextBox.transform.localPosition = new Vector3(550f, -510f);
-						yes_button.transform.SetParent(scene_13_Parent.transform); 
-						yes_button.transform.localPosition = new Vector3(416.32f, -150f);
-						no_button.transform.SetParent(scene_13_Parent.transform); 
-						no_button.transform.localPosition = new Vector3(609.4f, -150f);
-						q_text.transform.SetParent(scene_13_Parent.transform); 
-						q_text.transform.localPosition = new Vector3(513f, -22f);
-						sceneIndex = 0;
-						email_Text.GetComponent<Text>().text = "  ";
-				*/		
+						Application.LoadLevel(0);
 				}
 	}
 
@@ -135,5 +130,5 @@ public class SendMail : MonoBehaviour {
 		RemoveTakeScreenshot ();
 	}
 	
-
+	
 }
