@@ -306,7 +306,7 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0.transform.parent = infoParent.transform;
 			lg_box_text.transform.parent = infoParent.transform;
 
-			lg_box_text.GetComponent<Text>().text = "A spoiler increases fuel-efficiency by spreading airflow around a car. A spoiler increases cost, but makes it safer at higher speeds.";
+			lg_box_text.GetComponent<Text>().text = "A spoiler increases fuel efficiency by spreading airflow around a car. A spoiler increases cost, but makes it safer at higher speeds.";
 
 			textBox0.transform.localPosition = new Vector3(0f, 0f);
 			lg_box_text.transform.localPosition = new Vector3(0f, 0f);
