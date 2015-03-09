@@ -35,7 +35,7 @@ public class Transition : MonoBehaviour {
 		isMoving = false;
 		scene_index = 0;
 		next_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); HideNextButtonOnLastPage(); });
-		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); UnhideNextButtonOnLastPage(); });
+		previous_Button.GetComponent<Button>().onClick.AddListener( () => { direction = false; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); UnhideNextButtonOnLastPage(); ChangeNextSprite(); });
 		restart_Button.GetComponent<Button>().onClick.AddListener( () => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0; ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button; });
 		start_Button.GetComponent<Button>().onClick.AddListener( () => { direction = true; MakeTransition(app_Slider.transform.position.x); ParentTransitionButtons(); } );
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { app_Slider.transform.localPosition = new Vector3 (0f, 0f); scene_index = 0;  ParentTransitionButtons(); next_Button.GetComponent<Button>().interactable = true; next_Button.GetComponent<Image>().sprite = active_Button;  });
@@ -69,6 +69,9 @@ public class Transition : MonoBehaviour {
 				animation.Play ("queued_transition");
 				scene_index--;
 				StartCoroutine(WaitForAnimation());
+				next_Button.GetComponent<Button>().interactable = true;
+			next_Button.GetComponent<Image>().sprite = active_Button;
+
 			}
 		}
 
@@ -109,6 +112,10 @@ public class Transition : MonoBehaviour {
 		case 6:
 			next_Button.GetComponent<Button>().interactable = false;
 			next_Button.GetComponent<Image>().sprite = inactive_Button;
+			break;
+			case 7:
+			next_Button.GetComponent<Button>().interactable = true;
+			next_Button.GetComponent<Image>().sprite = active_Button;
 			break;
 		case 8:
 			next_Button.GetComponent<Button>().interactable = false;
@@ -160,5 +167,9 @@ public class Transition : MonoBehaviour {
 				if (scene_index == 12) {
 						next_Button.transform.SetParent (navigation_Parent.transform);
 				}
+
+		}
+		void ChangeNextSprite() {
+			
 		}
 }
