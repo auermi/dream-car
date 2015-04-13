@@ -52,6 +52,11 @@ public class SendMail : MonoBehaviour {
 
 	public GameObject navigation_parent;
 
+	public GameObject pleaseEnterEmailText;
+	private GameObject pleaseEnterEmailTextInstantiate;
+
+	public GameObject placeholderText;
+
 	void Start()
 	{
 
@@ -71,7 +76,10 @@ public class SendMail : MonoBehaviour {
 			});
 
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();  });
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); send_blocker.transform.SetParent(scene_13_Parent.transform); send_button.GetComponent<Image>().sprite = inactive_send; sceneIndex--;});
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); send_blocker.transform.SetParent(scene_13_Parent.transform); send_button.GetComponent<Image>().sprite = inactive_send; if (pleaseEnterEmailTextInstantiate != null) {
+				Destroy(pleaseEnterEmailTextInstantiate);
+				placeholderText.GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f, 0.5f);
+			}sceneIndex--;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex = 0; Application.LoadLevel(0);});
 	}
 
@@ -85,31 +93,44 @@ public class SendMail : MonoBehaviour {
 	{
 		
 						user_EmailAddress = email_Text.GetComponent<Text>().text;
-						MailMessage mail = new MailMessage ();
-		
-						mail.From = new MailAddress ("activities@imamuseum.org");
-						mail.To.Add (user_EmailAddress);
-						mail.Subject = "Your Dream Car from the Indianapolis Museum of Art";
-		mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces" + Environment.NewLine + Environment.NewLine + "Want to design more dream cars? The Dream Cars Design Studio app is available for download on the iTunes App Store."+ Environment.NewLine + Environment.NewLine + "The IMA team ";
+						if (user_EmailAddress == "") {
+							Debug.Log ("Hey put an email in");
+							Destroy(pleaseEnterEmailTextInstantiate);
+							pleaseEnterEmailTextInstantiate = Instantiate(pleaseEnterEmailText) as GameObject;
+							pleaseEnterEmailTextInstantiate.transform.SetParent(scene_13_Parent.transform);
+							pleaseEnterEmailTextInstantiate.transform.localPosition = new Vector3(672f, -691.5f);
+							placeholderText.GetComponent<Text>().color = new Color(1f, 0f, 0f, 0.7f);
+							yield return null;
+						} else {
+							if (pleaseEnterEmailTextInstantiate != null) {
+								Destroy(pleaseEnterEmailTextInstantiate);
+							}
+							MailMessage mail = new MailMessage ();
+			
+							mail.From = new MailAddress ("activities@imamuseum.org");
+							mail.To.Add (user_EmailAddress);
+							mail.Subject = "Your Dream Car from the Indianapolis Museum of Art";
+							mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces" + Environment.NewLine + Environment.NewLine + "Want to design more dream cars? The Dream Cars Design Studio app is available for download on the iTunes App Store." + Environment.NewLine + Environment.NewLine + "The IMA team ";
 
-						System.Net.Mail.Attachment attachment;
-						attachment = new System.Net.Mail.Attachment (Application.persistentDataPath + "/Dream-Car.png");
-						mail.Attachments.Add (attachment);
+							System.Net.Mail.Attachment attachment;
+							attachment = new System.Net.Mail.Attachment (Application.persistentDataPath + "/Dream-Car.png");
+							mail.Attachments.Add (attachment);
 
-						SmtpClient smtpServer = new SmtpClient ("smtp.mandrillapp.com");
-						smtpServer.Port = 587;
-						smtpServer.Credentials = new System.Net.NetworkCredential ("imalabadmin@imamuseum.org", "") as ICredentialsByHost;
-						smtpServer.EnableSsl = true;
-						ServicePointManager.ServerCertificateValidationCallback = 
-			delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
-								return true;
-						};
-						smtpServer.Send (mail);
-						yield return null;
-						Debug.Log ("success");
-						Application.LoadLevel(0);
+							SmtpClient smtpServer = new SmtpClient ("smtp.mandrillapp.com");
+							smtpServer.Port = 587;
+							smtpServer.Credentials = new System.Net.NetworkCredential ("imalabadmin@imamuseum.org", "") as ICredentialsByHost;
+							smtpServer.EnableSsl = true;
+							ServicePointManager.ServerCertificateValidationCallback = 
+				delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
+									return true;
+							};
+							smtpServer.Send (mail);
+							yield return null;
+							Debug.Log ("success");
+							Application.LoadLevel (0);
+						}
 	}
-
+	  
 
 
 
