@@ -143,7 +143,7 @@ public class SendMail : MonoBehaviour {
 							mail.From = new MailAddress ("activities@imamuseum.org");
 							mail.To.Add (user_EmailAddress);
 							mail.Subject = "Your Dream Car from the Indianapolis Museum of Art";
-							mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces" + Environment.NewLine + Environment.NewLine + "Want to design more dream cars? The Dream Cars Design Studio app is available for download on the iTunes App Store." + Environment.NewLine + Environment.NewLine + "The IMA team ";
+							mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces" + Environment.NewLine + Environment.NewLine + "Want to design more dream cars? The Dream Cars Design Studio app is available for download for free on the iTunes App Store." + Environment.NewLine + Environment.NewLine + "The IMA team ";
 
 							System.Net.Mail.Attachment attachment;
 							attachment = new System.Net.Mail.Attachment (Application.persistentDataPath + "/Dream-Car.png");
