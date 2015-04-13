@@ -40,11 +40,11 @@ public class InterfaceParenter : MonoBehaviour {
 	{
 		if (scene_Index == 0 || scene_Index == 1 || scene_Index == 5 || scene_Index == 13) 
 		{
-			interface_Container.transform.parent = hidden_Parent.transform;		
+			interface_Container.transform.SetParent(hidden_Parent.transform);		
 		}
 		else 
 		{
-			interface_Container.transform.parent = interface_Parent.transform;
+			interface_Container.transform.SetParent(interface_Parent.transform);
 		}
 	}
 

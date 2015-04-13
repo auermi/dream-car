@@ -11,12 +11,15 @@ public class MoveTitleText : MonoBehaviour {
 	private GameObject name_Text;
 	private GameObject car_Text;
 
-	public GameObject name_text_field_prefab;
-	public GameObject car_text_field_prefab;
+	public GameObject name_text_field;
+	public GameObject car_text_field;
 
 	public GameObject screen12;
 	public GameObject screen11;
 	public GameObject hidden_container;
+
+	public GameObject name_text_object;
+	public GameObject car_text_object;
 
 	//Tracking scene index here
 	private int sceneIndex;
@@ -29,17 +32,12 @@ public class MoveTitleText : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		name_Text = Instantiate (name_text_field_prefab) as GameObject;
-		car_Text = Instantiate (car_text_field_prefab) as GameObject;
-		name_Text.transform.SetParent (titleText_Container.transform, false);
-		car_Text.transform.SetParent (titleText_Container.transform, false);
-		name_Text.transform.localPosition = new Vector3 (350f, 190f);
-		car_Text.transform.localPosition = new Vector3 (-350f, 190f);
+
 		sceneIndex = 0;
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToMoveTitleText(); });
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;CheckToMoveTitleText();  ResetTextFields(); });
 		no_button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; CheckToMoveTitleText(); ResetTextFields(); });
-		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText(); CheckText(); });
+		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++;  CheckToMoveTitleText(); CheckText(); LogText(); });
 		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {
 			sceneIndex--;
 			CheckToMoveTitleText(); 
@@ -54,32 +52,37 @@ public class MoveTitleText : MonoBehaviour {
 		if (sceneIndex == 12) {
 			titleText_Container.transform.SetParent(screen12.transform, false);
 			titleText_Container.transform.localPosition = scene12_position;
-			name_Text.GetComponent<InputField>().interactable = false;
-			car_Text.GetComponent<InputField>().interactable = false;
+			name_text_field.GetComponent<InputField>().interactable = false;
+			car_text_field.GetComponent<InputField>().interactable = false;
 		}
 		else
 		{
-			titleText_Container.transform.parent = screen11.transform;
+			titleText_Container.transform.SetParent(screen11.transform);
 			titleText_Container.transform.localPosition = scene11_position;
-			name_Text.GetComponent<InputField>().interactable = true;
-			car_Text.GetComponent<InputField>().interactable = true;
+			name_text_field.GetComponent<InputField>().interactable = true;
+			car_text_field.GetComponent<InputField>().interactable = true;
 		}
 	}
 
 	void ResetTextFields()
 	{
-		Destroy (name_Text);
-		Destroy (car_Text);
-		name_Text = Instantiate (name_text_field_prefab) as GameObject;
-		car_Text = Instantiate (car_text_field_prefab) as GameObject;
-		name_Text.transform.SetParent (titleText_Container.transform, false);
-		car_Text.transform.SetParent (titleText_Container.transform, false);
-		name_Text.transform.localPosition = new Vector3 (350f, 190f);
-		car_Text.transform.localPosition = new Vector3 (-350f, 190f);
-		Debug.Log("Reset The Field!");
+
+	}
+
+	void LogText() {
+		if (sceneIndex == 12) {
+			if (name_text_object.GetComponent<Text> ().text.Length == 0 || car_text_object.GetComponent<Text> ().text.Length == 0) {
+				Debug.Log ("I found you out" + name_text_object.GetComponent<Text> ().text);
+				Debug.Log (name_text_object.GetComponent<Text> ().text.Length);
+				titleText_Container.transform.SetParent (hidden_container.transform);
+			}	
+		}
+	
 	}
 
 	void CheckText() {
+
+
 		/*
 		if (sceneIndex == 12) {
 			if (car_Text.GetComponent<Text> ().text.Length == 0) {

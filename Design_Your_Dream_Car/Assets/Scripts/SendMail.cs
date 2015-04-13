@@ -50,6 +50,7 @@ public class SendMail : MonoBehaviour {
 	public Sprite active_send;
 	public Sprite inactive_send;
 
+	public GameObject navigation_parent;
 
 	void Start()
 	{
@@ -58,7 +59,7 @@ public class SendMail : MonoBehaviour {
 		email_TextBox.transform.SetParent(hidden_Parent.transform); 
 		email_TextBox.transform.localPosition = new Vector3(550f, -200f);
 
-		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform); send_blocker.transform.SetParent(hidden_Parent.transform); send_button.GetComponent<Image>().sprite = active_send; previous_Button.transform.localPosition = new Vector3(-900f, 20f); send_button.transform.localPosition = new Vector3(900f, 20f); });
+		yes_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(hidden_Parent.transform); email_TextBox.transform.SetParent(scene_13_Parent.transform); no_button.transform.SetParent(hidden_Parent.transform); q_text.transform.SetParent(hidden_Parent.transform); send_blocker.transform.SetParent(hidden_Parent.transform); send_button.GetComponent<Image>().sprite = active_send; });
 		start_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 1; ;});
 
 		restart_Button.GetComponent<Button> ().onClick.AddListener (() => { 
@@ -70,7 +71,7 @@ public class SendMail : MonoBehaviour {
 			});
 
 		next_Button.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; CheckToScreenshot();  });
-		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); send_blocker.transform.SetParent(scene_13_Parent.transform); send_button.GetComponent<Image>().sprite = inactive_send;  previous_Button.transform.localPosition = new Vector3(-900f, -680f); send_button.transform.localPosition = new Vector3(900f, -680f); sceneIndex--;});
+		previous_Button.GetComponent<Button>().onClick.AddListener(()=> {yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); send_blocker.transform.SetParent(scene_13_Parent.transform); send_button.GetComponent<Image>().sprite = inactive_send; sceneIndex--;});
 		no_button.GetComponent<Button> ().onClick.AddListener (() => { yes_button.transform.SetParent(scene_13_Parent.transform); email_TextBox.transform.SetParent(hidden_Parent.transform); no_button.transform.SetParent(scene_13_Parent.transform); q_text.transform.SetParent(scene_13_Parent.transform); sceneIndex = 0; Application.LoadLevel(0);});
 	}
 
@@ -79,17 +80,17 @@ public class SendMail : MonoBehaviour {
 		Application.CaptureScreenshot("Dream-Car.png");
 		Debug.Log ("Screenshot!");
 	}
-	void EnterEmail() {}
+	
 	IEnumerator AttachAndMail()
 	{
-		if (sceneIndex == 13) {
+		
 						user_EmailAddress = email_Text.GetComponent<Text>().text;
 						MailMessage mail = new MailMessage ();
 		
-						mail.From = new MailAddress ("imalabadmin@imamuseum.org");
+						mail.From = new MailAddress ("activities@imamuseum.org");
 						mail.To.Add (user_EmailAddress);
 						mail.Subject = "Your Dream Car from the Indianapolis Museum of Art";
-						mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces /n Want to design more dream cars? The Dream Cars Design Studio app is available for download on the iTunes App Store. /n The IMA team ";
+		mail.Body = "The attached image has been created using the Dream Cars Design Studio app available in the Car Design Studio in the Davis Lab on Floor 2 of the Indianapolis Museum of Art. For more information about our Family Spaces and related programs, check out the website: http://www.imamuseum.org/visit/family-visits/family-spaces" + Environment.NewLine + Environment.NewLine + "Want to design more dream cars? The Dream Cars Design Studio app is available for download on the iTunes App Store."+ Environment.NewLine + Environment.NewLine + "The IMA team ";
 
 						System.Net.Mail.Attachment attachment;
 						attachment = new System.Net.Mail.Attachment (Application.persistentDataPath + "/Dream-Car.png");
@@ -107,7 +108,6 @@ public class SendMail : MonoBehaviour {
 						yield return null;
 						Debug.Log ("success");
 						Application.LoadLevel(0);
-				}
 	}
 
 
@@ -127,7 +127,15 @@ public class SendMail : MonoBehaviour {
 		//pause to wait for the sliding transition
 		yield return new WaitForSeconds (.5f);
 		//removes the file
+		restart_Button.transform.SetParent (hidden_Parent.transform);
+		previous_Button.transform.SetParent (hidden_Parent.transform);
+		next_Button.transform.SetParent (hidden_Parent.transform);
 		RemoveTakeScreenshot ();
+		yield return null;
+		restart_Button.transform.SetParent (navigation_parent.transform);
+		previous_Button.transform.SetParent (navigation_parent.transform);
+		next_Button.transform.SetParent (navigation_parent.transform);
+
 	}
 	
 	

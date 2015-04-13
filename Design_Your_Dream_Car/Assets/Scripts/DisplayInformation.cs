@@ -173,9 +173,9 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow2.transform.localScale = new Vector3(0.97f, .965f);
 			infoBoxShadow3.transform.localScale = new Vector3(0.97f, .965f);
 			
-			infoBoxShadow1.transform.parent = infoParent.transform;
-			infoBoxShadow2.transform.parent = infoParent.transform;
-			infoBoxShadow3.transform.parent = infoParent.transform;
+			infoBoxShadow1.transform.SetParent(infoParent.transform);
+			infoBoxShadow2.transform.SetParent(infoParent.transform);
+			infoBoxShadow3.transform.SetParent(infoParent.transform);
 			
 			infoBoxShadow1.transform.localPosition = new Vector3(-660f, -100f);
 			infoBoxShadow2.transform.localPosition = new Vector3(0f, -100f);
@@ -189,9 +189,9 @@ public class DisplayInformation : MonoBehaviour {
 			textBox2.transform.localScale = new Vector3(0.97f, .965f);
 			textBox3.transform.localScale = new Vector3(0.97f, .965f);
 			
-			textBox1.transform.parent = infoParent.transform;
-			textBox2.transform.parent = infoParent.transform;
-			textBox3.transform.parent = infoParent.transform;
+			textBox1.transform.SetParent(infoParent.transform);
+			textBox2.transform.SetParent(infoParent.transform);
+			textBox3.transform.SetParent(infoParent.transform);
 
 			textBox1.transform.localPosition = new Vector3(-660f, -90f);
 			textBox2.transform.localPosition = new Vector3(0f, -90f);
@@ -205,7 +205,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
@@ -219,8 +219,8 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			
-			infoBoxShadow1.transform.parent = infoParent.transform;
-			infoBoxShadow2.transform.parent = infoParent.transform;
+			infoBoxShadow1.transform.SetParent(infoParent.transform);
+			infoBoxShadow2.transform.SetParent(infoParent.transform);
 			
 			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -100f);
 			infoBoxShadow2.transform.localPosition = new Vector3(330f, -100f);
@@ -229,8 +229,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 			
 			
-			textBox1.transform.parent = infoParent.transform;
-			textBox2.transform.parent = infoParent.transform;
+			textBox1.transform.SetParent(infoParent.transform);
+			textBox2.transform.SetParent(infoParent.transform);
 			textBox1.transform.localPosition = new Vector3(-330f, -90f);
 			textBox2.transform.localPosition = new Vector3(330f, -90f);
 			
@@ -239,7 +239,7 @@ public class DisplayInformation : MonoBehaviour {
 			
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
@@ -251,8 +251,8 @@ public class DisplayInformation : MonoBehaviour {
 			infoBoxShadow1 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			infoBoxShadow2 = Instantiate(infoBoxShadowPrefab) as GameObject;
 			
-			infoBoxShadow1.transform.parent = infoParent.transform;
-			infoBoxShadow2.transform.parent = infoParent.transform;
+			infoBoxShadow1.transform.SetParent(infoParent.transform);
+			infoBoxShadow2.transform.SetParent(infoParent.transform);
 			
 			infoBoxShadow1.transform.localPosition = new Vector3(-330f, -100f);
 			infoBoxShadow2.transform.localPosition = new Vector3(330f, -100f);
@@ -261,8 +261,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox2 = Instantiate(textBoxPref) as GameObject;
 
 			
-			textBox1.transform.parent = infoParent.transform;
-			textBox2.transform.parent = infoParent.transform;
+			textBox1.transform.SetParent(infoParent.transform);
+			textBox2.transform.SetParent(infoParent.transform);
 
 			textBox1.transform.localPosition = new Vector3(-330f, -90f);
 			textBox2.transform.localPosition = new Vector3(330f, -90f);
@@ -272,7 +272,7 @@ public class DisplayInformation : MonoBehaviour {
 			
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
@@ -282,8 +282,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
 
-			textBox0.transform.parent = infoParent.transform;
-			lg_box_text.transform.parent = infoParent.transform;
+			textBox0.transform.SetParent(infoParent.transform);
+			lg_box_text.transform.SetParent(infoParent.transform);
 
 			lg_box_text.GetComponent<Text>().text = "Body style is the car’s shape. Low and small styles are aerodynamic (less drag from the air), faster and more fuel-efficient. Big cars usually cost more.";
 
@@ -294,7 +294,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
@@ -303,8 +303,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
 
-			textBox0.transform.parent = infoParent.transform;
-			lg_box_text.transform.parent = infoParent.transform;
+			textBox0.transform.SetParent(infoParent.transform);
+			lg_box_text.transform.SetParent(infoParent.transform);
 
 			lg_box_text.GetComponent<Text>().text = "A spoiler increases fuel efficiency by spreading airflow around a car. A spoiler increases cost, but makes it safer at higher speeds.";
 
@@ -315,7 +315,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			
@@ -324,8 +324,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
 	
-			textBox0.transform.parent = infoParent.transform;
-			lg_box_text.transform.parent = infoParent.transform;
+			textBox0.transform.SetParent(infoParent.transform);
+			lg_box_text.transform.SetParent(infoParent.transform);
 
 			lg_box_text.GetComponent<Text>().text = "The type of wheel can increase the cost of your car, but usually won’t affect fuel efficiency or speed.";
 
@@ -336,7 +336,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			
@@ -345,8 +345,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
 
-			textBox0.transform.parent = infoParent.transform;
-			lg_box_text.transform.parent = infoParent.transform;
+			textBox0.transform.SetParent(infoParent.transform);
+			lg_box_text.transform.SetParent(infoParent.transform);
 
 			lg_box_text.GetComponent<Text>().text = "The paint job affects the cost of your car, but not fuel efficiency or speed.";
 
@@ -357,7 +357,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 
@@ -366,8 +366,8 @@ public class DisplayInformation : MonoBehaviour {
 			textBox0 = Instantiate(lgTextPanel) as GameObject;
 			lg_box_text = Instantiate(lgTextBoxPref) as GameObject;
 
-			textBox0.transform.parent = infoParent.transform;
-			lg_box_text.transform.parent = infoParent.transform;
+			textBox0.transform.SetParent(infoParent.transform);
+			lg_box_text.transform.SetParent(infoParent.transform);
 
 			lg_box_text.GetComponent<Text>().text = "A decal decorates your car and will increase cost, but it won’t affect fuel efficiency or speed.";
 
@@ -378,7 +378,7 @@ public class DisplayInformation : MonoBehaviour {
 
 			closeInfoButtonOverlay = Instantiate(closeInfoButtonOverlayPrefab) as GameObject;
 			
-			closeInfoButtonOverlay.transform.parent = infoParent.transform;
+			closeInfoButtonOverlay.transform.SetParent(infoParent.transform);
 			
 			closeInfoButtonOverlay.transform.localPosition = new Vector3(0f, 0f);
 			

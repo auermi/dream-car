@@ -385,7 +385,7 @@ public class CarCreation : MonoBehaviour {
 		}
 		carIndex = 0;
 		car = Instantiate(truck) as GameObject;
-		car.transform.parent = bodyContainer.transform;
+		car.transform.SetParent(bodyContainer.transform);
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void suvSwap()
@@ -396,7 +396,7 @@ public class CarCreation : MonoBehaviour {
 		}
 		carIndex = 1;
 		car = Instantiate(suv) as GameObject;
-		car.transform.parent = bodyContainer.transform;
+		car.transform.SetParent(bodyContainer.transform);
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void vanSwap()
@@ -407,7 +407,7 @@ public class CarCreation : MonoBehaviour {
 		}
 		carIndex = 2;
 		car = Instantiate(van) as GameObject;
-		car.transform.parent = bodyContainer.transform;
+		car.transform.SetParent(bodyContainer.transform);
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void coupeSwap()
@@ -418,7 +418,7 @@ public class CarCreation : MonoBehaviour {
 		}
 		carIndex = 3;
 		car = Instantiate(coupe) as GameObject;
-		car.transform.parent = bodyContainer.transform;
+		car.transform.SetParent(bodyContainer.transform);
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 	void compactSwap()
@@ -429,7 +429,7 @@ public class CarCreation : MonoBehaviour {
 		}
 		carIndex = 4;
 		car = Instantiate(compact) as GameObject;
-		car.transform.parent = bodyContainer.transform;
+		car.transform.SetParent(bodyContainer.transform);
 		car.transform.localPosition = new Vector3(0f,0f);
 	}
 
@@ -442,7 +442,7 @@ public class CarCreation : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(truckSpoiler) as GameObject;
-				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.SetParent(spoilerContainer.transform);
 				spoiler.transform.localPosition = new Vector3(-615f, 70f);
 				break;
 
@@ -451,7 +451,7 @@ public class CarCreation : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(suvSpoiler) as GameObject;
-				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.SetParent(spoilerContainer.transform);
 				spoiler.transform.localPosition = new Vector3(-625f, 108f);
 				break;
 
@@ -460,7 +460,7 @@ public class CarCreation : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(vanSpoiler) as GameObject;
-				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.SetParent(spoilerContainer.transform);
 				spoiler.transform.localPosition = new Vector3(-640f, 55f);
 				break;
 
@@ -469,7 +469,7 @@ public class CarCreation : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(coupeSpoiler) as GameObject;
-				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.SetParent(spoilerContainer.transform);
 				spoiler.transform.localPosition = new Vector3(-575f, 75f);
 				break;
 
@@ -478,7 +478,7 @@ public class CarCreation : MonoBehaviour {
 					Destroy(spoiler);
 				}
 				spoiler = Instantiate(compactSpoiler) as GameObject;
-				spoiler.transform.parent = spoilerContainer.transform;
+				spoiler.transform.SetParent(spoilerContainer.transform);
 				spoiler.transform.localPosition = new Vector3(-415f, 90f);
 				break;
 
@@ -508,7 +508,8 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
 				rightWheel.transform.localPosition = new Vector3(463f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -516,7 +517,8 @@ public class CarCreation : MonoBehaviour {
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
 				rightWheel.transform.localPosition = new Vector3(463f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -524,7 +526,8 @@ public class CarCreation : MonoBehaviour {
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-373f, -180f);
 				rightWheel.transform.localPosition = new Vector3(463f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -539,7 +542,8 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
 				rightWheel.transform.localPosition = new Vector3(463f, -200f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -547,7 +551,8 @@ public class CarCreation : MonoBehaviour {
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
 				rightWheel.transform.localPosition = new Vector3(463f, -200f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -555,7 +560,8 @@ public class CarCreation : MonoBehaviour {
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-377f, -200f);
 				rightWheel.transform.localPosition = new Vector3(463f, -200f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -570,7 +576,8 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
 				rightWheel.transform.localPosition = new Vector3(435f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -578,7 +585,8 @@ public class CarCreation : MonoBehaviour {
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
 				rightWheel.transform.localPosition = new Vector3(435f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -586,7 +594,8 @@ public class CarCreation : MonoBehaviour {
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-414f, -180f);
 				rightWheel.transform.localPosition = new Vector3(435f, -180f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1f, 1f);
@@ -601,7 +610,8 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
 				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -609,7 +619,8 @@ public class CarCreation : MonoBehaviour {
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
 				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -617,7 +628,8 @@ public class CarCreation : MonoBehaviour {
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-395f, -136.6f);
 				rightWheel.transform.localPosition = new Vector3(451f, -136.6f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(1.05f, 1.05f);
@@ -632,7 +644,8 @@ public class CarCreation : MonoBehaviour {
 			case 0:
 				leftWheel = Instantiate(sportWheel) as GameObject;
 				rightWheel = Instantiate (sportWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
 				rightWheel.transform.localPosition = new Vector3(289f, -131f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
@@ -640,7 +653,8 @@ public class CarCreation : MonoBehaviour {
 			case 1:
 				leftWheel = Instantiate(luxuryWheel) as GameObject;
 				rightWheel = Instantiate (luxuryWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
 				rightWheel.transform.localPosition = new Vector3(289f, -131f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
@@ -648,7 +662,8 @@ public class CarCreation : MonoBehaviour {
 			case 2:
 				leftWheel = Instantiate(basicWheel) as GameObject;
 				rightWheel = Instantiate (basicWheel) as GameObject;
-				leftWheel.transform.parent = rightWheel.transform.parent = wheelContainer.transform;
+				leftWheel.transform.SetParent(wheelContainer.transform);
+				rightWheel.transform.SetParent(wheelContainer.transform);
 				leftWheel.transform.localPosition = new Vector3(-321f, -128f);
 				rightWheel.transform.localPosition = new Vector3(289f, -131f);
 				leftWheel.transform.localScale = rightWheel.transform.localScale = new Vector3(0.9f, 0.9f);
@@ -718,21 +733,21 @@ public class CarCreation : MonoBehaviour {
 			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(-245f, -65f);
 				decal2 = Instantiate(star) as GameObject;
-				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.SetParent(decalContainer.transform);
 				decal2.transform.localPosition = new Vector3(219f, -65f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(222f, -118f);
 				decal.transform.localScale = new Vector3(1f, 0.45f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(45f, -135f);
 				break;
 			default:
@@ -744,20 +759,20 @@ public class CarCreation : MonoBehaviour {
 			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(-200f, -125f);
 				decal2 = Instantiate(star) as GameObject;
-				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.SetParent(decalContainer.transform);
 				decal2.transform.localPosition = new Vector3(250f, -125f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(172f, -160f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(20f, -140f);
 				break;
 			default:
@@ -769,20 +784,20 @@ public class CarCreation : MonoBehaviour {
 			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(-182f, -85f);
 				decal2 = Instantiate(star) as GameObject;
-				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.SetParent(decalContainer.transform);
 				decal2.transform.localPosition = new Vector3(300f, -85f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(175f, -125f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(0f, -140f);
 				break;
 			default:
@@ -794,20 +809,20 @@ public class CarCreation : MonoBehaviour {
 			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(-170f, -70f);
 				decal2 = Instantiate(star) as GameObject;
-				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.SetParent(decalContainer.transform);
 				decal2.transform.localPosition = new Vector3(280f, -70f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(190f, -85f);
 				break;
 			case 2:
 				decal = Instantiate(stripe) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(0f, -120f);
 				break;
 			default:
@@ -819,22 +834,22 @@ public class CarCreation : MonoBehaviour {
 			{
 			case 0:
 				decal = Instantiate(star) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(-250f, -60f);
 				decal2 = Instantiate(star) as GameObject;
-				decal2.transform.parent = decalContainer.transform;
+				decal2.transform.SetParent(decalContainer.transform);		
 				decal2.transform.localPosition = new Vector3(150f, -60f);
 				decal.transform.localScale = new Vector3(.9f,.9f);
 				decal2.transform.localScale = new Vector3(.9f,.9f);
 				break;
 			case 1:
 				decal = Instantiate(flame) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(33f, -85f);
 				break;
 			case 2:
 				decal = Instantiate(stripe_compact) as GameObject;
-				decal.transform.parent = decalContainer.transform;
+				decal.transform.SetParent(decalContainer.transform);
 				decal.transform.localPosition = new Vector3(0f, -95f);
 				break;
 			default:

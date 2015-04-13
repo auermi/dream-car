@@ -15,6 +15,8 @@ public class Transition : MonoBehaviour {
 	public Sprite inactive_Button;
 	public Sprite active_Button;
 
+	public AnimationClip move; 
+
 	//direction:
 	//true: right (next)
 	//false: left (previous)
@@ -48,11 +50,13 @@ public class Transition : MonoBehaviour {
 			if (direction) 
 			{
 				isMoving = true;
-				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3072f  /*+ 16f*/);
-				AnimationClip clip = new AnimationClip ();
-				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
-				animation.AddClip (clip, "queued_transition");
-				animation.Play ("queued_transition");
+				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos - 1024f, .5f, currentPos - 3072f /*+16f*/);
+			
+				move.SetCurve ("", typeof(Transform), "localPosition.x", transition);
+
+				app_Slider.GetComponent<Animation>().AddClip (move, "trans");
+
+				app_Slider.GetComponent<Animation>().Play ("trans");
 				scene_index++;
 
 				StartCoroutine(WaitForAnimation());
@@ -63,10 +67,10 @@ public class Transition : MonoBehaviour {
 			{
 				isMoving = true;
 				AnimationCurve transition = AnimationCurve.EaseInOut (0f, currentPos -1024f, .5f, currentPos + 1024f /*+ 16f */);
-				AnimationClip clip = new AnimationClip ();
-				clip.SetCurve ("", typeof(Transform), "localPosition.x", transition);
-				animation.AddClip (clip, "queued_transition");
-				animation.Play ("queued_transition");
+
+				move.SetCurve ("", typeof(Transform), "localPosition.x", transition);
+				GetComponent<Animation>().AddClip (move, "trans");
+				GetComponent<Animation>().Play ("trans");
 				scene_index--;
 				StartCoroutine(WaitForAnimation());
 				next_Button.GetComponent<Button>().interactable = true;
@@ -81,15 +85,15 @@ public class Transition : MonoBehaviour {
 	{
 		if (scene_index == 0)
 		{
-			next_Button.transform.parent = hidden_Parent.transform;
-			previous_Button.transform.parent = hidden_Parent.transform;
-			restart_Button.transform.parent = hidden_Parent.transform;
+			next_Button.transform.SetParent (hidden_Parent.transform);
+			previous_Button.transform.SetParent(hidden_Parent.transform);
+			restart_Button.transform.SetParent(hidden_Parent.transform);
 		}
 		if (scene_index == 1)
 		{
-			next_Button.transform.parent = navigation_Parent.transform;
-			previous_Button.transform.parent = navigation_Parent.transform;
-			restart_Button.transform.parent = navigation_Parent.transform;
+			next_Button.transform.SetParent(navigation_Parent.transform);
+			previous_Button.transform.SetParent(navigation_Parent.transform);
+			restart_Button.transform.SetParent(navigation_Parent.transform);
 		}
 	}
 	//Disables next button functionality. Placement of Function is important! Remember Scene Index!

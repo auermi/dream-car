@@ -90,24 +90,24 @@ public class MakeSelection : MonoBehaviour {
 		turquoiseColor_Button.GetComponent<Button> ().onClick.AddListener (() => {RemoveMessageButtonText();});
 		
 		//Pressing the transparent Button brings up the text
-		makeASelection_Button.GetComponent<Button> ().onClick.AddListener (() => {makeASelection_Text.transform.parent = makeASelection_Parent.transform; });
+		makeASelection_Button.GetComponent<Button> ().onClick.AddListener (() => {makeASelection_Text.transform.SetParent(makeASelection_Parent.transform); });
 
 	}
 
 	void EnableMessageButton()
 	{
 		if (scene_Index == 2 || scene_Index == 3 || scene_Index == 4 || scene_Index == 6 || scene_Index == 8 || scene_Index == 9) {
-			makeASelection_Button.transform.parent = makeASelection_Parent.transform;
+			makeASelection_Button.transform.SetParent(makeASelection_Parent.transform);
 		}
 		else
 		{
-			makeASelection_Button.transform.parent = hidden_Parent.transform;
-			makeASelection_Text.transform.parent = hidden_Parent.transform;
+			makeASelection_Button.transform.SetParent(hidden_Parent.transform);
+			makeASelection_Text.transform.SetParent(hidden_Parent.transform);
 		}
 	}
 	void RemoveMessageButtonText()
 	{
-		makeASelection_Button.transform.parent = hidden_Parent.transform;
-		makeASelection_Text.transform.parent = hidden_Parent.transform;
+		makeASelection_Button.transform.SetParent(hidden_Parent.transform);
+		makeASelection_Text.transform.SetParent(hidden_Parent.transform);
 	}
 }

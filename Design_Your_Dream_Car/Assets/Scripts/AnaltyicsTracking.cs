@@ -79,7 +79,7 @@ public class AnaltyicsTracking : MonoBehaviour {
 
 
 		//Event Listeners that track which screen we are on
-		startButton.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; googleAnalytics.StartSession();});
+		startButton.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; googleAnalytics.StartSession(); LogScreenUse();});
 		restartButton.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0;});
 		noButton.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex = 0; googleAnalytics.LogEvent("User Selection", "Navigation", "No Button", 0); });
 		nextButton.GetComponent<Button> ().onClick.AddListener (() => {sceneIndex++; LogScreenUse(); googleAnalytics.LogEvent("User Selection", "Navigation", "Previoius Button", 0);});

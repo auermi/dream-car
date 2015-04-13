@@ -59,15 +59,15 @@ public class ColorSelect : MonoBehaviour {
 	{
 		if (sceneIndex == 9)
 		{
-			selectionBox.transform.parent = colorSelection_Parent.transform;
+			selectionBox.transform.SetParent(colorSelection_Parent.transform);
 		}
 		else if (sceneIndex > 9)
 		{
-			selectionBox.transform.parent = hidden_Parent.transform;
+			selectionBox.transform.SetParent(hidden_Parent.transform);
 		}
 		else
 		{
-			selectionBox.transform.parent = hidden_Parent.transform;
+			selectionBox.transform.SetParent(hidden_Parent.transform);
 			selectionBox.transform.localPosition = defaultSelectionColor_Position;
 		}
 		

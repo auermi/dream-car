@@ -71,7 +71,7 @@ public class ResultDisplay : MonoBehaviour {
 			efficiencyChoice = "not fuel-efficient";
 		}
 		//Determine Speed word
-		if (speed_Total >= 4)
+		if (speed_Total >= 5)
 		{
 			speedChoice = "fast";
 		}
