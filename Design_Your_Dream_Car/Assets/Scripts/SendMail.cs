@@ -7,6 +7,9 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
 
 /*JS SAVING SCREENSHOTS
  * 
@@ -64,9 +67,17 @@ public class SendMail : MonoBehaviour {
 
 	public GameObject emailFieldContainer;
 
+	public const string MatchEmailPattern =
+		@"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+			+ @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+			+ @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+			+ @"([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$";
+	public GameObject validEmailText;
+	private GameObject validEmailTextInstantiate;
+	
 	void Start()
 	{
-
+		
 		//email_TextBox = Instantiate(email_field_prefab) as GameObject;
 		email_TextBox.transform.SetParent(hidden_Parent.transform); 
 		email_TextBox.transform.localPosition = new Vector3(550f, -200f);
@@ -112,7 +123,10 @@ public class SendMail : MonoBehaviour {
 							if (pleaseEnterEmailTextInstantiate != null) {
 								Destroy(pleaseEnterEmailTextInstantiate);
 							}
-
+							
+							if (IsEmail(user_EmailAddress))  { 
+							
+							
 							
 							restart_Button.GetComponent<Button>().interactable = false;
 							previous_Button.GetComponent<Button>().interactable = false;
@@ -151,6 +165,16 @@ public class SendMail : MonoBehaviour {
 							confirmText.GetComponent<Text>().text = "Your Dream Car has been sent to " + Environment.NewLine + user_EmailAddress; 
 							yield return new WaitForSeconds(5);
 							Application.LoadLevel (0);
+			} else {
+				placeholderText.GetComponent<Text>().color = new Color(1f, 0f, 0f, 0.7f);
+				if (validEmailTextInstantiate != null) {
+					Destroy(validEmailTextInstantiate);
+				}
+				validEmailTextInstantiate = Instantiate(validEmailText) as GameObject;
+				validEmailTextInstantiate.transform.SetParent(scene_13_Parent.transform);
+				validEmailTextInstantiate.transform.localPosition = new Vector3(680f, -691.5f);
+				yield return null;
+			}
 						}
 	}
 	  
@@ -180,6 +204,12 @@ public class SendMail : MonoBehaviour {
 		previous_Button.transform.SetParent (navigation_parent.transform);
 		next_Button.transform.SetParent (navigation_parent.transform);
 
+	}
+
+	public static bool IsEmail(string email)
+	{
+		if (email != null) return Regex.IsMatch(email, MatchEmailPattern);
+		else return false;
 	}
 	
 	
