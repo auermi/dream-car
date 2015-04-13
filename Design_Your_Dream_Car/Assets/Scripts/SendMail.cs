@@ -74,6 +74,8 @@ public class SendMail : MonoBehaviour {
 			+ @"([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$";
 	public GameObject validEmailText;
 	private GameObject validEmailTextInstantiate;
+
+
 	
 	void Start()
 	{
@@ -114,7 +116,10 @@ public class SendMail : MonoBehaviour {
 						if (user_EmailAddress == "") {
 							Debug.Log ("Hey put an email in");
 							Destroy(pleaseEnterEmailTextInstantiate);
-							pleaseEnterEmailTextInstantiate = Instantiate(pleaseEnterEmailText) as GameObject;
+			if (validEmailTextInstantiate != null) {
+				Destroy(validEmailTextInstantiate);
+			}
+			pleaseEnterEmailTextInstantiate = Instantiate(pleaseEnterEmailText) as GameObject;
 							pleaseEnterEmailTextInstantiate.transform.SetParent(scene_13_Parent.transform);
 							pleaseEnterEmailTextInstantiate.transform.localPosition = new Vector3(672f, -691.5f);
 							placeholderText.GetComponent<Text>().color = new Color(1f, 0f, 0f, 0.7f);
@@ -136,6 +141,7 @@ public class SendMail : MonoBehaviour {
 							loadingTextInstantiate.transform.SetParent(scene_13_Parent.transform);
 							loadingTextInstantiate.transform.localPosition = new Vector3(860f, -691.5f);
 							
+							yield return null;
 							
 
 							MailMessage mail = new MailMessage ();
@@ -166,7 +172,7 @@ public class SendMail : MonoBehaviour {
 							yield return new WaitForSeconds(5);
 							Application.LoadLevel (0);
 			} else {
-				placeholderText.GetComponent<Text>().color = new Color(1f, 0f, 0f, 0.7f);
+				email_Text.GetComponent<Text>().color = new Color(1f, 0f, 0f, 0.7f);
 				if (validEmailTextInstantiate != null) {
 					Destroy(validEmailTextInstantiate);
 				}

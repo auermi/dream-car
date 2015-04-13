@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\MakeSelection.cs" />
      <Compile Include="Assets\Scripts\MoveTitleText.cs" />
      <Compile Include="Assets\Scripts\PostRequest.cs" />
+     <Compile Include="Assets\Scripts\ResetTimer.cs" />
      <Compile Include="Assets\Scripts\ResultDisplay.cs" />
      <Compile Include="Assets\Scripts\SendMail.cs" />
      <Compile Include="Assets\Scripts\Transition.cs" />
