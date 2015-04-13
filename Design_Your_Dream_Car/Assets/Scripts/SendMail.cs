@@ -57,6 +57,13 @@ public class SendMail : MonoBehaviour {
 
 	public GameObject placeholderText;
 
+	public GameObject loadingText;
+	private GameObject loadingTextInstantiate;
+
+	public GameObject confirmText;
+
+	public GameObject emailFieldContainer;
+
 	void Start()
 	{
 
@@ -105,6 +112,18 @@ public class SendMail : MonoBehaviour {
 							if (pleaseEnterEmailTextInstantiate != null) {
 								Destroy(pleaseEnterEmailTextInstantiate);
 							}
+
+							
+							restart_Button.GetComponent<Button>().interactable = false;
+							previous_Button.GetComponent<Button>().interactable = false;
+							send_button.GetComponent<Button>().interactable = false;
+								
+							loadingTextInstantiate = Instantiate(loadingText) as GameObject;
+							loadingTextInstantiate.transform.SetParent(scene_13_Parent.transform);
+							loadingTextInstantiate.transform.localPosition = new Vector3(860f, -691.5f);
+							
+							
+
 							MailMessage mail = new MailMessage ();
 			
 							mail.From = new MailAddress ("activities@imamuseum.org");
@@ -127,6 +146,10 @@ public class SendMail : MonoBehaviour {
 							smtpServer.Send (mail);
 							yield return null;
 							Debug.Log ("success");
+							Destroy (loadingTextInstantiate);
+							emailFieldContainer.transform.SetParent(hidden_Parent.transform);
+							confirmText.GetComponent<Text>().text = "Your Dream Car has been sent to " + Environment.NewLine + user_EmailAddress; 
+							yield return new WaitForSeconds(5);
 							Application.LoadLevel (0);
 						}
 	}
