@@ -1,4 +1,5 @@
-***In partnership with the Indianapolis Museum of Art***
+# Dream Cars Design Studio
+*In partnership with the Indianapolis Museum of Art*
 ### Overview
 A mobile application built for the Indianapolis Museum of Art with Unity3D for the purpose of teaching children how their car designs will affect the respective vehicle's cost, speed, and environmental impact.
 
